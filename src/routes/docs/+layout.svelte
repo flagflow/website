@@ -1,10 +1,5 @@
 <script lang="ts">
 	import {
-		Navbar,
-		NavBrand,
-		NavHamburger,
-		NavLi,
-		NavUl,
 		Sidebar,
 		SidebarGroup,
 		SidebarItem
@@ -19,21 +14,6 @@
 	const baseUrl = '/docs';
 	let activeUrl = $derived(page.url.pathname);
 </script>
-
-<Navbar class="bg-gray-50" fluid>
-	<NavBrand href="/">
-		<img class="me-3 h-6 sm:h-9" alt="Flowbite Logo" src="/favicon.png" />
-		<span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
-			>Flagflow Docs</span
-		>
-	</NavBrand>
-	<NavHamburger />
-	<NavUl {activeUrl}>
-		<NavLi href="/">Home</NavLi>
-		<NavLi href="/">Navbar</NavLi>
-		<NavLi href="/">Accordion</NavLi>
-	</NavUl>
-</Navbar>
 
 <div class="relative flex">
 	<Sidebar

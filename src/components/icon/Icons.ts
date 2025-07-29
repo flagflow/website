@@ -13,6 +13,7 @@ export const IconIds = {
 	keycloak: 'simple-icons:keycloak',
 	password: 'mdi:eye-off',
 	passwordVisible: 'mdi:eye',
+	github: 'mdi:github',
 
 	arrowLeft: 'mdi:chevron-left',
 	arrowRight: 'mdi:chevron-right',
