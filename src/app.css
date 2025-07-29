@@ -1,0 +1,28 @@
+@import 'tailwindcss';
+
+@config "./../tailwind.config.ts";
+
+body {
+	background-color: white;
+}
+
+button {
+	cursor: pointer;
+	box-shadow: none;
+	--tw-ring-shadow: 0 0 #000 !important;
+}
+
+.trimmed-content {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.unfocused,
+.unfocused:focus,
+.unfocused:focus-within {
+	outline: none;
+	box-shadow: none !important;
+	border-color: lightgray !important;
+	--tw-ring-shadow: 0 0 #000 !important;
+}
