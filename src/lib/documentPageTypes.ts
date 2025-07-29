@@ -1,14 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-export interface DocumentPageDescriptor {
+export type DocumentPageMeta = {
 	title: string;
-	filenameOverride?: string;
 	description: string;
 	keywords?: string;
-}
+};
 
-export interface DocumentPage {
+export type DocumentPageDescriptor = DocumentPageMeta & {
+	category?: string;
+	filenameOverride?: string;
+};
+
+export type DocumentPage = {
 	slug: string;
-	meta: Omit<DocumentPageDescriptor, 'filenameOverride'>;
+	meta: DocumentPageMeta;
 	component: any;
-}
+};
