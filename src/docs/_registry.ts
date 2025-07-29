@@ -21,13 +21,15 @@ export const documentPageRegistry = {
 		title: 'About Us',
 		filenameOverride: 'install',
 		description: 'Learn more about our company'
-	},
+	}
 } as const;
 
-export const documentPageRegistryHierarchical:
-	Record<string, (DocumentPageDescriptor | { nodes: Record<string, DocumentPageDescriptor> })> = {
+export const documentPageRegistryHierarchical: Record<
+	string,
+	DocumentPageDescriptor | { nodes: Record<string, DocumentPageDescriptor> }
+> = {
 	'': documentPageRegistry[''],
-	'Installation': {
+	Installation: {
 		nodes: {
 			install: documentPageRegistry.install,
 			install2: documentPageRegistry.install2
@@ -35,4 +37,3 @@ export const documentPageRegistryHierarchical:
 	},
 	about: documentPageRegistry.about
 };
-

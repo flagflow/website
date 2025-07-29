@@ -6,6 +6,10 @@
 	const { data }: PageProperties = $props();
 </script>
 
-<HtmlTitle description={data.doc.meta.description} title={data.doc.meta.title} />
+<HtmlTitle
+	description={data.doc.meta.description}
+	keywords={data.doc.meta.keywords || ''}
+	title={data.doc.meta.title}
+/>
 
 <data.doc.component />

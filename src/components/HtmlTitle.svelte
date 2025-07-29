@@ -15,7 +15,7 @@
 		ogType = 'website'
 	}: Properties = $props();
 
-	const APPNAME = 'FLAGFLOW';
+	const APPNAME = 'Flagflow';
 	const baseUrl = typeof window === 'undefined' ? '' : window.location.origin;
 
 	const fullTitle = $derived(title ? `${title} • ${APPNAME}` : APPNAME);

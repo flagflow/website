@@ -4,7 +4,7 @@
 
 	import { Badge, Button, Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
 
-	import Icon from '$components/icon/Icon.svelte';
+	import Icon from '$components/Icon.svelte';
 
 	import type { LayoutProps as LayoutProperties } from './$types';
 

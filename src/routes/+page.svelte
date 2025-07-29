@@ -3,7 +3,7 @@
 	import { Button } from 'flowbite-svelte';
 
 	import HtmlTitle from '$components/HtmlTitle.svelte';
-	import Icon from '$components/icon/Icon.svelte';
+	import Icon from '$components/Icon.svelte';
 </script>
 
 <HtmlTitle title="Login" />
