@@ -1,5 +1,7 @@
 <script lang="ts">
+	import PageTitle from '$components/PageTitle.svelte';
 </script>
 
-<h1>Get started</h1>
-<p>This is the start...</p>
+<PageTitle subTitle="Flagflow documentation" title="Get started">
+	This page describes how to get started with the Flagflow application.
+</PageTitle>
