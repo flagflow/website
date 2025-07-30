@@ -2,10 +2,10 @@
 	import { Button } from 'flowbite-svelte';
 
 	import { page } from '$app/stores';
-	import HtmlTitle from '$components/HtmlTitle.svelte';
+	import HtmlHeader from '$components/HtmlHeader.svelte';
 </script>
 
-<HtmlTitle title={$page.error?.message || 'Error'} />
+<HtmlHeader title={$page.error?.message || 'Error'} />
 
 <div class="cont_principal cont_principal cont_error_active">
 	<div class="cont_error">
