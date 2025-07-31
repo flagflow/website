@@ -12,13 +12,13 @@
 </script>
 
 <div class="text-centers">
-	<Heading class="mb-4 text-2xl font-bold" tag="h1">
+	<Heading class="text-2xl font-bold" tag="h1">
 		{title}
 		{#if subTitle}
-			<Secondary class="ms-2 text-lg">{subTitle}</Secondary>
+			<Secondary class="ms-2 text-lg leading-loose font-extralight">{subTitle}</Secondary>
 		{/if}
 	</Heading>
 	{#if children}
-		<P class="mb-6 text-lg dark:text-gray-400">{@render children()}</P>
+		<P class="text-lg2 dark:text-gray-400" space="wide">{@render children()}</P>
 	{/if}
 </div>

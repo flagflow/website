@@ -77,7 +77,13 @@ export default [
 			'unicorn/prefer-global-this': 'off',
 			'no-alert': 'error',
 			'no-console': 'error',
-			'no-debugger': 'error'
+			'no-debugger': 'error',
+			'unicorn/prevent-abbreviations': [
+				'error',
+				{
+					ignore: [String.raw`^DocsPage`, /^ignore/i]
+				}
+			]
 		}
 	},
 	{

@@ -44,7 +44,7 @@
 		"eslint-plugin-svelte": "^3.11.0",
 		"eslint-plugin-unicorn": "^60.0.0",
 		"flowbite": "^3.1.2",
-		"flowbite-svelte": "^1.10.21",
+		"flowbite-svelte": "^1.10.22",
 		"globals": "^16.3.0",
 		"globby": "^14.1.0",
 		"marked": "^16.1.1",

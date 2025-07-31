@@ -27,6 +27,7 @@
 					<SidebarDropdownWrapper btnClass="p-2" isOpen={true} label={url}>
 						{#each Object.entries(page.nodes) as [subUrl, subPage]}
 							<SidebarItem
+								class="trimmed-content"
 								active={activeUrl === baseUrl + (subUrl ? `/${subUrl}` : '')}
 								href={baseUrl + '/' + subUrl}
 								label={subPage.title}
@@ -35,6 +36,7 @@
 					</SidebarDropdownWrapper>
 				{:else}
 					<SidebarItem
+						class="trimmed-content"
 						active={activeUrl === baseUrl + (url ? `/${url}` : '')}
 						href={baseUrl + '/' + url}
 						label={page.title}
