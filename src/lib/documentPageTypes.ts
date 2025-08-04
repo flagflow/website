@@ -7,7 +7,6 @@ export type DocumentPageMeta = {
 };
 
 export type DocumentPageDescriptor = DocumentPageMeta & {
-	category?: string;
 	filenameOverride?: string;
 };
 

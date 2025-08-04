@@ -3,11 +3,14 @@
 
 	import { page } from '$app/state';
 
+	import { documentPageRegistryHierarchical } from '../../docs/_registry';
 	import type { LayoutProps as LayoutProperties } from './$types';
 
-	let { data, children }: LayoutProperties = $props();
+	let { children }: LayoutProperties = $props();
 
 	const baseUrl = '/docs';
+	const pages = documentPageRegistryHierarchical;
+
 	let activeUrl = $derived(page.url.pathname);
 </script>
 
@@ -22,23 +25,25 @@
 		position="static"
 	>
 		<SidebarGroup>
-			{#each Object.entries(data.pages) as [url, page]}
+			{#each Object.entries(pages) as [url, page]}
 				{#if 'nodes' in page}
-					<SidebarDropdownWrapper btnClass="p-2" isOpen={true} label={url}>
+					<SidebarDropdownWrapper btnClass="p-2 uppercase" isOpen={true} label={url}>
 						{#each Object.entries(page.nodes) as [subUrl, subPage]}
+							{@const pageUrl = [baseUrl, subUrl].filter(Boolean).join('/')}
 							<SidebarItem
 								class="trimmed-content"
-								active={activeUrl === baseUrl + (subUrl ? `/${subUrl}` : '')}
-								href={baseUrl + '/' + subUrl}
+								active={activeUrl === pageUrl}
+								href={pageUrl}
 								label={subPage.title}
 							/>
 						{/each}
 					</SidebarDropdownWrapper>
 				{:else}
+					{@const pageUrl = [baseUrl, url].filter(Boolean).join('/')}
 					<SidebarItem
 						class="trimmed-content"
-						active={activeUrl === baseUrl + (url ? `/${url}` : '')}
-						href={baseUrl + '/' + url}
+						active={activeUrl === pageUrl}
+						href={pageUrl}
 						label={page.title}
 						spanClass="flex-1 ms-3 whitespace-nowrap"
 					/>
