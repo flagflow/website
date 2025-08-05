@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://flagflow.net</loc></url>
   <url><loc>https://flagflow.net/ci-cd</loc></url>
-  <url><loc>https://flagflow.net/features</loc></url>
   <url><loc>https://flagflow.net/integration</loc></url>
+  <url><loc>https://flagflow.net/features</loc></url>
   <url><loc>https://flagflow.net/oss-open-source</loc></url>
   <url><loc>https://flagflow.net/docs</loc></url>
   <url><loc>https://flagflow.net/docs/installation/prerequisites</loc></url>
