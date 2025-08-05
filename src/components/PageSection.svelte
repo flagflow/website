@@ -14,16 +14,16 @@
 	const { bgColor = 'bg-white', border, borderColor, children }: Properties = $props();
 </script>
 
-{#snippet boderLine()}
+{#snippet borderLine()}
 	{#if border || borderColor}
 		<hr class={borderColor || DEFAULT_BORDER_COLOR} />
 	{/if}
 {/snippet}
 
-{@render boderLine()}
+{@render borderLine()}
 <div class={clsx('py-4', bgColor)}>
 	<div class="mx-auto max-w-[1280px] px-16">
 		{@render children()}
 	</div>
 </div>
-{@render boderLine()}
+{@render borderLine()}
