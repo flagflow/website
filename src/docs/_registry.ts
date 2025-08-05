@@ -12,22 +12,18 @@ export const documentPageRegistry = {
 			prerequisites: {
 				title: 'Prerequisites',
 				description: 'Learn how to install our platform'
-				//filenameOverride: 'get_started'
 			},
 			etcd: {
 				title: 'etcd',
-				description: 'Learn how to install and configure ETCD',
-				filenameOverride: 'get_started'
+				description: 'Learn how to install and configure ETCD'
 			},
 			docker: {
 				title: 'Docker',
-				description: 'Learn how to install and configure Docker',
-				filenameOverride: 'get_started'
+				description: 'Learn how to install and configure Docker'
 			},
 			kubernetes: {
 				title: 'Kubernetes',
-				description: 'Learn how to install and configure Kubernetes',
-				filenameOverride: 'get_started'
+				description: 'Learn how to install and configure Kubernetes'
 			}
 		}
 	},
@@ -36,23 +32,19 @@ export const documentPageRegistry = {
 		nodes: {
 			authentication: {
 				title: 'Authentication',
-				description: 'Learn more about authentication in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about authentication in our platform'
 			},
 			roles: {
 				title: 'Roles',
-				description: 'Learn more about roles in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about roles in our platform'
 			},
 			'built-in-users': {
 				title: 'Built-in Users',
-				description: 'Learn more about the built-in users in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about the built-in users in our platform'
 			},
 			keycloak: {
 				title: 'Keycloak',
-				description: 'Learn more about Keycloak integration in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about Keycloak integration in our platform'
 			}
 		}
 	},
@@ -61,18 +53,15 @@ export const documentPageRegistry = {
 		nodes: {
 			'flag-types': {
 				title: 'Flag Types',
-				description: 'Learn more about the different types of flags in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about the different types of flags in our platform'
 			},
 			hierarchy: {
 				title: 'Flag Hierarchy',
-				description: 'Learn more about the hierarchy of flags in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about the hierarchy of flags in our platform'
 			},
 			'access-flags': {
 				title: 'Access Flags',
-				description: 'Learn more about access flags in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about access flags in our platform'
 			}
 		}
 	},
@@ -81,13 +70,11 @@ export const documentPageRegistry = {
 		nodes: {
 			'ts-schema': {
 				title: 'TS Schema',
-				description: 'Learn more about the TypeScript schema in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about the TypeScript schema in our platform'
 			},
 			'zod-schema': {
 				title: 'ZOD Schema',
-				description: 'Learn more about the ZOD schema in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn more about the ZOD schema in our platform'
 			}
 		}
 	},
@@ -96,35 +83,30 @@ export const documentPageRegistry = {
 		nodes: {
 			'export-backup': {
 				title: 'Export/Backup',
-				description: 'Learn how to export or backup your data in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn how to export or backup your data in our platform'
 			},
 			restore: {
 				title: 'Restore',
-				description: 'Learn how to restore your data in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn how to restore your data in our platform'
 			},
 			migration: {
 				title: 'Migration',
-				description: 'Learn how to migrate your data in our platform',
-				filenameOverride: 'get_started'
+				description: 'Learn how to migrate your data in our platform'
 			}
 		}
 	},
 	'tips-and-tricks': {
 		title: 'Tips and Tricks',
-		description: 'Learn some tips and tricks to use our platform more effectively',
-		filenameOverride: 'get_started'
+		description: 'Learn some tips and tricks to use our platform more effectively'
 	},
 	glossary: {
 		title: 'Glossary',
-		description: 'Learn more about the terms used in our platform',
-		filenameOverride: 'get_started'
+		description: 'Learn more about the terms used in our platform'
 	}
 } as const satisfies DocumentPageRegistry;
 
 export const documentPageRegistryFlat: Record<string, DocumentPageFlatDescriptor> = Object.entries(
-	documentPageRegistry
+	documentPageRegistry as DocumentPageRegistry
 ).reduce(
 	(accumulator, [slug, entry]) => {
 		if ('nodes' in entry)
