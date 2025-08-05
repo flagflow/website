@@ -17,7 +17,7 @@ const generateSitemap = async () => {
 		)
 		.filter((route) => !route.includes('['));
 	routes.push(
-		...Object.keys((await import('../src/docs/_registry')).documentPageRegistry).map((page) =>
+		...Object.keys((await import('../src/docs/_registry')).documentPageRegistryFlat).map((page) =>
 			page ? `/docs/${page}` : '/docs'
 		)
 	);

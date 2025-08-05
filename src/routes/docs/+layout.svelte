@@ -3,14 +3,12 @@
 
 	import { page } from '$app/state';
 
-	import { documentPageRegistryHierarchical } from '../../docs/_registry';
+	import { documentPageRegistry } from '../../docs/_registry';
 	import type { LayoutProps as LayoutProperties } from './$types';
 
 	let { children }: LayoutProperties = $props();
 
 	const baseUrl = '/docs';
-	const pages = documentPageRegistryHierarchical;
-
 	let activeUrl = $derived(page.url.pathname);
 </script>
 
@@ -25,11 +23,11 @@
 		position="static"
 	>
 		<SidebarGroup>
-			{#each Object.entries(pages) as [url, page]}
+			{#each Object.entries(documentPageRegistry) as [url, page]}
 				{#if 'nodes' in page}
-					<SidebarDropdownWrapper btnClass="p-2 uppercase" isOpen={true} label={url}>
+					<SidebarDropdownWrapper btnClass="p-2" isOpen={true} label={page.groupName}>
 						{#each Object.entries(page.nodes) as [subUrl, subPage]}
-							{@const pageUrl = [baseUrl, subUrl].filter(Boolean).join('/')}
+							{@const pageUrl = [baseUrl, url, subUrl].filter(Boolean).join('/')}
 							<SidebarItem
 								class="trimmed-content"
 								active={activeUrl === pageUrl}

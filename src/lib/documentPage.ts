@@ -1,13 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { documentPageRegistry } from '../docs/_registry';
-import type { DocumentPage, DocumentPageDescriptor } from './documentPageTypes';
+import { documentPageRegistryFlat } from '../docs/_registry';
+import type { DocumentPage, DocumentPageFlatDescriptor } from './documentPageTypes';
 
 export const getDocument = async (slug: string): Promise<DocumentPage | undefined> => {
-	const registryEntry = (documentPageRegistry as Record<string, DocumentPageDescriptor>)[slug];
+	const registryEntry = (documentPageRegistryFlat as Record<string, DocumentPageFlatDescriptor>)[
+		slug
+	];
 	if (!registryEntry) return;
 
-	let filename = registryEntry.filenameOverride || slug;
+	let filename = registryEntry.filename;
 	if (!filename) return;
 	if (filename.endsWith('.svelte')) filename = filename.slice(0, -7);
 
