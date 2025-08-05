@@ -1,3 +1,4 @@
+// See https://kit.svelte.dev/docs/types#app
 declare global {
 	namespace App {
 		// interface Error {}
@@ -7,3 +8,6 @@ declare global {
 		// interface Platform {}
 	}
 }
+
+// Vite imagetools support
+declare module '*&imagetools';

@@ -1,11 +1,13 @@
 import { sveltekit } from '@sveltejs/kit/vite';
 import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
 import circularDependency from 'vite-plugin-circular-dependency';
 
 import { version } from './package.json';
 
 export default defineConfig({
 	plugins: [
+		imagetools(),
 		sveltekit(),
 		circularDependency({
 			circleImportThrowErr: true,

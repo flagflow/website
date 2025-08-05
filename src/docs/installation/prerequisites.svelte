@@ -4,6 +4,9 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+
+	import etcd_80px_inline from './etcd.png?w=80&format=webp&inline&imagetools';
+	import kubernetes_80px_inline from './kubernetes.png?w=80&format=webp&inline&imagetools';
 </script>
 
 <DocsPage>
@@ -20,7 +23,7 @@
 		title="Any container engine: Docker or Kubernetes"
 	>
 		<div class="flex flex-row items-start gap-8">
-			<Img class="w-20" alt="Kubernetes icon" src="/images/kubernetes.png" />
+			<Img alt="Kubernetes" src={kubernetes_80px_inline} />
 
 			The FlagFlow system is delivered as a Docker image. Therefore, it is necessary to have a
 			containerized runtime environment (Docker or Kubernetes) available. An enterprise environment
@@ -38,7 +41,7 @@
 		title="etcd: distributed, reliable key-value store"
 	>
 		<div class="flex flex-row items-start gap-8">
-			<Img class="w-20" alt="etcd icon" src="/images/etcd.png" />
+			<Img alt="etcd" src={etcd_80px_inline} />
 
 			FlagFlow is a distributed system that stores its state in a distributed key-value store, etcd.
 			The installation and configuration of etcd are necessary for FlagFlow to function. Since a
