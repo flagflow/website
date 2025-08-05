@@ -4,14 +4,14 @@
 
 	interface Properties {
 		title: string;
-		subTitle?: string | undefined;
-		children?: Snippet | undefined;
+		subTitle?: string;
+		children?: Snippet;
 	}
 
 	const { title, subTitle, children }: Properties = $props();
 </script>
 
-<div class="text-centers">
+<div class="text-center">
 	<Heading class="text-2xl font-bold" tag="h1">
 		{title}
 		{#if subTitle}

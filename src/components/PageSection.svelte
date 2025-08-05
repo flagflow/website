@@ -5,9 +5,9 @@
 	const DEFAULT_BORDER_COLOR = 'text-gray-300';
 
 	interface Properties {
-		bgColor?: string | undefined;
-		border?: boolean | undefined;
-		borderColor?: string | undefined;
+		bgColor?: string;
+		border?: boolean;
+		borderColor?: string;
 		children: Snippet;
 	}
 

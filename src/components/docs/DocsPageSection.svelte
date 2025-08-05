@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Heading, Img } from 'flowbite-svelte';
+	import { Heading } from 'flowbite-svelte';
 	import { getContext, type Snippet } from 'svelte';
 
 	import Icon from '$components/Icon.svelte';
@@ -15,15 +15,12 @@
 		id: string;
 		title: string;
 		shortTitle?: string;
-		image?: {
-			src: string;
-			alt?: string;
-		};
 		hotlink?: Hotlink[] | Hotlink;
+		contentClass?: string;
 		children: Snippet;
 	}
 
-	const { id, title, shortTitle, image, hotlink = [], children }: Properties = $props();
+	const { id, title, shortTitle, hotlink = [], contentClass = '', children }: Properties = $props();
 	const hotlinks = Array.isArray(hotlink) ? hotlink : [hotlink];
 
 	getContext<DocsPageContext>('DocsPage')?.registerRegion({ title: shortTitle || title, id });
@@ -34,12 +31,10 @@
 		<Heading class="my-4 pt-4 text-lg font-bold" tag="h2">{title}</Heading>
 	</a>
 
-	<div class="flex flex-row items-start gap-8">
-		{#if image}
-			<Img class="w-20" alt={image.alt} src={image.src} />
-		{/if}
+	<span class={contentClass}>
 		{@render children()}
-	</div>
+	</span>
+
 	{#if hotlinks.length > 0}
 		<div class="text-primary-700 flex justify-end gap-8 text-sm">
 			{#each hotlinks as { title, href }}
