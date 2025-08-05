@@ -19,6 +19,6 @@
 		{/if}
 	</Heading>
 	{#if children}
-		<P class="text-lg2 dark:text-gray-400" space="wide">{@render children()}</P>
+		<P class="text-lg dark:text-gray-400" space="wide">{@render children()}</P>
 	{/if}
 </div>
