@@ -7,8 +7,10 @@ export type DocumentPageMeta = {
 };
 
 export type DocumentPageDescriptor = DocumentPageMeta & {
-	category?: string;
 	filenameOverride?: string;
+};
+export type DocumentPageFlatDescriptor = DocumentPageMeta & {
+	filename: string;
 };
 
 export type DocumentPage = {
@@ -16,3 +18,8 @@ export type DocumentPage = {
 	meta: DocumentPageMeta;
 	component: any;
 };
+
+export type DocumentPageRegistry = Record<
+	string,
+	DocumentPageDescriptor | { groupName: string; nodes: Record<string, DocumentPageDescriptor> }
+>;

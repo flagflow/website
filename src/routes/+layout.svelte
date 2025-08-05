@@ -17,23 +17,26 @@
 		<span
 			class="flex flex-col self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
 		>
-			Flagflow
-			<span class="text-sm font-normal text-orange-700 dark:text-gray-400">
-				Feature flags for everyone!
+			FlagFlow
+			<span class="text-sm font-normal text-gray-700 dark:text-gray-400">
+				Feature flags for everyone
 			</span>
 		</span></NavBrand
 	>
 	<NavUl>
 		<NavLi class="mx-2" href="/">Home</NavLi>
-		<NavLi class="mx-2" href="/">Features</NavLi>
+		<NavLi class="mx-2" href="/features">Features</NavLi>
+		<NavLi class="mx-2" href="/oss-open-source">OSS</NavLi>
+		<NavLi class="mx-2" href="/integration">Integration</NavLi>
+		<NavLi class="mx-2" href="/ci-cd">CI / CD</NavLi>
 		<NavLi class="mx-2" href="/docs">Docs</NavLi>
-		<Button class="mx-2" color="orange" size="sm">Demo</Button>
 	</NavUl>
 	<div>
+		<Button class="mx-2" color="orange" size="sm">Demo</Button>
 		<a href="https://github.com/flagflow/flagflow" target="_blank">
-			<Icon id="github" class="inline-flex" align="left" size={30} />
+			<Icon id="github" class="mx-2 inline-flex" align="left" size={30} />
 		</a>
-		<Badge class="ml-2" color="orange" size="large">
+		<Badge class="mx-2" color="orange" size="large">
 			v{__APP_VERSION__}
 		</Badge>
 		<NavHamburger />

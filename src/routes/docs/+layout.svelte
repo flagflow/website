@@ -3,9 +3,10 @@
 
 	import { page } from '$app/state';
 
+	import { documentPageRegistry } from '../../docs/_registry';
 	import type { LayoutProps as LayoutProperties } from './$types';
 
-	let { data, children }: LayoutProperties = $props();
+	let { children }: LayoutProperties = $props();
 
 	const baseUrl = '/docs';
 	let activeUrl = $derived(page.url.pathname);
@@ -22,21 +23,25 @@
 		position="static"
 	>
 		<SidebarGroup>
-			{#each Object.entries(data.pages) as [url, page]}
+			{#each Object.entries(documentPageRegistry) as [url, page]}
 				{#if 'nodes' in page}
-					<SidebarDropdownWrapper btnClass="p-2" isOpen={true} label={url}>
+					<SidebarDropdownWrapper btnClass="p-2" isOpen={true} label={page.groupName}>
 						{#each Object.entries(page.nodes) as [subUrl, subPage]}
+							{@const pageUrl = [baseUrl, url, subUrl].filter(Boolean).join('/')}
 							<SidebarItem
-								active={activeUrl === baseUrl + (subUrl ? `/${subUrl}` : '')}
-								href={baseUrl + '/' + subUrl}
+								class="trimmed-content"
+								active={activeUrl === pageUrl}
+								href={pageUrl}
 								label={subPage.title}
 							/>
 						{/each}
 					</SidebarDropdownWrapper>
 				{:else}
+					{@const pageUrl = [baseUrl, url].filter(Boolean).join('/')}
 					<SidebarItem
-						active={activeUrl === baseUrl + (url ? `/${url}` : '')}
-						href={baseUrl + '/' + url}
+						class="trimmed-content"
+						active={activeUrl === pageUrl}
+						href={pageUrl}
 						label={page.title}
 						spanClass="flex-1 ms-3 whitespace-nowrap"
 					/>
