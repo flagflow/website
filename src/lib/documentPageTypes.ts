@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Component } from 'svelte';
 
 export type DocumentPageMeta = {
 	title: string;
@@ -16,7 +16,7 @@ export type DocumentPageFlatDescriptor = DocumentPageMeta & {
 export type DocumentPage = {
 	slug: string;
 	meta: DocumentPageMeta;
-	component: any;
+	component: Component;
 };
 
 export type DocumentPageRegistry = Record<

@@ -9,8 +9,8 @@ import type { EntryGenerator, PageLoad } from './$types';
 export const entries: EntryGenerator = () =>
 	Object.keys(documentPageRegistryFlat).map((slug) => ({ slug }));
 
-export const load: PageLoad = async ({ params }) => {
-	const documentPage = await getDocument(params.slug);
+export const load: PageLoad = ({ params }) => {
+	const documentPage = getDocument(params.slug);
 
 	if (!documentPage) throw error(404, 'Page not found');
 
