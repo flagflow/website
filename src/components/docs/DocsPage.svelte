@@ -3,7 +3,7 @@
 		id: string;
 		title: string;
 	};
-	type RegisterRegion = (region: DocsPageRegionInstance) => () => void;
+	type RegisterRegion = (region: DocsPageRegionInstance) => void;
 	export type DocsPageContext = {
 		registerRegion: RegisterRegion;
 	};
@@ -25,8 +25,7 @@
 	// Context DocsPage
 	const regions = $state<DocsPageRegionInstance[]>([]);
 	const registerRegion: RegisterRegion = (region: DocsPageRegionInstance) => {
-		regions.push(region);
-		return () => regions.splice(regions.indexOf(region), 1);
+		if (region.id !== '' && region.title !== '') regions.push(region);
 	};
 	setContext('DocsPage', { registerRegion });
 	const scrollToRegion = (id: string) => {
