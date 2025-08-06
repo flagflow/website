@@ -79,3 +79,7 @@ The site uses a unique documentation architecture:
 - `vite.config.ts` - Vite configuration with image tools and circular dependency checking
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `vitest.config.ts` - Vitest testing configuration
+
+## Code format hints
+
+- Do not use brackets {} if not needed, at one line command in blocks
