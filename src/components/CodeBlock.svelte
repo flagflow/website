@@ -10,7 +10,13 @@
 
 	const { title, code, dark = true }: Properties = $props();
 
-	const copyToClipboard = () => navigator.clipboard.writeText(code);
+	const copyToClipboard = async () => {
+		try {
+			await navigator.clipboard.writeText(code);
+		} catch {
+			/**/
+		}
+	};
 </script>
 
 <Card class={clsx('my-6 w-full p-4', dark ? 'bg-gray-900' : 'bg-gray-100')} size="xl">

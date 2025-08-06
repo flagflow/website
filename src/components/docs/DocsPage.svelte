@@ -39,7 +39,7 @@
 </div>
 
 <Sticky class="right-0 h-full w-48 overflow-y-auto p-4 text-sm text-gray-500" top={HEADER_HEIGHT}>
-	{#if regions.length > 0}
+	{#if regions.length >= 2}
 		<div class="py-2 font-semibold uppercase">On this page</div>
 		{#each regions as { title, id }}
 			<button

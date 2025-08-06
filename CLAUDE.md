@@ -83,3 +83,4 @@ The site uses a unique documentation architecture:
 ## Code format hints
 
 - Do not use brackets {} if not needed, at one line command in blocks
+- Do not use dynamic import()
