@@ -81,7 +81,7 @@ export default [
 			'unicorn/prevent-abbreviations': [
 				'error',
 				{
-					ignore: [String.raw`^DocsPage`, /^ignore/i]
+					ignore: [String.raw`^DocsPage`, String.raw`^env-`]
 				}
 			]
 		}

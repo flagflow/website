@@ -24,6 +24,10 @@ export const documentPageRegistry = {
 			kubernetes: {
 				title: 'Kubernetes',
 				description: 'Learn how to install and configure Kubernetes'
+			},
+			'env-variables': {
+				title: 'ENV variables',
+				description: 'Learn how to configure environment variables for our platform'
 			}
 		}
 	},
