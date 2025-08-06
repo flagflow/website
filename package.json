@@ -17,7 +17,7 @@
 		"lint:check": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"sitemap:generate": "tsx scripts/generateSitemap.ts",
-		"all": "node --run format:fix && node --run lint:fix && node --run format:fix && node --run ts:check && npm run sitemap:generate && node --run build",
+		"all": "node --run format:fix && node --run lint:fix && node --run format:fix && node --run ts:check && node --run test && npm run sitemap:generate && node --run build",
 		"npm:reinstall": "rm -rf ./node_modules && rm -f ./package-lock.json && npm i && npm i",
 		"test": "vitest run",
 		"test:ui": "vitest --ui"
@@ -47,6 +47,7 @@
 		"flowbite-svelte": "^1.11.3",
 		"globals": "^16.3.0",
 		"globby": "^14.1.0",
+		"jsdom": "^26.1.0",
 		"marked": "^16.1.2",
 		"prettier": "^3.6.2",
 		"prettier-plugin-svelte": "^3.4.0",

@@ -8,9 +8,9 @@ const importMeta = import.meta.url;
 export default defineConfig({
 	plugins: [svelte(), svelteTesting()],
 	test: {
-		environment: 'node',
-		setupFiles: './tests/integration.setup.ts',
-		exclude: [...configDefaults.exclude, '**/*.svelte']
+		environment: 'jsdom',
+		exclude: [...configDefaults.exclude, '**/*.svelte'],
+		setupFiles: ['./tests/setup.ts']
 	},
 	resolve: {
 		alias: {

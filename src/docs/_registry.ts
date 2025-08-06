@@ -75,6 +75,10 @@ export const documentPageRegistry = {
 			'zod-schema': {
 				title: 'ZOD Schema',
 				description: 'Learn more about the ZOD schema in our platform'
+			},
+			hash: {
+				title: 'Hashes',
+				description: 'Learn more about the Hash in our platform'
 			}
 		}
 	},
