@@ -34,7 +34,7 @@
 	};
 </script>
 
-<div class="max-w-[calc(100%-10rem)] px-16 py-4">
+<div class="max-w-[calc(100%-10rem)] px-10 py-4">
 	{@render children()}
 </div>
 

@@ -11,16 +11,16 @@ const generateSitemap = async () => {
 		String.raw`!./src/routes/**/\[*\]/**` // Exclude dynamic routes
 	]);
 
-	const routes = pages
-		.map((page) =>
-			page.replace('./src/routes', '').replace('/+page.svelte', '').replace('/index', '')
-		)
-		.filter((route) => !route.includes('['));
-	routes.push(
+	const routes = [
+		...pages
+			.map((page) =>
+				page.replace('./src/routes', '').replace('/+page.svelte', '').replace('/index', '')
+			)
+			.filter((route) => !route.includes('[')),
 		...Object.keys((await import('../src/docs/_registry')).documentPageRegistryFlat).map((page) =>
 			page ? `/docs/${page}` : '/docs'
 		)
-	);
+	].sort();
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
