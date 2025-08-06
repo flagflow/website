@@ -5,7 +5,7 @@
 	import DocsPageSubSection from '$components/docs/DocsPageSubSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 
-	import { ETCD_IMAGE, ETCD_VERSION } from '../../etcdVersion';
+	import { ETCD_IMAGE, ETCD_VERSION } from '../ETCD_VERSION';
 </script>
 
 <DocsPage>
@@ -80,18 +80,9 @@ services:
     image: ${ETCD_IMAGE}
     container_name: flagflow-etcd
     environment:
-      - ETCD_NAME=etcd-server
-      - ETCD_DATA_DIR=/etcd-data
-      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
-      - ETCD_ADVERTISE_CLIENT_URLS=http://localhost:2379
-      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380
-      - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://etcd:2380
-      - ETCD_INITIAL_CLUSTER=etcd-server=http://etcd:2380
-      - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster
-      - ETCD_INITIAL_CLUSTER_STATE=new
+      - ETCD_ROOT_PASSWORD=pw_flagflow
     ports:
       - "2379:2379"
-      - "2380:2380"
     volumes:
       - etcd-data:/etcd-data
     networks:
@@ -136,15 +127,9 @@ spec:
         ports:
         - containerPort: 2379
           name: client
-        - containerPort: 2380
-          name: peer
         env:
-        - name: ETCD_DATA_DIR
-          value: /var/lib/etcd
-        - name: ETCD_LISTEN_CLIENT_URLS
-          value: http://0.0.0.0:2379
-        - name: ETCD_LISTEN_PEER_URLS
-          value: http://0.0.0.0:2380
+        - name: ETCD_ROOT_PASSWORD
+		  value: pw_flagflow
         volumeMounts:
         - name: etcd-data
           mountPath: /var/lib/etcd
@@ -210,101 +195,35 @@ sudo systemctl start etcd
 		</DocsPageSubSection>
 	</DocsPageSection>
 
+	<DocsPageSection id="check-connection" title="Check etcd connection">
+		After configuration, verify the connection using etcd client tools:
+		<CodeBlock
+			code={`
+# Test basic connectivity
+etcdctl --endpoints=http://etcd-server:2379 endpoint health
+
+# Check FlagFlow data structure
+etcdctl --endpoints=http://etcd-server:2379 get --prefix /flagflow/
+
+# Monitor real-time changes (useful for debugging)
+etcdctl --endpoints=http://etcd-server:2379 watch --prefix /flagflow/</code
+`}
+			title="Connection Verification"
+		/>
+	</DocsPageSection>
+
 	<DocsPageSection id="configure-to-use" title="FlagFlow Configuration">
 		Once etcd is deployed, configure FlagFlow to connect to your etcd instance. The configuration
 		approach varies depending on your FlagFlow deployment method.
-		<b>Environment Variables Configuration</b>
-		Set the following environment variables in your FlagFlow application container or process:
-		<pre><code
-				># etcd connection settings
-FLAGFLOW_ETCD_ENDPOINTS=http://localhost:2379
-FLAGFLOW_ETCD_USERNAME=
-FLAGFLOW_ETCD_PASSWORD=
-FLAGFLOW_ETCD_ROOT_PREFIX=/flagflow
 
-# Connection timeout and retry settings
-FLAGFLOW_ETCD_DIAL_TIMEOUT=5s
-FLAGFLOW_ETCD_REQUEST_TIMEOUT=10s
-FLAGFLOW_ETCD_AUTO_SYNC_INTERVAL=30s
-
-# TLS configuration (for secure deployments)
-FLAGFLOW_ETCD_TLS_ENABLED=false
-FLAGFLOW_ETCD_TLS_CERT_FILE=
-FLAGFLOW_ETCD_TLS_KEY_FILE=
-FLAGFLOW_ETCD_TLS_CA_FILE=</code
-			></pre>
-		<b>Docker Compose Integration</b>
-		When running FlagFlow with Docker Compose, ensure proper network connectivity:
-		<pre><code
-				>version: '3.8'
-services:
-  flagflow:
-    image: flagflow/flagflow:latest
-    container_name: flagflow-app
-    environment:
-      - FLAGFLOW_ETCD_ENDPOINTS=http://etcd:2379
-      - FLAGFLOW_ETCD_ROOT_PREFIX=/flagflow
-    depends_on:
-      - etcd
-    ports:
-      - "8080:8080"
-    networks:
-      - flagflow-network
-
-  etcd:
-    # etcd configuration from previous section
-    networks:
-      - flagflow-network</code
-			></pre>
-		<b>Kubernetes ConfigMap</b>
-		For Kubernetes deployments, use ConfigMaps to manage etcd connection settings:
-		<pre><code
-				>apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: flagflow-etcd-config
-  namespace: flagflow
-data:
-  etcd-endpoints: "http://etcd-0.etcd:2379,http://etcd-1.etcd:2379,http://etcd-2.etcd:2379"
-  etcd-root-prefix: "/flagflow"
-  etcd-dial-timeout: "5s"
-  etcd-request-timeout: "10s"
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: flagflow
-spec:
-  template:
-    spec:
-      containers:
-      - name: flagflow
-        image: flagflow/flagflow:latest
-        envFrom:
-        - configMapRef:
-            name: flagflow-etcd-config</code
-			></pre>
-		<b>Connection Verification</b>
-		After configuration, verify the connection using etcd client tools:
-		<pre><code
-				># Test basic connectivity
-etcdctl --endpoints=http://localhost:2379 endpoint health
-
-# Check FlagFlow data structure
-etcdctl --endpoints=http://localhost:2379 get --prefix /flagflow/
-
-# Monitor real-time changes (useful for debugging)
-etcdctl --endpoints=http://localhost:2379 watch --prefix /flagflow/</code
-			></pre>
-		<b>Performance Tuning</b>
-		For high-throughput FlagFlow deployments, consider these etcd optimizations: -
-		<b>Increase snapshot count</b>: Set <code>--snapshot-count=100000</code> to reduce snapshot
-		frequency - <b>Optimize heartbeat interval</b>: Use <code>--heartbeat-interval=500</code> for
-		faster leader election - <b>Configure appropriate quotas</b>: Set
-		<code>--quota-backend-bytes=8GB</code>
-		based on expected data volume - <b>Enable compression</b>: Use <code>--compress</code> flag to reduce
-		network overhead for large configurations These optimizations ensure optimal performance for FlagFlow's
-		real-time feature flag synchronization requirements while maintaining etcd cluster stability and
-		consistency.
+		<CodeBlock
+			code={`
+ETCD_SERVER=etcd-server:2379
+ETCD_USERNAME=flagflow
+ETCD_PASSWORD=**********
+ETCD_NAMESPACE=default
+`}
+			title="Configuration with ENVs"
+		/>
 	</DocsPageSection>
 </DocsPage>
