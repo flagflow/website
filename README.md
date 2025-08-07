@@ -1,4 +1,4 @@
-# segmentcontroller ERP
+# segmentcontroller ERPx
 
 ```mermaid
 flowchart LR
