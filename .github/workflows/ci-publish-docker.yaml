@@ -1,0 +1,28 @@
+name: Build and Push Docs folder
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Publish Docs folder
+        run: |
+          npm ci
+          node --run sitemap:generate && node --run build
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add static/sitemap.xml
+          git add docs/
+          git commit -m "Deploy docs [skip ci]" || exit 0
+          git push
