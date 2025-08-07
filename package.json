@@ -17,7 +17,7 @@
 		"lint:check": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"sitemap:generate": "tsx scripts/generateSitemap.ts",
-		"all": "node --run format:fix && node --run lint:fix && node --run format:fix && node --run ts:check && node --run test && npm run sitemap:generate && node --run build",
+		"all": "node --run format:fix && node --run lint:fix && node --run format:fix && node --run ts:check && node --run test && node --run sitemap:generate && node --run build",
 		"npm:reinstall": "rm -rf ./node_modules && rm -f ./package-lock.json && npm i && npm i",
 		"test": "vitest run",
 		"test:ui": "vitest --ui"
