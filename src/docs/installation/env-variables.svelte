@@ -45,14 +45,14 @@
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ENVIRONMENT</td>
 						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Current environment (dev, staging, prod)</td
+							>Current environment (dev, staging, prod) displayed in the UI</td
 						>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">NODE_ENV</td>
-						<td class="border border-gray-300 px-4 py-2">development</td>
+						<td class="border border-gray-300 px-4 py-2">production</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Node.js environment (development, production)</td
+							>Node.js environment always "production" in Docker image</td
 						>
 					</tr>
 				</tbody>
@@ -90,7 +90,14 @@
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_NAMESPACE</td>
 						<td class="border border-gray-300 px-4 py-2">default</td>
-						<td class="border border-gray-300 px-4 py-2">etcd key namespace for data isolation</td>
+						<td class="border border-gray-300 px-4 py-2">
+							etcd key namespace for data isolation
+							<small class="text-gray-500">
+								<br />
+								Every FlagFlow instance should use a unique namespace in the same etcd cluster to avoid
+								data collisions
+							</small>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -112,8 +119,13 @@
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">KEYCLOAK_HOST</td>
 						<td class="border border-gray-300 px-4 py-2">-</td>
-						<td class="border border-gray-300 px-4 py-2">Keycloak server URL (required for auth)</td
-						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Keycloak server URL
+							<small class="text-gray-500">
+								<br />
+								If this value is set, FlagFlow will allow Keycloak for authentication
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">KEYCLOAK_REALM</td>
@@ -145,7 +157,13 @@
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SESSION_ENABLED</td>
 						<td class="border border-gray-300 px-4 py-2">true</td>
-						<td class="border border-gray-300 px-4 py-2">Enable/disable session management</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Enable/disable session management
+							<small class="text-gray-500">
+								<br />
+								This allows in-built user management and session handling
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SESSION_TIMEOUT_SEC</td>
@@ -173,7 +191,9 @@
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">METRICS_ENABLED</td>
 						<td class="border border-gray-300 px-4 py-2">false</td>
-						<td class="border border-gray-300 px-4 py-2">Enable metrics collection and endpoint</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Enable Prometheus metrics collection and endpoint</td
+						>
 					</tr>
 				</tbody>
 			</table>
@@ -194,15 +214,23 @@
 				<tbody>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							>MIGRATION_SOURCE_URL
+						</td>
+						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Source FlagFlow instance URL
+							<small class="text-gray-500">
+								<br />
+								This allows migrating data from another FlagFlow instance
+							</small>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
 							>MIGRATION_SOURCE_ENVIRONMENT</td
 						>
 						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
 						<td class="border border-gray-300 px-4 py-2">Source environment name for migration</td>
-					</tr>
-					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">MIGRATION_SOURCE_URL</td>
-						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
-						<td class="border border-gray-300 px-4 py-2">Source FlagFlow instance URL</td>
 					</tr>
 				</tbody>
 			</table>
@@ -225,7 +253,7 @@
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">DEV_RPC_SLOWDOWN_MS</td>
 						<td class="border border-gray-300 px-4 py-2">-</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Add artificial delay to RPC calls (development only)</td
+							>Add artificial delay to RPC calls (development only!)</td
 						>
 					</tr>
 				</tbody>

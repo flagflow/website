@@ -15,53 +15,62 @@
 	>
 
 	<DocsPageSection id="why-etcd" title="Why etcd?">
-		etcd is a <b>high-performance and reliable</b> distributed key-value store that serves as the
-		backbone for many cloud-native applications. It's most famously known as the configuration store
-		for Kubernetes, where it's often referred to as the "heart" of Kubernetes because it stores all
-		cluster state data. etcd's architecture ensures fast and reliable access to configuration data
-		while providing real-time monitoring of cluster state changes through its sophisticated watch
-		mechanism.
+		<a
+			class="text-blue-600 hover:underline"
+			href="https://etcd.io/"
+			rel="noopener noreferrer"
+			target="_blank">etcd</a
+		>
+		is a <b>high-performance and reliable</b> distributed key-value store that serves as the
+		backbone for many cloud-native applications. It's most famously known as the
+		<b>configuration store for Kubernetes</b>, where it's often referred to as the "heart" of
+		Kubernetes because it stores all cluster state data. etcd's architecture ensures fast and
+		reliable access to configuration data while providing real-time monitoring of cluster state
+		changes through its sophisticated watch mechanism.
 		<br /><br />
 		<b>FlagFlow leverages etcd</b> as its primary configuration data store because of its
 		exceptional performance characteristics and efficient change notification system. Unlike
-		traditional polling-based approaches, etcd's watch API
-		<b>not only notifies clients of changes but also delivers the updated data payload</b>
-		in a single operation, providing immediate access to the latest configuration state. This real-time
-		synchronization capability is crucial for distributed FlagFlow deployments, where multiple application
-		instances must stay synchronized with feature flag changes without the overhead of periodic polling
-		or manual data refresh operations.
+		traditional polling-based approaches, etcd's <b>watch API</b>
+		not only notifies clients of changes but also delivers the updated data payload in a single operation,
+		providing immediate access to the latest configuration state. This real-time synchronization capability
+		is crucial for distributed FlagFlow deployments, where multiple application instances must stay synchronized
+		with feature flag changes without the overhead of periodic polling or manual data refresh operations.
 		<br /><br />
-		The watch mechanism operates through HTTP/2 streaming, ensuring low-latency updates across all connected
-		FlagFlow instances. This architecture enables instant feature flag propagation, making it ideal for
-		high-frequency flag toggles and real-time A/B testing scenarios where immediate consistency across
-		all application nodes is essential.
+		The watch mechanism operates through <b>HTTP/2 streaming</b>, ensuring low-latency updates
+		across all connected FlagFlow instances. This architecture enables
+		<b>instant feature flag propagation</b>, making it ideal for high-frequency flag toggles and
+		real-time A/B testing scenarios where immediate consistency across all application nodes is
+		essential.
 	</DocsPageSection>
 
 	<DocsPageSection id="why-not-xy" title="Why not XY?">
 		You might wonder why FlagFlow doesn't use alternative solutions like <b>Redis</b>,
-		<b>MongoDB</b>, or <b>PostgreSQL</b>. While these are excellent technologies in their respective
+		<b>MongoDB</b>, or PostgreSQL. While these are excellent technologies in their respective
 		domains, etcd offers distinct advantages specifically designed for configuration management use
 		cases. etcd was purpose-built for storing and managing small-scale, configuration-oriented data
 		with exceptional speed, reliability, and horizontal scalability characteristics that align
 		perfectly with FlagFlow's requirements.
 		<br /><br />
 		Beyond performance considerations, etcd's native <b>watch functionality</b> provides a critical
-		architectural advantage for feature flag management. This capability enables real-time
-		configuration updates and immediate change notifications, ensuring that FlagFlow applications
-		always operate with the most current flag states. This becomes particularly valuable in
-		multi-instance deployments where consistent flag behavior across all application nodes is
-		essential for maintaining user experience integrity and preventing feature flag inconsistencies.
+		architectural advantage for feature flag management. This capability enables
+		<b>real-time configuration updates</b>
+		and immediate change notifications, ensuring that FlagFlow applications always operate with the most
+		current flag states. This becomes particularly valuable in multi-instance deployments where consistent
+		flag behavior across all application nodes is essential for maintaining user experience integrity
+		and preventing feature flag inconsistencies.
 		<br /><br />
-		Traditional database management systems, while powerful, introduce unnecessary complexity and overhead
-		for FlagFlow's specific use case. We don't require relational data modeling, complex indexing strategies,
-		heavyweight transaction processing, or advanced query optimization features that these systems provide.
-		Additionally, managed database services typically employ usage-based pricing models that can become
-		cost-prohibitive for high-frequency configuration access patterns common in feature flag systems.
+		<b>Traditional database management systems</b>, while powerful, introduce unnecessary complexity
+		and overhead for FlagFlow's specific use case. We don't require relational data modeling,
+		complex indexing strategies, heavyweight transaction processing, or advanced query optimization
+		features that these systems provide. Additionally, managed database services typically employ
+		<b>usage-based pricing models</b>
+		that can become cost-prohibitive for high-frequency configuration access patterns common in feature
+		flag systems.
 		<br /><br />
-		etcd's lightweight footprint, combined with its RAFT consensus algorithm for distributed consistency,
-		provides the optimal balance of simplicity, performance, and reliability needed for enterprise-grade
-		feature flag management without the operational overhead and licensing costs associated with traditional
-		database solutions.
+		etcd's <b>lightweight footprint</b>, combined with its RAFT consensus algorithm for distributed
+		consistency, provides the optimal balance of simplicity, performance, and reliability needed for
+		<b>enterprise-grade feature flag management</b> without the operational overhead and licensing costs
+		associated with traditional database solutions.
 	</DocsPageSection>
 
 	<DocsPageSection id="install" title="Installation">
@@ -70,7 +79,11 @@
 		deployment strategy and maintenance capabilities.
 		<DocsPageSubSection subTitle="Recommended for simple setups" title="Docker Compose Deployment">
 			For development environments and simple deployments, Docker Compose provides the fastest setup
-			path. Later you can extend it with FlagFlow services in a single file:
+			path. Later you can extend it with FlagFlow services in a single file. For complete FlagFlow
+			Docker setup instructions, see <a
+				class="text-blue-600 hover:underline"
+				href="/docs/installation/docker">Docker Installation Guide</a
+			>.
 
 			<CodeBlock
 				code={`
@@ -102,7 +115,11 @@ networks:
 		<hr class="ml-6" />
 
 		<DocsPageSubSection subTitle="Recommended for production setups" title="Kubernetes Deployment">
-			For production Kubernetes environments, deploy etcd as a StatefulSet with persistent storage:
+			For production Kubernetes environments, deploy etcd as a StatefulSet with persistent storage.
+			For complete FlagFlow Kubernetes setup instructions, see <a
+				class="text-blue-600 hover:underline"
+				href="/docs/installation/kubernetes">Kubernetes Installation Guide</a
+			>.
 			<CodeBlock
 				code={`
 apiVersion: apps/v1
