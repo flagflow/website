@@ -15,7 +15,7 @@
 	>
 
 	<DocsPageSection id="why-etcd" title="Why etcd?">
-		<a
+		The <a
 			class="text-blue-600 hover:underline"
 			href="https://etcd.io/"
 			rel="noopener noreferrer"
@@ -165,7 +165,7 @@ spec:
 		<hr class="ml-6" />
 
 		<DocsPageSubSection subTitle="If you have a bare-metal or VM setup" title="Binary Installation">
-			For direct server installations, download and install etcd binaries and setup as a systemd
+			For direct server installations, download and install etcd binaries and set up as a systemd
 			service:
 			<CodeBlock
 				code={`
@@ -223,7 +223,7 @@ etcdctl --endpoints=http://etcd-server:2379 endpoint health
 etcdctl --endpoints=http://etcd-server:2379 get --prefix /flagflow/
 
 # Monitor real-time changes (useful for debugging)
-etcdctl --endpoints=http://etcd-server:2379 watch --prefix /flagflow/</code
+etcdctl --endpoints=http://etcd-server:2379 watch --prefix /flagflow/
 `}
 			title="Connection Verification"
 		/>
