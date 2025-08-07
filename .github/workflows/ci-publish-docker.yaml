@@ -16,10 +16,14 @@ jobs:
           node-version: '24'
           cache: 'npm'
 
+      - name: Get npm packages
+        run: npm ci
+
+      - name: Build
+        run: node --run sitemap:generate && node --run build
+
       - name: Publish Docs folder
         run: |
-          npm ci
-          node --run sitemap:generate && node --run build
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add static/sitemap.xml
