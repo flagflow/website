@@ -16,10 +16,6 @@
 			different environments. The application supports <code>.env</code> files in development and direct
 			environment variable configuration in production.
 		</p>
-		<p class="mb-4">
-			Configuration is loaded using <code>@dotenvx/dotenvx</code> in development and the
-			<code>env-var</code> library for validation and type conversion.
-		</p>
 	</DocsPageSection>
 
 	<DocsPageSection id="core" title="Core Configuration">
@@ -45,8 +41,12 @@
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ENVIRONMENT</td>
 						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Current environment (dev, staging, prod) displayed in the UI</td
-						>
+							>Current environment (dev, staging, prod) displayed in the UI
+							<small class="text-gray-500">
+								<br />
+								Visible in the migration file and used for environment-specific logic
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">NODE_ENV</td>
@@ -371,7 +371,6 @@ METRICS_ENABLED=true`}
 	<DocsPageSection id="security" title="Security Considerations">
 		<p class="mb-4">When working with environment variables containing sensitive data:</p>
 		<ul class="mb-4 list-inside list-disc space-y-2">
-			<li><strong>Never commit .env files</strong> to version control</li>
 			<li>
 				<strong>Use secrets management</strong> in production (Kubernetes Secrets, AWS Secrets Manager,
 				etc.)
@@ -380,13 +379,5 @@ METRICS_ENABLED=true`}
 			<li><strong>Use strong passwords</strong> for etcd authentication</li>
 			<li><strong>Limit access</strong> to environment configuration in deployment systems</li>
 		</ul>
-
-		<CodeBlock
-			code={`# Environment variables
-.env
-.env.local
-.env.*.local`}
-			title=".gitignore entry"
-		/>
 	</DocsPageSection>
 </DocsPage>
