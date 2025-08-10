@@ -3,6 +3,7 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -12,10 +13,14 @@
 
 	<DocsPageSection id="overview" title="Overview">
 		<p class="mb-4">
-			FlagFlow uses environment variables for configuration, making it easy to deploy across
-			different environments. The application automatically loads <code>.env</code> files in
-			development (when <code>NODE_ENV</code> is not "production") using
-			<code>@dotenvx/dotenvx</code> and supports direct environment variable configuration in production.
+			FlagFlow uses <Glossary id="Environment Variables">environment variables</Glossary> for configuration,
+			making it easy to deploy across different <Glossary id="Environment">environments</Glossary>.
+			The application automatically loads <code>.env</code> files in development (when
+			<code>NODE_ENV</code>
+			is not "production") using
+			<code>@dotenvx/dotenvx</code> and supports direct <Glossary id="Environment Variables"
+				>environment variable</Glossary
+			> configuration in production.
 		</p>
 	</DocsPageSection>
 
@@ -75,9 +80,13 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_SERVER</td>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							><Glossary id="ETCD_SERVER">ETCD_SERVER</Glossary></td
+						>
 						<td class="border border-gray-300 px-4 py-2">localhost:2379</td>
-						<td class="border border-gray-300 px-4 py-2">etcd server endpoint</td>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="etcd">etcd</Glossary> server endpoint</td
+						>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_USERNAME</td>

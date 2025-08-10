@@ -3,19 +3,24 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
 	<PageTitle title="Export and Backup"
-		>Create comprehensive backups of your feature flags and configuration</PageTitle
+		>Create comprehensive backups of your <Glossary id="Feature Flag">feature flags</Glossary> and <Glossary
+			id="Configuration">configuration</Glossary
+		></PageTitle
 	>
 
 	<DocsPageSection id="overview" title="Export Overview">
 		<p class="mb-4">
-			FlagFlow's export functionality allows you to create complete backups of your feature flag
-			configuration, including schemas, values, and metadata. These exports serve multiple purposes:
-			creating backups, migrating between environments, and maintaining version control of your flag
-			configurations.
+			FlagFlow's <Glossary id="Export">export</Glossary> functionality allows you to create complete
+			backups of your <Glossary id="Feature Flag">feature flag</Glossary>
+			<Glossary id="Configuration">configuration</Glossary>, including schemas, values, and
+			metadata. These <Glossary id="Export">exports</Glossary> serve multiple purposes: creating backups,
+			migrating between <Glossary id="Environment">environments</Glossary>, and maintaining version
+			control of your flag configurations.
 		</p>
 		<div class="mb-4 rounded-lg bg-green-50 p-4">
 			<p class="text-green-800">

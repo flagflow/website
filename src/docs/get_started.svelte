@@ -1,26 +1,473 @@
 <script lang="ts">
+	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
-	<PageTitle subTitle="Flagflow documentation" title="Get started">
-		This page describes how to get started with the Flagflow application.
+	<PageTitle subTitle="FlagFlow documentation" title="Get Started">
+		Your complete guide to setting up and using FlagFlow for feature flag management
 	</PageTitle>
 
-	{#each ['A', 'B', 'C', 'D'] as id}
-		<DocsPageSection {id} title="Section {id}">
-			Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-			laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-			beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
-			odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.
-			Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-			sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat
-			voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit
-			laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit
-			qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-			fugiat quo voluptas nulla pariatur?
-		</DocsPageSection>
-	{/each}
+	<DocsPageSection id="what-is-flagflow" title="What is FlagFlow?">
+		<p class="mb-4">
+			FlagFlow is a powerful, self-hosted <Glossary id="Feature Flag">feature flag</Glossary> management
+			platform that enables teams to:
+		</p>
+		<div class="mb-6 grid gap-4 md:grid-cols-2">
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">🚀 Deploy Features Safely</h3>
+				<p class="text-gray-600">
+					Control feature releases with <Glossary id="Toggle">toggles</Glossary>, <Glossary
+						id="Percentage Rollout">percentage rollouts</Glossary
+					>, and <Glossary id="Kill Switch">kill switches</Glossary>
+				</p>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">⚡ Real-time Updates</h3>
+				<p class="text-gray-600">
+					Instant flag updates using <Glossary id="etcd">etcd</Glossary>'s <Glossary id="Watch API"
+						>watch API</Glossary
+					> for zero-downtime changes
+				</p>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">
+					🔧 <Glossary id="Type Safety">Type Safety</Glossary>
+				</h3>
+				<p class="text-gray-600">
+					Full TypeScript support with automatic <Glossary id="IntelliSense">IntelliSense</Glossary>
+					and <Glossary id="Hash Validation">schema validation</Glossary>
+				</p>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">🏢 Enterprise Ready</h3>
+				<p class="text-gray-600">
+					Built-in authentication, <Glossary id="Keycloak Integration"
+						>Keycloak integration</Glossary
+					>, and granular permissions
+				</p>
+			</div>
+		</div>
+	</DocsPageSection>
+
+	<DocsPageSection id="quick-start" title="Quick Start">
+		<p class="mb-4">
+			Get FlagFlow running in minutes with Docker. This setup is perfect for development, testing,
+			or small production deployments.
+		</p>
+
+		<div class="mb-4 rounded-lg bg-blue-50 p-4">
+			<p class="text-blue-800">
+				<strong>Prerequisites:</strong> Make sure you have Docker and Docker Compose installed on your
+				system.
+			</p>
+		</div>
+
+		<h3 class="mb-3 text-lg font-semibold">Step 1: Download Docker Compose Configuration</h3>
+		<CodeBlock
+			code={`# Create project directory
+mkdir flagflow
+cd flagflow
+
+# Download docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/flagflow/flagflow/main/docker-compose.yml
+
+# Or create manually:
+cat > docker-compose.yml << 'EOF'
+version: '3.8'
+
+services:
+  etcd:
+    image: bitnami/etcd:3.5
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
+    volumes:
+      - etcd_data:/bitnami/etcd
+    networks:
+      - flagflow
+
+  flagflow:
+    image: flagflow/flagflow:latest
+    ports:
+      - "5173:5173"
+    environment:
+      - ETCD_SERVER=etcd:2379
+      - ENVIRONMENT=docker
+      - SESSION_USERS_ENABLED=true
+      - SESSION_DEFAULT_USERNAME=admin
+      - SESSION_DEFAULT_PASSWORD=admin123
+    depends_on:
+      - etcd
+    networks:
+      - flagflow
+
+volumes:
+  etcd_data:
+
+networks:
+  flagflow:
+EOF`}
+			title="Docker Setup"
+		/>
+
+		<h3 class="mt-6 mb-3 text-lg font-semibold">Step 2: Start FlagFlow</h3>
+		<CodeBlock
+			code={`# Start all services
+docker-compose up -d
+
+# Check status
+docker-compose ps
+
+# View logs
+docker-compose logs -f flagflow`}
+			title="Start Services"
+		/>
+
+		<h3 class="mt-6 mb-3 text-lg font-semibold">Step 3: Access FlagFlow</h3>
+		<p class="mb-4">Open your browser and navigate to:</p>
+		<div class="mb-4 rounded-lg bg-green-50 p-4">
+			<p class="text-green-800">
+				<strong>🌐 URL:</strong> <code>http://localhost:5173</code><br />
+				<strong>👤 Username:</strong> <code>admin</code><br />
+				<strong>🔑 Password:</strong> <code>admin123</code>
+			</p>
+		</div>
+	</DocsPageSection>
+
+	<DocsPageSection id="your-first-flag" title="Creating Your First Feature Flag">
+		<p class="mb-4">
+			Let's create a simple <Glossary id="BOOLEAN">boolean flag</Glossary> to toggle a feature in your
+			application.
+		</p>
+
+		<h3 class="mb-3 text-lg font-semibold">1. Create a Feature Flag</h3>
+		<ol class="mb-4 list-inside list-decimal space-y-2">
+			<li>Click the <strong>"+"</strong> button to create a new flag</li>
+			<li>Enter flag name: <code>enable_new_dashboard</code></li>
+			<li>Select type: <strong><Glossary id="BOOLEAN">BOOLEAN</Glossary></strong></li>
+			<li>Set description: <em>"Enable the redesigned dashboard interface"</em></li>
+			<li>Set default value: <strong>false</strong></li>
+			<li>Click <strong>Save</strong></li>
+		</ol>
+
+		<h3 class="mb-3 text-lg font-semibold">2. Test the Flag Value</h3>
+		<p class="mb-4">You can immediately test your flag using the public API:</p>
+		<CodeBlock
+			code={`# Get flag value (returns default: false)
+curl http://localhost:5173/api/flag/enable_new_dashboard
+
+# Response:
+# {"value": false}
+
+# Get all flags
+curl http://localhost:5173/api/flags
+
+# Get flag schema for TypeScript generation
+curl http://localhost:5173/api/schema`}
+			title="Testing Flag API"
+		/>
+
+		<h3 class="mt-6 mb-3 text-lg font-semibold">3. Update Flag Value</h3>
+		<p class="mb-4">Enable the flag through the web interface:</p>
+		<ol class="mb-4 list-inside list-decimal space-y-2">
+			<li>Click on the <code>enable_new_dashboard</code> flag</li>
+			<li>Toggle the switch to <strong>ON</strong></li>
+			<li>Click <strong>Save</strong></li>
+			<li>Test again: <code>curl http://localhost:5173/api/flag/enable_new_dashboard</code></li>
+		</ol>
+	</DocsPageSection>
+
+	<DocsPageSection id="flag-types" title="Understanding Flag Types">
+		<p class="mb-4">FlagFlow supports multiple flag types to handle different use cases:</p>
+		<div class="overflow-x-auto">
+			<table class="mb-6 w-full border-collapse border border-gray-300">
+				<thead>
+					<tr class="bg-gray-100">
+						<th class="border border-gray-300 px-4 py-2 text-left">Type</th>
+						<th class="border border-gray-300 px-4 py-2 text-left">Use Case</th>
+						<th class="border border-gray-300 px-4 py-2 text-left">Example Value</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="BOOLEAN">BOOLEAN</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Simple on/off features, <Glossary id="Kill Switch">kill switches</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"><code>true</code></td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="INTEGER">INTEGER</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2">Numeric configuration, limits, timeouts</td
+						>
+						<td class="border border-gray-300 px-4 py-2"><code>100</code></td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"><Glossary id="STRING">STRING</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Text configuration, API endpoints, messages</td
+						>
+						<td class="border border-gray-300 px-4 py-2"><code>"api.example.com"</code></td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"><Glossary id="ENUM">ENUM</Glossary></td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Select one option from predefined choices</td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><code>"dark"</code> from <code>["light", "dark", "auto"]</code></td
+						>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"><Glossary id="TAG">TAG</Glossary></td>
+						<td class="border border-gray-300 px-4 py-2">Multiple selections, feature modules</td>
+						<td class="border border-gray-300 px-4 py-2"><code>["analytics", "chat"]</code></td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="AB-TEST">AB-TEST</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="A/B Test">A/B testing</Glossary>, split testing</td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><code>"A"</code> or <code>"B"</code> (25% get B)</td
+						>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</DocsPageSection>
+
+	<DocsPageSection id="integration" title="Integrating with Your Application">
+		<p class="mb-4">FlagFlow provides multiple ways to integrate with your applications:</p>
+
+		<h3 class="mb-3 text-lg font-semibold">Simple HTTP API</h3>
+		<p class="mb-4">Use the REST API directly from any programming language:</p>
+		<CodeBlock
+			code={`// JavaScript/Node.js example
+const response = await fetch('http://localhost:5173/api/flag/enable_new_dashboard');
+const { value } = await response.json();
+
+if (value) {
+  // Show new dashboard
+  renderNewDashboard();
+} else {
+  // Show old dashboard
+  renderOldDashboard();
+}`}
+			title="HTTP API Integration"
+		/>
+
+		<h3 class="mt-6 mb-3 text-lg font-semibold">TypeScript Integration</h3>
+		<p class="mb-4">
+			Generate type-safe flag clients with automatic <Glossary id="IntelliSense"
+				>IntelliSense</Glossary
+			> and <Glossary id="Hash Validation">validation</Glossary>:
+		</p>
+		<CodeBlock
+			code={`# Generate TypeScript types
+curl http://localhost:5173/api/schema > flags.schema.ts
+
+# In your TypeScript application:
+import { getFlagValue, FLAGS } from './flagflow-client';
+
+// Type-safe flag access with autocompletion
+const dashboardEnabled = await getFlagValue(FLAGS.enable_new_dashboard);
+
+// Compiler ensures you use the correct flag name and type
+if (dashboardEnabled) {
+  renderNewDashboard();
+}`}
+			title="TypeScript Integration"
+		/>
+
+		<h3 class="mt-6 mb-3 text-lg font-semibold">React Hook Example</h3>
+		<CodeBlock
+			code={`// Custom React hook for FlagFlow
+function useFlagFlow(flagName: string) {
+  const [value, setValue] = useState(null);
+
+  useEffect(() => {
+    const fetchFlag = async () => {
+      const response = await fetch(\`/api/flag/\${flagName}\`);
+      const { value } = await response.json();
+      setValue(value);
+    };
+
+    fetchFlag();
+    
+    // Optional: Set up real-time updates with WebSocket or polling
+  }, [flagName]);
+
+  return value;
+}
+
+// Usage in component
+function Dashboard() {
+  const newDashboardEnabled = useFlagFlow('enable_new_dashboard');
+  
+  if (newDashboardEnabled === null) return <Loading />;
+  
+  return newDashboardEnabled ? <NewDashboard /> : <OldDashboard />;
+}`}
+			title="React Integration"
+		/>
+	</DocsPageSection>
+
+	<DocsPageSection id="next-steps" title="Next Steps">
+		<p class="mb-4">Now that you have FlagFlow running, here are recommended next steps:</p>
+
+		<div class="mb-6 grid gap-4 md:grid-cols-2">
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">🔧 Production Setup</h3>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/installation/kubernetes"
+							>Deploy to Kubernetes</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/installation/etcd"
+							>Configure etcd cluster</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/installation/env-variables"
+							>Environment variables</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">👥 User Management</h3>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication"
+							>Authentication setup</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/user-management/permissions"
+							>Configure permissions</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/user-management/keycloak"
+							>Enterprise SSO</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">💻 Development</h3>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/typescript/ts-schema"
+							>TypeScript integration</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/typescript/hash"
+							>Schema validation</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/flags/hierarchy"
+							>Flag organization</a
+						>
+					</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">🚀 Operations</h3>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/migration/export-backup"
+							>Backup strategies</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/migration/migration"
+							>Environment migration</a
+						>
+					</li>
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/migration/restore"
+							>Disaster recovery</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="rounded-lg bg-gray-50 p-4">
+			<h3 class="mb-2 text-lg font-semibold">📚 Learn More</h3>
+			<p class="mb-2 text-gray-700">Explore advanced FlagFlow concepts:</p>
+			<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+				<li>
+					<strong><Glossary id="Percentage Rollout">Percentage Rollouts</Glossary>:</strong> Gradually
+					release features to a subset of users
+				</li>
+				<li>
+					<strong><Glossary id="Flag Hierarchy">Flag Hierarchy</Glossary>:</strong> Organize flags with
+					folders and namespaces
+				</li>
+				<li>
+					<strong><Glossary id="A/B Test">A/B Testing</Glossary>:</strong> Run experiments to optimize
+					user experience
+				</li>
+				<li>
+					<strong><Glossary id="Circuit Breaker">Circuit Breaker</Glossary>:</strong> Implement safety
+					mechanisms for critical features
+				</li>
+			</ul>
+		</div>
+	</DocsPageSection>
+
+	<DocsPageSection id="getting-help" title="Getting Help">
+		<p class="mb-4">Need assistance with FlagFlow? Here are the best ways to get help:</p>
+
+		<div class="mb-6 grid gap-4 md:grid-cols-2">
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">📖 Documentation</h3>
+				<p class="mb-2 text-gray-600">Comprehensive guides and references:</p>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>
+						<a class="text-blue-600 hover:underline" href="/docs/glossary">Glossary of terms</a>
+					</li>
+					<li>Installation guides</li>
+					<li>API reference</li>
+					<li>Best practices</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border p-4">
+				<h3 class="mb-2 text-lg font-semibold">🐛 Issues & Support</h3>
+				<p class="mb-2 text-gray-600">Get help with problems:</p>
+				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
+					<li>GitHub Issues</li>
+					<li>Community discussions</li>
+					<li>Bug reports</li>
+					<li>Feature requests</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="rounded-lg bg-blue-50 p-4">
+			<p class="text-blue-800">
+				<strong>👋 Welcome to FlagFlow!</strong> You're now ready to implement safe, controlled feature
+				releases. Start small with a simple boolean flag, then explore advanced features as your needs
+				grow.
+			</p>
+		</div>
+	</DocsPageSection>
 </DocsPage>

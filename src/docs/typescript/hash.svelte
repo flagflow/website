@@ -3,11 +3,14 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
 	<PageTitle title="Hash-Based Schema Validation"
-		>Ensuring type safety and cache consistency with SHA-1 hashing</PageTitle
+		>Ensuring <Glossary id="Type Safety">type safety</Glossary> and cache consistency with <Glossary
+			id="Hash Validation">SHA-1 hashing</Glossary
+		></PageTitle
 	>
 
 	<DocsPageSection id="overview" title="What is Hash Validation?">

@@ -3,6 +3,7 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -29,21 +30,31 @@
 	<DocsPageSection id="migration-types" title="Migration Types">
 		<div class="grid gap-4 md:grid-cols-2">
 			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">File-Based Migration</h3>
-				<p class="mb-3 text-gray-600">Upload an export file from another environment</p>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Glossary id="File-based Migration">File-Based Migration</Glossary>
+				</h3>
+				<p class="mb-3 text-gray-600">
+					Upload an <Glossary id="Export">export file</Glossary> from another <Glossary
+						id="Environment">environment</Glossary
+					>
+				</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>Use exported JSON files from source environment</li>
+					<li>
+						Use exported JSON files from source <Glossary id="Environment">environment</Glossary>
+					</li>
 					<li>Full control over what gets migrated</li>
 					<li>Works across network boundaries</li>
 					<li>Suitable for air-gapped environments</li>
 				</ul>
 			</div>
 			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">Remote Migration</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Glossary id="Remote Migration">Remote Migration</Glossary>
+				</h3>
 				<p class="mb-3 text-gray-600">Direct connection to another FlagFlow instance</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>Real-time fetching from source environment</li>
-					<li>Always gets the latest configuration</li>
+					<li>Real-time fetching from source <Glossary id="Environment">environment</Glossary></li>
+					<li>Always gets the latest <Glossary id="Configuration">configuration</Glossary></li>
 					<li>Requires network connectivity</li>
 					<li>Streamlined one-step process</li>
 				</ul>
@@ -67,29 +78,48 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">CREATE_DEFAULTVALUE</td>
-						<td class="border border-gray-300 px-4 py-2">Create new flag with default value</td>
-						<td class="border border-gray-300 px-4 py-2">Flag exists in source but not target</td>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							><Glossary id="CREATE_DEFAULTVALUE">CREATE_DEFAULTVALUE</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Create new flag with <Glossary id="Default Values">default value</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="Flag">Flag</Glossary> exists in source but not target</td
+						>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
-							>UPDATE_SCHEMA_DEFAULTVALUE</td
+							><Glossary id="UPDATE_SCHEMA_DEFAULTVALUE">UPDATE_SCHEMA_DEFAULTVALUE</Glossary></td
 						>
 						<td class="border border-gray-300 px-4 py-2">Update flag schema, reset to default</td>
-						<td class="border border-gray-300 px-4 py-2">Flag type or schema changed</td>
-					</tr>
-					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SET_VALUE</td>
-						<td class="border border-gray-300 px-4 py-2">Set specific value for existing flag</td>
-						<td class="border border-gray-300 px-4 py-2">Flag value differs between environments</td
-						>
-					</tr>
-					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">DELETE</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Remove flag that doesn't exist in source</td
+							><Glossary id="Flag">Flag</Glossary> type or schema changed</td
 						>
-						<td class="border border-gray-300 px-4 py-2">Flag exists in target but not source</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							><Glossary id="SET_VALUE">SET_VALUE</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Set specific value for existing <Glossary id="Flag">flag</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="Flag">Flag</Glossary> value differs between <Glossary id="Environment"
+								>environments</Glossary
+							></td
+						>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							><Glossary id="DELETE">DELETE</Glossary></td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							>Remove <Glossary id="Flag">flag</Glossary> that doesn't exist in source</td
+						>
+						<td class="border border-gray-300 px-4 py-2"
+							><Glossary id="Flag">Flag</Glossary> exists in target but not source</td
+						>
 					</tr>
 				</tbody>
 			</table>

@@ -3,6 +3,7 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -103,25 +104,32 @@
 		<p class="mb-4">FlagFlow supports two primary authentication methods:</p>
 		<div class="grid gap-6 md:grid-cols-2">
 			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">Built-in User Management</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Glossary id="Built-in User Management">Built-in User Management</Glossary>
+				</h3>
 				<p class="mb-3 text-gray-600">
-					Simple session-based authentication for small to medium deployments
+					Simple <Glossary id="Session-based authentication">session-based authentication</Glossary>
+					for small to medium deployments
 				</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>Session-based authentication</li>
+					<li>
+						<Glossary id="Session-based authentication">Session-based authentication</Glossary>
+					</li>
 					<li>Default user creation at startup</li>
 					<li>Configurable session timeout</li>
 					<li>Built-in user interface</li>
 				</ul>
 			</div>
 			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">Keycloak Integration</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Glossary id="Keycloak Integration">Keycloak Integration</Glossary>
+				</h3>
 				<p class="mb-3 text-gray-600">
 					Enterprise-grade authentication with external identity provider
 				</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>OAuth 2.0 / OpenID Connect</li>
-					<li>Single Sign-On (SSO)</li>
+					<li><Glossary id="OAuth 2.0/OpenID Connect">OAuth 2.0 / OpenID Connect</Glossary></li>
+					<li><Glossary id="Single Sign-On (SSO)">Single Sign-On (SSO)</Glossary></li>
 					<li>Advanced role management</li>
 					<li>Integration with existing identity systems</li>
 				</ul>
