@@ -20,7 +20,9 @@
 				testing.</P
 			>
 			<div class="flex flex-row gap-8 pl-16">
-				<Kbd class="text-md px-4 font-light"># docker run flagflow@{__APP_VERSION__}</Kbd>
+				<Kbd class="text-md px-4 font-light"
+					># docker run ghcr.io/flagflow/flagflow:{__APP_VERSION__}</Kbd
+				>
 				<Button href="/docs">
 					Get started
 					<Icon id="arrowRight" align="right" />
