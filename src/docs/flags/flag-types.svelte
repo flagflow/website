@@ -7,7 +7,5 @@
 <DocsPage>
 	<PageTitle title="XXXX">AAAA</PageTitle>
 
-	<DocsPageSection id="abc" title="Section">
-		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque...
-	</DocsPageSection>
+	<DocsPageSection id="abc" title="Section"># detect flag types from source code</DocsPageSection>
 </DocsPage>

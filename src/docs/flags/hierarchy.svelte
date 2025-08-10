@@ -8,6 +8,6 @@
 	<PageTitle title="XXXX">AAAA</PageTitle>
 
 	<DocsPageSection id="abc" title="Section">
-		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque...
+		# write about hierarchy reason and tips
 	</DocsPageSection>
 </DocsPage>

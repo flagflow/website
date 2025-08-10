@@ -13,8 +13,9 @@
 	<DocsPageSection id="overview" title="Overview">
 		<p class="mb-4">
 			FlagFlow uses environment variables for configuration, making it easy to deploy across
-			different environments. The application supports <code>.env</code> files in development and direct
-			environment variable configuration in production.
+			different environments. The application automatically loads <code>.env</code> files in
+			development (when <code>NODE_ENV</code> is not "production") using
+			<code>@dotenvx/dotenvx</code> and supports direct environment variable configuration in production.
 		</p>
 	</DocsPageSection>
 
@@ -52,7 +53,8 @@
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">NODE_ENV</td>
 						<td class="border border-gray-300 px-4 py-2">production</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Node.js environment always "production" in Docker image</td
+							>Controls dotenv loading behavior. When not "production", .env files are automatically
+							loaded</td
 						>
 					</tr>
 				</tbody>
@@ -155,13 +157,40 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SESSION_ENABLED</td>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SESSION_USERS_ENABLED</td
+						>
 						<td class="border border-gray-300 px-4 py-2">true</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Enable/disable session management
+							>Enable/disable user session management
 							<small class="text-gray-500">
 								<br />
 								This allows in-built user management and session handling
+							</small>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							>SESSION_DEFAULT_USERNAME</td
+						>
+						<td class="border border-gray-300 px-4 py-2">-</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Default user username created at startup
+							<small class="text-gray-500">
+								<br />
+								Only used when SESSION_USERS_ENABLED is true
+							</small>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
+							>SESSION_DEFAULT_PASSWORD</td
+						>
+						<td class="border border-gray-300 px-4 py-2">-</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>Default user password created at startup
+							<small class="text-gray-500">
+								<br />
+								Only used when SESSION_USERS_ENABLED is true
 							</small>
 						</td>
 					</tr>
@@ -218,10 +247,13 @@
 						</td>
 						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Source FlagFlow instance URL
+							>Source FlagFlow instance URL for remote migration
 							<small class="text-gray-500">
 								<br />
-								This allows migrating data from another FlagFlow instance
+								This allows migrating data from another FlagFlow instance. See
+								<a class="text-blue-600 hover:underline" href="/docs/migration/migration"
+									>Migration documentation</a
+								> for setup.
 							</small>
 						</td>
 					</tr>
@@ -230,7 +262,14 @@
 							>MIGRATION_SOURCE_ENVIRONMENT</td
 						>
 						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
-						<td class="border border-gray-300 px-4 py-2">Source environment name for migration</td>
+						<td class="border border-gray-300 px-4 py-2">
+							Source environment name for migration
+							<small class="mt-1 block text-gray-500">
+								See <a class="text-blue-600 hover:underline" href="/docs/migration/migration"
+									>Migration documentation</a
+								> for remote migration setup
+							</small>
+						</td>
 					</tr>
 				</tbody>
 			</table>

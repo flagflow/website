@@ -32,7 +32,7 @@ describe('documentPageRegistry', () => {
 			if ('groupName' in documentPageRegistry['user-management']) {
 				expect(documentPageRegistry['user-management'].groupName).toBe('User management');
 				expect(documentPageRegistry['user-management'].nodes.authentication).toBeDefined();
-				expect(documentPageRegistry['user-management'].nodes.roles).toBeDefined();
+				expect(documentPageRegistry['user-management'].nodes.permissions).toBeDefined();
 			}
 		});
 
@@ -49,10 +49,8 @@ describe('documentPageRegistry', () => {
 		});
 
 		it('should contain standalone pages', () => {
-			expect(documentPageRegistry['tips-and-tricks']).toBeDefined();
 			expect(documentPageRegistry.glossary).toBeDefined();
 
-			expect('title' in documentPageRegistry['tips-and-tricks']).toBe(true);
 			expect('title' in documentPageRegistry.glossary).toBe(true);
 		});
 	});
@@ -101,10 +99,6 @@ describe('documentPageRegistry', () => {
 		});
 
 		it('should flatten standalone pages', () => {
-			expect(documentPageRegistryFlat['tips-and-tricks']).toBeDefined();
-			expect(documentPageRegistryFlat['tips-and-tricks'].title).toBe('Tips and Tricks');
-			expect(documentPageRegistryFlat['tips-and-tricks'].filename).toBe('tips-and-tricks');
-
 			expect(documentPageRegistryFlat['glossary']).toBeDefined();
 			expect(documentPageRegistryFlat['glossary'].title).toBe('Glossary');
 			expect(documentPageRegistryFlat['glossary'].filename).toBe('glossary');

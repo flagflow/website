@@ -38,9 +38,9 @@ export const documentPageRegistry = {
 				title: 'Authentication',
 				description: 'Learn more about authentication in our platform'
 			},
-			roles: {
-				title: 'Roles',
-				description: 'Learn more about roles in our platform'
+			permissions: {
+				title: 'Permissions',
+				description: 'Learn more about permissions in our platform'
 			},
 			'built-in-users': {
 				title: 'Built-in Users',
@@ -102,10 +102,6 @@ export const documentPageRegistry = {
 				description: 'Learn how to migrate your data in our platform'
 			}
 		}
-	},
-	'tips-and-tricks': {
-		title: 'Tips and Tricks',
-		description: 'Learn some tips and tricks to use our platform more effectively'
 	},
 	glossary: {
 		title: 'Glossary',

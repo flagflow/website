@@ -8,6 +8,6 @@
 	<PageTitle title="XXXX">AAAA</PageTitle>
 
 	<DocsPageSection id="abc" title="Section">
-		Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque...
+		# write about access: can read all freely, read by hierarchy
 	</DocsPageSection>
 </DocsPage>

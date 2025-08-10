@@ -53,7 +53,6 @@ describe('route Generation', () => {
 
 			expect(slugs).toContain('');
 			expect(slugs).toContain('glossary');
-			expect(slugs).toContain('tips-and-tricks');
 			expect(slugs).toContain('installation/prerequisites');
 			expect(slugs).toContain('user-management/authentication');
 			expect(slugs).toContain('flags/flag-types');
