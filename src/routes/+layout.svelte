@@ -7,13 +7,14 @@
 	import Icon from '$components/Icon.svelte';
 
 	import type { LayoutProps as LayoutProperties } from './$types';
+	import brandLogo from './brandlogo.png?w=96&format=webp&inline&imagetools';
 
 	let { children }: LayoutProperties = $props();
 </script>
 
 <Navbar class="bg-gray-50" fluid>
 	<NavBrand href="/">
-		<img class="me-3 h-6 sm:h-9" alt="Flowbite Logo" src="/favicon.png" />
+		<img class="me-3 h-6 sm:h-9" alt="Flowbite Logo" src={brandLogo} />
 		<span
 			class="flex flex-col self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
 		>

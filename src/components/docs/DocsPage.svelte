@@ -3,7 +3,7 @@
 		id: string;
 		title: string;
 	};
-	type RegisterRegion = (region: DocsPageRegionInstance) => () => void;
+	type RegisterRegion = (region: DocsPageRegionInstance) => void;
 	export type DocsPageContext = {
 		registerRegion: RegisterRegion;
 	};
@@ -25,8 +25,7 @@
 	// Context DocsPage
 	const regions = $state<DocsPageRegionInstance[]>([]);
 	const registerRegion: RegisterRegion = (region: DocsPageRegionInstance) => {
-		regions.push(region);
-		return () => regions.splice(regions.indexOf(region), 1);
+		if (region.id !== '' && region.title !== '') regions.push(region);
 	};
 	setContext('DocsPage', { registerRegion });
 	const scrollToRegion = (id: string) => {
@@ -35,12 +34,12 @@
 	};
 </script>
 
-<div class="max-w-[calc(100%-10rem)] px-16 py-4">
+<div class="max-w-[calc(100%-10rem)] px-10 py-4">
 	{@render children()}
 </div>
 
 <Sticky class="right-0 h-full w-48 overflow-y-auto p-4 text-sm text-gray-500" top={HEADER_HEIGHT}>
-	{#if regions.length > 0}
+	{#if regions.length >= 2}
 		<div class="py-2 font-semibold uppercase">On this page</div>
 		{#each regions as { title, id }}
 			<button

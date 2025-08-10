@@ -1,34 +1,24 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Component } from 'svelte';
 
 import { documentPageRegistryFlat } from '../docs/_registry';
-import type { DocumentPage, DocumentPageFlatDescriptor } from './documentPageTypes';
+import type { DocumentPage } from './documentPageTypes';
 
-export const getDocument = async (slug: string): Promise<DocumentPage | undefined> => {
-	const registryEntry = (documentPageRegistryFlat as Record<string, DocumentPageFlatDescriptor>)[
-		slug
-	];
+type SvelteModule = { default: Component };
+
+const modules = import.meta.glob('../docs/**/*.svelte', { eager: true });
+
+export const getDocument = (slug: string): DocumentPage | undefined => {
+	const registryEntry = documentPageRegistryFlat[slug];
 	if (!registryEntry) return;
 
-	let filename = registryEntry.filename;
-	if (!filename) return;
-	if (filename.endsWith('.svelte')) filename = filename.slice(0, -7);
-
-	const fullPath = `../docs/${filename}.svelte`;
-
-	const modules = import.meta.glob('../docs/**/*.svelte');
-	if (!modules[fullPath]) return;
-
-	const resolver = modules[fullPath];
-	if (!resolver) return;
-
-	const componentModule = await resolver();
-	if (!componentModule || !(componentModule as any).default) return;
+	const svelteModule = modules[`../docs/${registryEntry.filename}.svelte`] as SvelteModule;
+	if (!svelteModule) return;
 
 	return {
 		slug,
 		meta: {
 			...registryEntry
 		},
-		component: (componentModule as any).default
+		component: svelteModule.default
 	};
 };

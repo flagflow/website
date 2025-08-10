@@ -1,7 +1,7 @@
 <script lang="ts">
 	interface Properties {
 		title: string;
-		description?: string | undefined;
+		description?: string;
 		keywords?: string;
 		ogImage?: string;
 		ogType?: string;

@@ -22,7 +22,7 @@ const config = {
 			$types: './src/types'
 		},
 		output: {
-			bundleStrategy: 'single'
+			bundleStrategy: 'inline'
 		}
 	}
 };

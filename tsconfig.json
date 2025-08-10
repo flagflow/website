@@ -26,7 +26,6 @@
 		"./tests/**/*.js",
 		"./tests/**/*.ts",
 		"./tests/**/*.svelte",
-		"./tests/**/*.ts",
-		"src/routes/docs/+layout.svelteXX"
+		"./tests/**/*.ts"
 	]
 }
