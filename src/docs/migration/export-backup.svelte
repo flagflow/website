@@ -82,17 +82,17 @@
 
 		<h3 class="mb-3 text-lg font-semibold">API Export</h3>
 		<p class="mb-4">You can also export programmatically using the REST API:</p>
+		<p class="mb-4 rounded-lg bg-blue-50 p-4 text-blue-800">
+			<strong>Note:</strong> Export functionality is available without authentication - anyone with network
+			access to your FlagFlow instance can download configuration exports.
+		</p>
 		<CodeBlock
 			code={`# Direct download via curl
-curl -O http://localhost:5173/migration/export
-
-# With authentication (if required)
-curl -H "Authorization: Bearer your-token" \\
-     -O http://localhost:5173/migration/export
+curl -O http://localhost:3000/migration/export
 
 # Save to specific filename
 curl -o my-backup-$(date +%Y%m%d).json \\
-     http://localhost:5173/migration/export`}
+     http://localhost:3000/migration/export`}
 			title="API Export Commands"
 		/>
 
@@ -101,7 +101,7 @@ curl -o my-backup-$(date +%Y%m%d).json \\
 			code={`#!/bin/bash
 # automated-backup.sh
 
-FLAGFLOW_URL="http://localhost:5173"
+FLAGFLOW_URL="http://localhost:3000"
 BACKUP_DIR="/path/to/backups"
 DATE=$(date +%Y%m%d-%H%M%S)
 ENVIRONMENT="production"

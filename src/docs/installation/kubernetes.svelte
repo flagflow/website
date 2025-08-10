@@ -1,4 +1,5 @@
 <script lang="ts">
+	/* eslint-disable no-undef */
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
@@ -133,7 +134,7 @@ spec:
     spec:
       containers:
       - name: flagflow
-        image: ghcr.io/flagflow/flagflow:latest
+        image: ghcr.io/flagflow/flagflow:${__APP_VERSION__}
         ports:
         - containerPort: 3000
         env:

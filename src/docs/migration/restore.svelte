@@ -114,7 +114,7 @@ echo "📊 Backup contains $(jq '.flags | length' backup.json) flags"`}
 			code={`# Create pre-restore backup
 TIMESTAMP=$(date +%Y%m%d-%H%M%S)
 curl -o "pre-restore-backup-$TIMESTAMP.json" \
-     "http://localhost:5173/migration/export"
+     "http://localhost:3000/migration/export"
 
 echo "📦 Pre-restore backup saved: pre-restore-backup-$TIMESTAMP.json"`}
 			title="Pre-Restore Backup"
@@ -264,7 +264,7 @@ echo "📦 Pre-restore backup saved: pre-restore-backup-$TIMESTAMP.json"`}
 # emergency-restore.sh - Quick restore for disaster recovery
 
 BACKUP_FILE=$1
-FLAGFLOW_URL="http://localhost:5173"
+FLAGFLOW_URL="http://localhost:3000"
 
 if [ -z "$BACKUP_FILE" ]; then
     echo "Usage: $0 <backup-file.json>"
@@ -328,7 +328,7 @@ echo "4. Review restore steps and execute"`}
 # validate-restore-readiness.sh - Test restore capability regularly
 
 BACKUP_DIR="/path/to/backups"
-FLAGFLOW_URL="http://localhost:5173"
+FLAGFLOW_URL="http://localhost:3000"
 TEST_BACKUP=""
 
 # Find most recent backup

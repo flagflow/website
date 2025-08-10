@@ -1,8 +1,11 @@
 <script lang="ts">
+	/* eslint-disable no-undef */
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+
+	import { ETCD_IMAGE } from './ETCD_VERSION';
 </script>
 
 <DocsPage>
@@ -70,7 +73,7 @@ version: '3.8'
 
 services:
   etcd:
-    image: bitnami/etcd:3.5
+    image: ${ETCD_IMAGE}
     environment:
       - ALLOW_NONE_AUTHENTICATION=yes
       - ETCD_ADVERTISE_CLIENT_URLS=http://etcd:2379
@@ -80,9 +83,9 @@ services:
       - flagflow
 
   flagflow:
-    image: flagflow/flagflow:latest
+    image: ghcr.io/flagflow/flagflow:${__APP_VERSION__}
     ports:
-      - "5173:5173"
+      - "3000:3000"
     environment:
       - ETCD_SERVER=etcd:2379
       - ENVIRONMENT=docker
@@ -120,7 +123,7 @@ docker-compose logs -f flagflow`}
 		<p class="mb-4">Open your browser and navigate to:</p>
 		<div class="mb-4 rounded-lg bg-green-50 p-4">
 			<p class="text-green-800">
-				<strong>🌐 URL:</strong> <code>http://localhost:5173</code><br />
+				<strong>🌐 URL:</strong> <code>http://localhost:3000</code><br />
 				<strong>👤 Username:</strong> <code>admin</code><br />
 				<strong>🔑 Password:</strong> <code>admin123</code>
 			</p>
@@ -144,16 +147,16 @@ docker-compose logs -f flagflow`}
 		<p class="mb-4">You can immediately test your flag using the public API:</p>
 		<CodeBlock
 			code={`# Get flag value (returns default: false)
-curl http://localhost:5173/api/flag/enable_new_dashboard
+curl http://localhost:3000/flag/enable_new_dashboard
 
 # Response:
 # {"value": false}
 
 # Get all flags
-curl http://localhost:5173/api/flags
+curl http://localhost:3000/flags
 
 # Get flag schema for TypeScript generation
-curl http://localhost:5173/api/schema`}
+curl http://localhost:3000/api/schema`}
 			title="Testing Flag API"
 		/>
 
@@ -163,7 +166,7 @@ curl http://localhost:5173/api/schema`}
 			<li>Click on the <code>enable_new_dashboard</code> flag</li>
 			<li>Toggle the switch to <strong>ON</strong></li>
 			<li>Click <strong>Save</strong></li>
-			<li>Test again: <code>curl http://localhost:5173/api/flag/enable_new_dashboard</code></li>
+			<li>Test again: <code>curl http://localhost:3000/flag/enable_new_dashboard</code></li>
 		</ol>
 	</DocsPageSection>
 
@@ -230,7 +233,7 @@ curl http://localhost:5173/api/schema`}
 		<p class="mb-4">Use the REST API directly from any programming language:</p>
 		<CodeBlock
 			code={`// JavaScript/Node.js example
-const response = await fetch('http://localhost:5173/api/flag/enable_new_dashboard');
+const response = await fetch('http://localhost:3000/flag/enable_new_dashboard');
 const { value } = await response.json();
 
 if (value) {
@@ -247,7 +250,7 @@ if (value) {
 		<p class="mb-4">Generate type-safe flag clients with automatic IntelliSense and validation:</p>
 		<CodeBlock
 			code={`# Generate TypeScript types
-curl http://localhost:5173/api/schema > flags.schema.ts
+curl http://localhost:3000/api/schema > flags.schema.ts
 
 # In your TypeScript application:
 import { getFlagValue, FLAGS } from './flagflow-client';
@@ -270,7 +273,7 @@ function useFlagFlow(flagName: string) {
 
   useEffect(() => {
     const fetchFlag = async () => {
-      const response = await fetch(\`/api/flag/\${flagName}\`);
+      const response = await fetch(\`/flag/\${flagName}\`);
       const { value } = await response.json();
       setValue(value);
     };

@@ -150,10 +150,18 @@ volumes:
 
 		<h3 class="mb-3 text-lg font-semibold">3. Configure Client Settings</h3>
 		<p class="mb-4">In the client settings tab:</p>
+		<div class="mb-4 rounded-lg bg-green-50 p-4">
+			<p class="text-green-800">
+				<strong>Keycloak Callback URL:</strong> FlagFlow uses the callback URL
+				<code>/auth/keycloak/callback</code> for OAuth authentication redirects.
+			</p>
+		</div>
 		<CodeBlock
-			code={`# Valid redirect URIs
+			code={`# Valid redirect URIs (include the callback path)
+https://your-flagflow-domain.com/auth/keycloak/callback
 https://your-flagflow-domain.com/*
-http://localhost:3000/*  # For development
+http://localhost:3000/auth/keycloak/callback  # For development
+http://localhost:3000/*                       # For development
 
 # Web origins
 https://your-flagflow-domain.com

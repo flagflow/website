@@ -134,7 +134,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 			code={`import axios from "axios";
 import { flagFlow_Descriptors, FlagFlow_DescriptorTypeMap } from "./flagflowTypes";
 
-const FLAGFLOW_BASE_URL = 'http://localhost:5173/flags';
+const FLAGFLOW_BASE_URL = 'http://localhost:3000/flags';
 
 export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
     key: K
@@ -210,7 +210,7 @@ Content-Type: application/json
         if (error.response?.status === 409) {
             console.error('🚨 Schema hash mismatch!');
             console.error('Please regenerate your TypeScript definitions:');
-            console.error('curl http://localhost:5173/type/typescript > flagflowTypes.ts');
+            console.error('curl http://localhost:3000/type/typescript > flagflowTypes.ts');
             throw new Error('Flag schema out of date. Please update TypeScript definitions.');
         }
         throw error;
@@ -248,7 +248,7 @@ Content-Type: application/json
 
 		<CodeBlock
 			code={`// Get current hash map
-curl http://localhost:5173/type/hash
+curl http://localhost:3000/type/hash
 
 // Response
 {
@@ -285,7 +285,7 @@ curl http://localhost:5173/type/hash
 echo "🔄 Checking for FlagFlow schema changes..."
 
 # Download current TypeScript definitions
-curl -s http://localhost:5173/type/typescript > flagflowTypes.new.ts
+curl -s http://localhost:3000/type/typescript > flagflowTypes.new.ts
 
 # Compare with existing file
 if ! cmp -s flagflowTypes.ts flagflowTypes.new.ts; then
