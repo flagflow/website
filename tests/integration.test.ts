@@ -13,7 +13,7 @@ describe('integration Tests', () => {
 			expect(registryKeys.length).toBeGreaterThan(0);
 
 			// Test a few key documents to ensure they can be loaded
-			const testSlugs = ['', 'glossary', 'installation/prerequisites', 'flags/flag-types'];
+			const testSlugs = ['', 'installation/prerequisites', 'flags/flag-types'];
 
 			for (const slug of testSlugs) {
 				if (registryKeys.includes(slug)) {

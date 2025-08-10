@@ -47,12 +47,6 @@ describe('documentPageRegistry', () => {
 				expect(documentPageRegistry.flags.nodes['access-flags']).toBeDefined();
 			}
 		});
-
-		it('should contain standalone pages', () => {
-			expect(documentPageRegistry.glossary).toBeDefined();
-
-			expect('title' in documentPageRegistry.glossary).toBe(true);
-		});
 	});
 
 	describe('documentPageRegistryFlat', () => {
@@ -96,12 +90,6 @@ describe('documentPageRegistry', () => {
 			expect(documentPageRegistryFlat['flags/flag-types']).toBeDefined();
 			expect(documentPageRegistryFlat['flags/flag-types'].title).toBe('Flag Types');
 			expect(documentPageRegistryFlat['flags/flag-types'].filename).toBe('flags/flag-types');
-		});
-
-		it('should flatten standalone pages', () => {
-			expect(documentPageRegistryFlat['glossary']).toBeDefined();
-			expect(documentPageRegistryFlat['glossary'].title).toBe('Glossary');
-			expect(documentPageRegistryFlat['glossary'].filename).toBe('glossary');
 		});
 
 		it('should have proper count of entries', () => {

@@ -3,7 +3,6 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -13,41 +12,31 @@
 
 	<DocsPageSection id="what-is-flagflow" title="What is FlagFlow?">
 		<p class="mb-4">
-			FlagFlow is a powerful, self-hosted <Glossary id="Feature Flag">feature flag</Glossary> management
-			platform that enables teams to:
+			FlagFlow is a powerful, self-hosted feature flag management platform that enables teams to:
 		</p>
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
 			<div class="rounded-lg border p-4">
 				<h3 class="mb-2 text-lg font-semibold">🚀 Deploy Features Safely</h3>
 				<p class="text-gray-600">
-					Control feature releases with <Glossary id="Toggle">toggles</Glossary>, <Glossary
-						id="Percentage Rollout">percentage rollouts</Glossary
-					>, and <Glossary id="Kill Switch">kill switches</Glossary>
+					Control feature releases with toggles, percentage rollouts, and kill switches
 				</p>
 			</div>
 			<div class="rounded-lg border p-4">
 				<h3 class="mb-2 text-lg font-semibold">⚡ Real-time Updates</h3>
 				<p class="text-gray-600">
-					Instant flag updates using <Glossary id="etcd">etcd</Glossary>'s <Glossary id="Watch API"
-						>watch API</Glossary
-					> for zero-downtime changes
+					Instant flag updates using etcd's watch API for zero-downtime changes
 				</p>
 			</div>
 			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">
-					🔧 <Glossary id="Type Safety">Type Safety</Glossary>
-				</h3>
+				<h3 class="mb-2 text-lg font-semibold">🔧 Type Safety</h3>
 				<p class="text-gray-600">
-					Full TypeScript support with automatic <Glossary id="IntelliSense">IntelliSense</Glossary>
-					and <Glossary id="Hash Validation">schema validation</Glossary>
+					Full TypeScript support with automatic IntelliSense and schema validation
 				</p>
 			</div>
 			<div class="rounded-lg border p-4">
 				<h3 class="mb-2 text-lg font-semibold">🏢 Enterprise Ready</h3>
 				<p class="text-gray-600">
-					Built-in authentication, <Glossary id="Keycloak Integration"
-						>Keycloak integration</Glossary
-					>, and granular permissions
+					Built-in authentication, Keycloak integration, and granular permissions
 				</p>
 			</div>
 		</div>
@@ -139,16 +128,13 @@ docker-compose logs -f flagflow`}
 	</DocsPageSection>
 
 	<DocsPageSection id="your-first-flag" title="Creating Your First Feature Flag">
-		<p class="mb-4">
-			Let's create a simple <Glossary id="BOOLEAN">boolean flag</Glossary> to toggle a feature in your
-			application.
-		</p>
+		<p class="mb-4">Let's create a simple boolean flag to toggle a feature in your application.</p>
 
 		<h3 class="mb-3 text-lg font-semibold">1. Create a Feature Flag</h3>
 		<ol class="mb-4 list-inside list-decimal space-y-2">
 			<li>Click the <strong>"+"</strong> button to create a new flag</li>
 			<li>Enter flag name: <code>enable_new_dashboard</code></li>
-			<li>Select type: <strong><Glossary id="BOOLEAN">BOOLEAN</Glossary></strong></li>
+			<li>Select type: <strong>BOOLEAN</strong></li>
 			<li>Set description: <em>"Enable the redesigned dashboard interface"</em></li>
 			<li>Set default value: <strong>false</strong></li>
 			<li>Click <strong>Save</strong></li>
@@ -194,32 +180,25 @@ curl http://localhost:5173/api/schema`}
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="BOOLEAN">BOOLEAN</Glossary></td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							>Simple on/off features, <Glossary id="Kill Switch">kill switches</Glossary></td
-						>
+						<td class="border border-gray-300 px-4 py-2">BOOLEAN</td>
+						<td class="border border-gray-300 px-4 py-2">Simple on/off features, kill switches</td>
 						<td class="border border-gray-300 px-4 py-2"><code>true</code></td>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="INTEGER">INTEGER</Glossary></td
-						>
+						<td class="border border-gray-300 px-4 py-2">INTEGER</td>
 						<td class="border border-gray-300 px-4 py-2">Numeric configuration, limits, timeouts</td
 						>
 						<td class="border border-gray-300 px-4 py-2"><code>100</code></td>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"><Glossary id="STRING">STRING</Glossary></td
-						>
+						<td class="border border-gray-300 px-4 py-2">STRING</td>
 						<td class="border border-gray-300 px-4 py-2"
 							>Text configuration, API endpoints, messages</td
 						>
 						<td class="border border-gray-300 px-4 py-2"><code>"api.example.com"</code></td>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"><Glossary id="ENUM">ENUM</Glossary></td>
+						<td class="border border-gray-300 px-4 py-2">ENUM</td>
 						<td class="border border-gray-300 px-4 py-2"
 							>Select one option from predefined choices</td
 						>
@@ -228,17 +207,13 @@ curl http://localhost:5173/api/schema`}
 						>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"><Glossary id="TAG">TAG</Glossary></td>
+						<td class="border border-gray-300 px-4 py-2">TAG</td>
 						<td class="border border-gray-300 px-4 py-2">Multiple selections, feature modules</td>
 						<td class="border border-gray-300 px-4 py-2"><code>["analytics", "chat"]</code></td>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="AB-TEST">AB-TEST</Glossary></td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="A/B Test">A/B testing</Glossary>, split testing</td
-						>
+						<td class="border border-gray-300 px-4 py-2">AB-TEST</td>
+						<td class="border border-gray-300 px-4 py-2">A/B testing, split testing</td>
 						<td class="border border-gray-300 px-4 py-2"
 							><code>"A"</code> or <code>"B"</code> (25% get B)</td
 						>
@@ -269,11 +244,7 @@ if (value) {
 		/>
 
 		<h3 class="mt-6 mb-3 text-lg font-semibold">TypeScript Integration</h3>
-		<p class="mb-4">
-			Generate type-safe flag clients with automatic <Glossary id="IntelliSense"
-				>IntelliSense</Glossary
-			> and <Glossary id="Hash Validation">validation</Glossary>:
-		</p>
+		<p class="mb-4">Generate type-safe flag clients with automatic IntelliSense and validation:</p>
 		<CodeBlock
 			code={`# Generate TypeScript types
 curl http://localhost:5173/api/schema > flags.schema.ts
@@ -415,20 +386,16 @@ function Dashboard() {
 			<p class="mb-2 text-gray-700">Explore advanced FlagFlow concepts:</p>
 			<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 				<li>
-					<strong><Glossary id="Percentage Rollout">Percentage Rollouts</Glossary>:</strong> Gradually
-					release features to a subset of users
+					<strong>Percentage Rollouts:</strong> Gradually release features to a subset of users
 				</li>
 				<li>
-					<strong><Glossary id="Flag Hierarchy">Flag Hierarchy</Glossary>:</strong> Organize flags with
-					folders and namespaces
+					<strong>Flag Hierarchy:</strong> Organize flags with folders and namespaces
 				</li>
 				<li>
-					<strong><Glossary id="A/B Test">A/B Testing</Glossary>:</strong> Run experiments to optimize
-					user experience
+					<strong>A/B Testing:</strong> Run experiments to optimize user experience
 				</li>
 				<li>
-					<strong><Glossary id="Circuit Breaker">Circuit Breaker</Glossary>:</strong> Implement safety
-					mechanisms for critical features
+					<strong>Circuit Breaker:</strong> Implement safety mechanisms for critical features
 				</li>
 			</ul>
 		</div>
@@ -442,9 +409,6 @@ function Dashboard() {
 				<h3 class="mb-2 text-lg font-semibold">📖 Documentation</h3>
 				<p class="mb-2 text-gray-600">Comprehensive guides and references:</p>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
-					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/glossary">Glossary of terms</a>
-					</li>
 					<li>Installation guides</li>
 					<li>API reference</li>
 					<li>Best practices</li>

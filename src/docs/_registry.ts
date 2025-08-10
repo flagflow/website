@@ -102,10 +102,6 @@ export const documentPageRegistry = {
 				description: 'Learn how to migrate your data in our platform'
 			}
 		}
-	},
-	glossary: {
-		title: 'Glossary',
-		description: 'Learn more about the terms used in our platform'
 	}
 } as const satisfies DocumentPageRegistry;
 

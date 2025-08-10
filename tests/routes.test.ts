@@ -52,7 +52,6 @@ describe('route Generation', () => {
 			const slugs = result.map((entry) => entry.slug);
 
 			expect(slugs).toContain('');
-			expect(slugs).toContain('glossary');
 			expect(slugs).toContain('installation/prerequisites');
 			expect(slugs).toContain('user-management/authentication');
 			expect(slugs).toContain('flags/flag-types');

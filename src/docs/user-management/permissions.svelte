@@ -3,7 +3,6 @@
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -42,16 +41,14 @@
 				<tbody>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
-							<code class="font-mono text-sm"
-								><Glossary id="flag-create">flag-create</Glossary></code
-							>
+							<code class="font-mono text-sm">flag-create</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
-							Can create, rename/move, and delete <Glossary id="Feature Flag">flags</Glossary>
+							Can create, rename/move, and delete flags
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
 							<ul class="list-inside list-disc text-sm">
-								<li>Creating new <Glossary id="Feature Flag">feature flags</Glossary></li>
+								<li>Creating new feature flags</li>
 								<li>Renaming existing flags</li>
 								<li>Moving flags between folders/categories</li>
 								<li>Deleting flags permanently</li>
@@ -60,37 +57,35 @@
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
-							<code class="font-mono text-sm"
-								><Glossary id="flag-schema">flag-schema</Glossary></code
-							>
+							<code class="font-mono text-sm">flag-schema</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">Can manage flag schemas</td>
 						<td class="border border-gray-300 px-4 py-2">
 							<ul class="list-inside list-disc text-sm">
 								<li>Modifying flag data types</li>
 								<li>Adding/removing flag properties</li>
-								<li>Changing <Glossary id="Validation Errors">validation rules</Glossary></li>
+								<li>Changing validation rules</li>
 								<li>Updating flag metadata</li>
 							</ul>
 						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
-							<code class="font-mono text-sm"><Glossary id="flag-value">flag-value</Glossary></code>
+							<code class="font-mono text-sm">flag-value</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">Can manage flag values</td>
 						<td class="border border-gray-300 px-4 py-2">
 							<ul class="list-inside list-disc text-sm">
-								<li>Enabling/disabling <Glossary id="Feature Flag">feature flags</Glossary></li>
+								<li>Enabling/disabling feature flags</li>
 								<li>Updating flag values</li>
 								<li>Managing environment-specific values</li>
-								<li>Setting <Glossary id="Percentage Rollout">percentage rollouts</Glossary></li>
+								<li>Setting percentage rollouts</li>
 							</ul>
 						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
-							<code class="font-mono text-sm"><Glossary id="users">users</Glossary></code>
+							<code class="font-mono text-sm">users</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
 							Can add, modify, or remove users and manage sessions
@@ -107,22 +102,16 @@
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
-							<code class="font-mono text-sm"><Glossary id="migration">migration</Glossary></code>
+							<code class="font-mono text-sm">migration</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
-							Can <Glossary id="Restore">restore backups</Glossary> or execute <Glossary
-								id="Migration Steps">migrations</Glossary
-							>
+							Can restore backups or execute migrations
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
 							<ul class="list-inside list-disc text-sm">
 								<li>Importing data from other FlagFlow instances</li>
 								<li>Executing database migrations</li>
-								<li>
-									<Glossary id="Restore">Restoring</Glossary> from <Glossary id="Export"
-										>backup files</Glossary
-									>
-								</li>
+								<li>Restoring from backup files</li>
 								<li>System maintenance operations</li>
 							</ul>
 						</td>
