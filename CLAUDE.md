@@ -58,7 +58,7 @@ The site uses a unique documentation architecture:
 
 - Path aliases configured in `svelte.config.js`: `$components`, `$lib`, `$routes`, `$types`
 - Circular dependency detection enabled (throws errors)
-- Image optimization with `vite-imagetools`
+- Image optimization with `vite-imagetools`, do not use inline, mark image size in variable name
 - Uses Flowbite for UI components and Tailwind for styling
 
 ### Build Output
