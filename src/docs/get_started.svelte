@@ -10,7 +10,7 @@
 </script>
 
 <DocsPage>
-	<PageTitle subTitle="FlagFlow documentation" title="Get Started">
+	<PageTitle title="Get Started">
 		Your complete guide to setting up and using FlagFlow for feature flag management
 	</PageTitle>
 
