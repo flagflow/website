@@ -57,9 +57,12 @@ The site uses a unique documentation architecture:
 ### Key Patterns
 
 - Path aliases configured in `svelte.config.js`: `$components`, `$lib`, `$routes`, `$types`
-- Circular dependency detection enabled (throws errors)
-- Image optimization with `vite-imagetools`, do not use inline, mark image size in variable name
+- Circular dependency detection enabled (throws errors, excluding Modal components)
+- Image optimization with `vite-imagetools`, do not use inline, mark image size in variable name (e.g., `image800`, `image400`)
 - Uses Flowbite for UI components and Tailwind for styling
+- All routes are prerendered with static generation
+- Version injection via `__APP_VERSION__` global from package.json
+- Node.js 22+ required (engines field in package.json)
 
 ### Build Output
 
@@ -67,9 +70,21 @@ The site uses a unique documentation architecture:
 - Minified and tree-shaken output
 - Sourcemaps disabled for production
 
+## SEO and HTML Head Management
+
+The site uses a centralized `HtmlHeader` component (`src/components/HtmlHeader.svelte`) for managing:
+
+- Page titles with automatic "• FlagFlow" suffix
+- Meta descriptions and keywords
+- Open Graph tags for social sharing
+- Twitter Card metadata
+- Default fallbacks for description and keywords
+
+Each page should include `<HtmlHeader title="..." description="..." keywords="..." />` with relevant SEO content.
+
 ## Adding Documentation Pages
 
-1. Add entry to the registry in `src/docs/_registry.ts`
+1. Add entry to the registry in `src/docs/_registry.ts` with title, description, and keywords
 2. Create corresponding `.svelte` file in `src/docs/` matching the registry structure
 3. The route will be automatically generated and included in sitemap
 
@@ -84,3 +99,10 @@ The site uses a unique documentation architecture:
 
 - Do not use brackets {} if not needed, at one line command in blocks
 - Do not use dynamic import()
+
+# important-instruction-reminders
+
+Do what has been asked; nothing more, nothing less.
+NEVER create files unless they're absolutely necessary for achieving your goal.
+ALWAYS prefer editing an existing file to creating a new one.
+NEVER proactively create documentation files (\*.md) or README files. Only create documentation files if explicitly requested by the User.
