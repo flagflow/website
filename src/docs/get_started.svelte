@@ -5,6 +5,7 @@
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
+	import Icon from '$components/Icon.svelte';
 
 	import { ETCD_IMAGE } from './ETCD_VERSION';
 </script>
@@ -20,25 +21,37 @@
 		</p>
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🚀 Deploy Features Safely</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="rocket2" align="left" color="#10b981" size={20} />
+					Deploy Features Safely
+				</h3>
 				<p class="text-gray-600">
 					Control feature releases with toggles, percentage rollouts, and kill switches
 				</p>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">⚡ Real-time Updates</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="deploy" align="left" color="#f59e0b" size={20} />
+					Real-time Updates
+				</h3>
 				<p class="text-gray-600">
 					Instant flag updates using etcd's watch API for zero-downtime changes
 				</p>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🔧 Type Safety</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="settings" align="left" color="#3b82f6" size={20} />
+					Type Safety
+				</h3>
 				<p class="text-gray-600">
 					Full TypeScript support with automatic IntelliSense and schema validation
 				</p>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🏢 Enterprise Ready</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="security" align="left" color="#6366f1" size={20} />
+					Enterprise Ready
+				</h3>
 				<p class="text-gray-600">
 					Built-in authentication, Keycloak integration, and granular permissions
 				</p>
@@ -124,9 +137,12 @@ docker-compose logs -f flagflow`}
 		<p class="mb-4">Open your browser and navigate to:</p>
 		<div class="mb-4 rounded-lg bg-green-50 p-4">
 			<p class="text-green-800">
-				<strong>🌐 URL:</strong> <code>http://localhost:3000</code><br />
-				<strong>👤 Username:</strong> <code>admin</code><br />
-				<strong>🔑 Password:</strong> <code>admin123</code>
+				<strong><Icon id="dashboard" align="left" color="#059669" size={16} />URL:</strong>
+				<code>http://localhost:3000</code><br />
+				<strong><Icon id="user" align="left" color="#059669" size={16} />Username:</strong>
+				<code>admin</code><br />
+				<strong><Icon id="key" align="left" color="#059669" size={16} />Password:</strong>
+				<code>admin123</code>
 			</p>
 		</div>
 	</DocsPageSection>
@@ -304,7 +320,10 @@ function Dashboard() {
 
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🔧 Production Setup</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="settings" align="left" color="#059669" size={18} />
+					Production Setup
+				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
 						<a class="text-blue-600 hover:underline" href="/docs/installation/kubernetes"
@@ -324,7 +343,10 @@ function Dashboard() {
 				</ul>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">👥 User Management</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="users" align="left" color="#3b82f6" size={18} />
+					User Management
+				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
 						<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication"
@@ -344,7 +366,10 @@ function Dashboard() {
 				</ul>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">💻 Development</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="code" align="left" color="#7c3aed" size={18} />
+					Development
+				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
 						<a class="text-blue-600 hover:underline" href="/docs/typescript/ts-schema"
@@ -364,7 +389,10 @@ function Dashboard() {
 				</ul>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🚀 Operations</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="operations" align="left" color="#dc2626" size={18} />
+					Operations
+				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
 						<a class="text-blue-600 hover:underline" href="/docs/migration/export-backup"
@@ -386,7 +414,10 @@ function Dashboard() {
 		</div>
 
 		<div class="rounded-lg bg-gray-50 p-4">
-			<h3 class="mb-2 text-lg font-semibold">📚 Learn More</h3>
+			<h3 class="mb-2 text-lg font-semibold">
+				<Icon id="book" align="left" color="#374151" size={18} />
+				Learn More
+			</h3>
 			<p class="mb-2 text-gray-700">Explore advanced FlagFlow concepts:</p>
 			<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 				<li>
@@ -410,7 +441,10 @@ function Dashboard() {
 
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">📖 Documentation</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="book" align="left" color="#059669" size={18} />
+					Documentation
+				</h3>
 				<p class="mb-2 text-gray-600">Comprehensive guides and references:</p>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>Installation guides</li>
@@ -419,7 +453,10 @@ function Dashboard() {
 				</ul>
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
-				<h3 class="mb-2 text-lg font-semibold">🐛 Issues & Support</h3>
+				<h3 class="mb-2 text-lg font-semibold">
+					<Icon id="bug" align="left" color="#dc2626" size={18} />
+					Issues & Support
+				</h3>
 				<p class="mb-2 text-gray-600">Get help with problems:</p>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>GitHub Issues</li>
@@ -432,9 +469,12 @@ function Dashboard() {
 
 		<div class="rounded-lg bg-blue-50 p-4">
 			<p class="text-blue-800">
-				<strong>👋 Welcome to FlagFlow!</strong> You're now ready to implement safe, controlled feature
-				releases. Start small with a simple boolean flag, then explore advanced features as your needs
-				grow.
+				<strong>
+					<Icon id="help" align="left" color="#1d4ed8" size={16} />
+					Welcome to FlagFlow!
+				</strong>
+				You're now ready to implement safe, controlled feature releases. Start small with a simple boolean
+				flag, then explore advanced features as your needs grow.
 			</p>
 		</div>
 	</DocsPageSection>

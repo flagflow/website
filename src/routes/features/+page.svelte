@@ -3,6 +3,7 @@
 
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import HtmlHeader from '$components/HtmlHeader.svelte';
+	import Icon from '$components/Icon.svelte';
 	import PageSection from '$components/PageSection.svelte';
 
 	import graphViewImage800 from './graph-view.png?w=800&format=webp&imagetools';
@@ -39,26 +40,34 @@
 				<!-- Flag Types Grid -->
 				<div class="mb-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
 					<div class="p-4 text-center">
-						<div class="mb-2 text-2xl">🟢</div>
+						<div class="mb-2 flex justify-center">
+							<Icon id="boolean" color="#059669" size={32} />
+						</div>
 						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">Boolean</Heading>
 						<P class="text-sm text-gray-600">True/false toggles for simple feature switches</P>
 					</div>
 					<div class="p-4 text-center">
-						<div class="mb-2 text-2xl">🔢</div>
+						<div class="mb-2 flex justify-center">
+							<Icon id="number" color="#2563eb" size={32} />
+						</div>
 						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">Number</Heading>
 						<P class="text-sm text-gray-600"
 							>Numeric values for limits, percentages, and thresholds</P
 						>
 					</div>
 					<div class="p-4 text-center">
-						<div class="mb-2 text-2xl">📝</div>
+						<div class="mb-2 flex justify-center">
+							<Icon id="string" color="#7c3aed" size={32} />
+						</div>
 						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">String</Heading>
 						<P class="text-sm text-gray-600"
 							>Text values for API endpoints, messages, and configurations</P
 						>
 					</div>
 					<div class="p-4 text-center">
-						<div class="mb-2 text-2xl">📦</div>
+						<div class="mb-2 flex justify-center">
+							<Icon id="json" color="#ea580c" size={32} />
+						</div>
 						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">JSON</Heading>
 						<P class="text-sm text-gray-600">Complex objects for advanced configurations</P>
 					</div>
@@ -244,7 +253,8 @@
 		<div class="grid gap-8 md:grid-cols-2">
 			<div class="p-6">
 				<Heading class="mb-4 text-lg font-semibold text-gray-900" tag="h3">
-					📋 TypeScript Integration
+					<Icon id="typescript" align="left" color="#3178c6" size={20} />
+					TypeScript Integration
 				</Heading>
 				<P class="mb-4 text-gray-700">
 					Generate type-safe interfaces automatically from your flags:
@@ -275,7 +285,8 @@ if (flags.darkMode) {
 
 			<div class="p-6">
 				<Heading class="mb-4 text-lg font-semibold text-gray-900" tag="h3">
-					⚙️ Zod Runtime Validation
+					<Icon id="validation" align="left" color="#16a34a" size={20} />
+					Zod Runtime Validation
 				</Heading>
 				<P class="mb-4 text-gray-700">
 					Validate flag data at runtime with automatically generated Zod schemas:

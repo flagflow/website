@@ -2,6 +2,7 @@
 	import { Button, Heading, Img, P } from 'flowbite-svelte';
 
 	import HtmlHeader from '$components/HtmlHeader.svelte';
+	import Icon from '$components/Icon.svelte';
 	import PageSection from '$components/PageSection.svelte';
 
 	import restApiImage400 from '../integration/restapi.png?w=400&format=webp&imagetools';
@@ -53,7 +54,8 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-green-800" tag="h2">
-					✅ Available Features
+					<Icon id="checkCircle" align="left" color="#16a34a" size={24} />
+					Available Features
 				</Heading>
 				<P class="text-lg text-gray-600">
 					Powerful tools ready to streamline your development workflow
@@ -64,7 +66,8 @@
 				<!-- TypeScript Integration -->
 				<div class="rounded-lg bg-blue-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-blue-900" tag="h3">
-						📋 TypeScript Schema Generation
+						<Icon id="typescript" align="left" color="#3178c6" size={20} />
+						TypeScript Schema Generation
 					</Heading>
 					<P class="mb-4 leading-relaxed text-blue-800">
 						Generate type-safe TypeScript interfaces automatically from your feature flags. Keep
@@ -95,7 +98,8 @@
 				<!-- Zod Schema Validation -->
 				<div class="rounded-lg bg-purple-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-purple-900" tag="h3">
-						⚙️ Zod Schema Validation
+						<Icon id="validation" align="left" color="#16a34a" size={20} />
+						Zod Schema Validation
 					</Heading>
 					<P class="mb-4 leading-relaxed text-purple-800">
 						Runtime type validation and parsing with automatically generated Zod schemas. Ensure
@@ -123,7 +127,8 @@
 				<!-- Hash Mechanism -->
 				<div class="rounded-lg bg-orange-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-orange-900" tag="h3">
-						🔒 Hash-Based Error Prevention
+						<Icon id="hash" align="left" color="#ea580c" size={20} />
+						Hash-Based Error Prevention
 					</Heading>
 					<P class="mb-4 leading-relaxed text-orange-800">
 						SHA-1 hashing mechanism ensures type safety and cache consistency. Detect schema
@@ -153,7 +158,8 @@
 				<!-- Migration System -->
 				<div class="rounded-lg bg-green-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-green-900" tag="h3">
-						🚀 Fine-Grained Migration
+						<Icon id="migration" align="left" color="#16a34a" size={20} />
+						Fine-Grained Migration
 					</Heading>
 					<P class="mb-4 leading-relaxed text-green-800">
 						Granular migration tools make it easy to move configurations between environments.
@@ -187,7 +193,8 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-blue-800" tag="h2">
-					🚀 Coming Soon: Advanced Pipeline Integration
+					<Icon id="rocket" align="left" color="#2563eb" size={24} />
+					Coming Soon: Advanced Pipeline Integration
 				</Heading>
 				<P class="text-lg text-gray-600">
 					Enhanced automation capabilities for the ultimate CI/CD experience
@@ -231,7 +238,8 @@
 							</li>
 						</ul>
 						<P class="text-sm text-blue-600 italic">
-							💡 Stay tuned for updates on this exciting feature!
+							<Icon id="lightbulb" align="left" color="#2563eb" size={16} />
+							Stay tuned for updates on this exciting feature!
 						</P>
 					</div>
 				</div>

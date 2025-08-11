@@ -49,7 +49,44 @@
 
 		error: 'mdi:error',
 		warning: 'mdi:warning',
-		information: 'mdi:information'
+		information: 'mdi:information',
+
+		// Flag types
+		boolean: 'mdi:toggle-switch',
+		number: 'mdi:numeric',
+		string: 'mdi:format-text',
+		json: 'mdi:code-braces',
+
+		// Code integration
+		typescript: 'mdi:language-typescript',
+		validation: 'mdi:shield-check',
+
+		// Status icons
+		checkCircle: 'mdi:check-circle',
+		rocket: 'mdi:rocket',
+		lightbulb: 'mdi:lightbulb',
+
+		// Integration icons
+		slack: 'mdi:slack',
+		api: 'mdi:api',
+		security: 'mdi:security',
+		shield: 'mdi:shield',
+		lock: 'mdi:lock',
+		key: 'mdi:key',
+		deploy: 'mdi:deploy',
+		backup: 'mdi:backup-restore',
+		migration: 'mdi:database-export',
+		hash: 'mdi:pound',
+
+		// Documentation icons
+		book: 'mdi:book',
+		bug: 'mdi:bug',
+		help: 'mdi:help-circle',
+		rocket2: 'mdi:rocket-launch',
+		settings: 'mdi:cog',
+		users: 'mdi:account-group',
+		code: 'mdi:code-tags',
+		operations: 'mdi:server'
 	};
 	export type IconId = keyof typeof IconIds;
 	loadIcons(Object.keys(IconIds));

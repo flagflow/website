@@ -13,10 +13,8 @@
 	<DocsPageSection id="overview" title="Overview">
 		<p class="mb-4">
 			FlagFlow uses environment variables for configuration, making it easy to deploy across
-			different environments. The application automatically loads <code>.env</code> files in
-			development (when
-			<code>NODE_ENV</code>
-			is not "production") using
+			different environments. The application automatically loads <code>.env</code> files
+			<strong>in development</strong> using
 			<code>@dotenvx/dotenvx</code> and supports direct environment variable configuration in production.
 		</p>
 	</DocsPageSection>
@@ -50,14 +48,6 @@
 								Visible in the migration file and used for environment-specific logic
 							</small>
 						</td>
-					</tr>
-					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">NODE_ENV</td>
-						<td class="border border-gray-300 px-4 py-2">production</td>
-						<td class="border border-gray-300 px-4 py-2"
-							>Controls dotenv loading behavior. When not "production", .env files are automatically
-							loaded</td
-						>
 					</tr>
 				</tbody>
 			</table>
@@ -341,7 +331,6 @@ DEV_RPC_SLOWDOWN_MS=100`}
 
 		<CodeBlock
 			code={`# Core Configuration
-NODE_ENV=production
 LOGLEVEL=info
 ENVIRONMENT=production
 
@@ -370,7 +359,6 @@ METRICS_ENABLED=true`}
 
 		<CodeBlock
 			code={`environment:
-  - NODE_ENV=production
   - LOGLEVEL=info
   - ENVIRONMENT=docker
   - ETCD_SERVER=etcd:2379
