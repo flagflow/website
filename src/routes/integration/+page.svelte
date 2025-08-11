@@ -11,7 +11,7 @@
 	import slackImage400 from './slack.avif?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader title="FlagFlow Integrations" />
+<HtmlHeader description="" keywords="" title="FlagFlow Integrations" />
 
 <PageSection>
 	<div class="mx-auto max-w-5xl">

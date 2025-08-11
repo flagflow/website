@@ -9,7 +9,7 @@
 	import cicdImage400 from './cicd.webp?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader title="CI/CD with FlagFlow" />
+<HtmlHeader description="" keywords="" title="CI/CD with FlagFlow" />
 
 <PageSection>
 	<div class="mx-auto max-w-5xl">

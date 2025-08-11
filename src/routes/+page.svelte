@@ -16,7 +16,7 @@
 	import setValueViewImage800 from './setvalue-view.png?w=800&format=webp&imagetools';
 </script>
 
-<HtmlHeader title="Welcome" />
+<HtmlHeader description="" keywords="" title="Welcome" />
 
 <!-- Hero Section -->
 <PageSection>
