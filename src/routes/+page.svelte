@@ -2,9 +2,18 @@
 	/* eslint-disable no-undef */
 	import { Button, Heading, Img, Kbd, P } from 'flowbite-svelte';
 
+	import CodeBlock from '$components/CodeBlock.svelte';
 	import HtmlHeader from '$components/HtmlHeader.svelte';
 	import Icon from '$components/Icon.svelte';
 	import PageSection from '$components/PageSection.svelte';
+
+	import graphViewImage800 from './graph-view.png?w=800&format=webp&imagetools';
+	import hierarchicalViewImage800 from './hierarchical-view.png?w=800&format=webp&imagetools';
+	import killSwitchImage800 from './killswitch.png?w=800&format=webp&imagetools';
+	import migrationImage800 from './migration.png?w=800&format=webp&imagetools';
+	import flagWizardImage800 from './newflagwizard.png?w=800&format=webp&imagetools';
+	import flagWizardNameImage800 from './newflagwizard-name.png?w=800&format=webp&imagetools';
+	import setValueViewImage800 from './setvalue-view.png?w=800&format=webp&imagetools';
 </script>
 
 <HtmlHeader title="Welcome" />
@@ -34,257 +43,317 @@
 	</div>
 </PageSection>
 
-<!-- Easy Installation Section -->
+<PageSection>
+	<div class="mx-auto max-w-6xl">
+		<!-- Hero Section: Beyond Booleans -->
+		<div class="mb-12 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 p-8">
+			<div class="text-center">
+				<Heading class="mb-4 text-2xl font-semibold text-gray-800" tag="h2">
+					More Than Just On/Off Switches
+				</Heading>
+				<P class="mb-6 text-lg text-gray-700">
+					While feature flags started as simple boolean toggles, modern applications need much more.
+					FlagFlow supports a rich variety of flag types to handle any use case.
+				</P>
+
+				<!-- Flag Types Grid -->
+				<div class="mb-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+					<div class="p-4 text-center">
+						<div class="mb-2 flex justify-center">
+							<Icon id="boolean" color="#059669" size={32} />
+						</div>
+						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">Boolean</Heading>
+						<P class="text-sm text-gray-600">True/false toggles for simple feature switches</P>
+					</div>
+					<div class="p-4 text-center">
+						<div class="mb-2 flex justify-center">
+							<Icon id="number" color="#2563eb" size={32} />
+						</div>
+						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">Number</Heading>
+						<P class="text-sm text-gray-600"
+							>Numeric values for limits, percentages, and thresholds</P
+						>
+					</div>
+					<div class="p-4 text-center">
+						<div class="mb-2 flex justify-center">
+							<Icon id="string" color="#7c3aed" size={32} />
+						</div>
+						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">String</Heading>
+						<P class="text-sm text-gray-600"
+							>Text values for API endpoints, messages, and configurations</P
+						>
+					</div>
+					<div class="p-4 text-center">
+						<div class="mb-2 flex justify-center">
+							<Icon id="json" color="#ea580c" size={32} />
+						</div>
+						<Heading class="mb-2 text-lg font-semibold text-gray-800" tag="h3">JSON</Heading>
+						<P class="text-sm text-gray-600">Complex objects for advanced configurations</P>
+					</div>
+				</div>
+
+				<Button href="/docs/flags/flag-types">Explore Flag Types</Button>
+			</div>
+		</div>
+
+		<!-- New Flag Wizard -->
+		<div class="mb-12">
+			<Heading class="mb-8 text-center text-2xl font-semibold text-gray-800" tag="h2">
+				New Flag Wizard
+			</Heading>
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="rounded-lg bg-blue-50 p-6">
+					<Img
+						class="mb-4 w-full rounded-lg shadow-lg"
+						alt="New Flag Wizard"
+						src={flagWizardImage800}
+					/>
+					<Heading class="mb-3 text-lg font-semibold text-blue-900" tag="h3">
+						Step-by-Step Creation
+					</Heading>
+					<P class="text-blue-800">
+						Our intuitive wizard guides you through flag creation with clear steps, validation, and
+						helpful hints.
+					</P>
+				</div>
+				<div class="rounded-lg bg-green-50 p-6">
+					<Img
+						class="mb-4 w-full rounded-lg shadow-lg"
+						alt="Flag Naming Step"
+						src={flagWizardNameImage800}
+					/>
+					<Heading class="mb-3 text-lg font-semibold text-green-900" tag="h3">
+						Smart Naming Conventions
+					</Heading>
+					<P class="text-green-800">
+						Autocomplete, validation, and suggestions help you follow consistent naming patterns.
+					</P>
+				</div>
+			</div>
+		</div>
+
+		<!-- Hierarchical Structure and Value Management - Side by Side -->
+		<div class="mb-12">
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="rounded-lg bg-green-50 p-6">
+					<Img
+						class="mb-4 w-full rounded-lg shadow-lg"
+						alt="Hierarchical Structure"
+						src={hierarchicalViewImage800}
+					/>
+					<Heading class="mb-3 text-lg font-semibold text-green-900" tag="h3">
+						Hierarchical Structure
+					</Heading>
+					<P class="mb-4 text-green-800">
+						Organize flags in a tree structure for logical grouping, easier navigation, and
+						team-based management.
+					</P>
+					<Button color="green" href="/docs/flags/hierarchy" size="xs">Learn More</Button>
+				</div>
+				<div class="rounded-lg bg-blue-50 p-6">
+					<Img
+						class="mb-4 w-full rounded-lg shadow-lg"
+						alt="Easy Flag Value Setting"
+						src={setValueViewImage800}
+					/>
+					<Heading class="mb-3 text-lg font-semibold text-blue-900" tag="h3">
+						Easy Flag Value Management
+					</Heading>
+					<P class="mb-4 text-blue-800">
+						Update flag values with a single click. Toggle booleans, adjust numbers, edit strings,
+						or modify JSON objects instantly.
+					</P>
+				</div>
+			</div>
+		</div>
+
+		<!-- Graph Overview - Standalone -->
+		<div class="mb-12">
+			<div class="flex justify-center">
+				<div class="max-w-md rounded-lg bg-purple-50 p-6">
+					<Img
+						class="mb-4 w-full rounded-lg shadow-lg"
+						alt="Graph Overview"
+						src={graphViewImage800}
+					/>
+					<Heading class="mb-3 text-center text-lg font-semibold text-purple-900" tag="h3">
+						Graph Overview
+					</Heading>
+					<P class="text-center text-purple-800">
+						Visual graph showing flag usage patterns at a glance.
+					</P>
+				</div>
+			</div>
+		</div>
+	</div>
+</PageSection>
+
+<!-- Kill Switch - Full Width Gray Section -->
 <div class="bg-gray-100 py-16">
 	<div class="mx-auto max-w-6xl px-4">
-		<div class="mb-12 text-center">
-			<Heading class="mb-4 text-3xl font-bold text-gray-900" tag="h2">
-				<Icon id="deploy" class="inline-flex" align="left" color="#374151" size={28} />
-				Easy Installation
-			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				Get FlagFlow running in minutes with Docker or deploy at scale with Kubernetes
-			</P>
-		</div>
-		<div class="grid gap-8 md:grid-cols-2">
-			<center>
-				<Icon id="settings" color="#374151" size={48} />
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Docker Setup</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">Perfect for development and small deployments</P>
-				<Button color="alternative" href="/docs/installation/docker">Docker Guide</Button>
-			</center>
-			<center>
-				<Icon id="operations" color="#374151" size={48} />
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Kubernetes Deployment</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">Production-ready scalable deployment</P>
-				<Button color="alternative" href="/docs/installation/kubernetes">K8s Guide</Button>
-			</center>
+		<div class="grid gap-8 md:grid-cols-2 md:items-center">
+			<div class="space-y-4">
+				<Heading class="text-2xl font-semibold text-red-800" tag="h2">
+					⚠️ Emergency Kill Switch
+				</Heading>
+				<P class="leading-relaxed text-gray-700">
+					Quickly disable problematic features with our prominently placed kill switch on the main
+					dashboard. No hunting through menus when every second counts.
+				</P>
+				<div class="rounded-lg bg-red-50 p-4">
+					<ul class="space-y-2 text-sm text-red-700">
+						<li class="flex items-center">
+							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-red-500"></span>
+							One-click emergency disable
+						</li>
+						<li class="flex items-center">
+							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-red-500"></span>
+							Prominently displayed on main page
+						</li>
+						<li class="flex items-center">
+							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-red-500"></span>
+							Immediate global effect
+						</li>
+						<li class="flex items-center">
+							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-red-500"></span>
+							Audit trail for accountability
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div>
+				<Img
+					class="w-full rounded-lg shadow-lg"
+					alt="Kill Switch Interface"
+					src={killSwitchImage800}
+				/>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- Authentication Section -->
 <PageSection>
-	<div class="mx-auto max-w-6xl text-center">
+	<div class="mx-auto max-w-6xl">
+		<!-- Migration Tools -->
 		<div class="mb-12">
-			<Heading class="mb-4 text-3xl font-bold  text-gray-900" tag="h2">
-				<Icon id="security" class="inline-flex" align="left" color="#374151" size={28} />
-				Flexible Authentication
-			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				Built-in user management or enterprise SSO with Keycloak integration
-			</P>
-		</div>
-		<div class="grid gap-8 md:grid-cols-2">
-			<div class="rounded-lg border p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="user" color="#374151" size={32} />
+			<div class="grid gap-8 md:grid-cols-2 md:items-center">
+				<div>
+					<Img class="w-full rounded-lg shadow-lg" alt="Migration Tools" src={migrationImage800} />
 				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Built-in Users</Heading
-				>
-				<P class="mb-4 text-gray-700">
-					Simple user management with secure session handling. Perfect for teams that need quick
-					setup.
-				</P>
-				<Button href="/docs/user-management/built-in-users" size="sm">Learn More</Button>
-			</div>
-			<div class="rounded-lg border p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="keycloak" color="#374151" size={32} />
+				<div class="space-y-4">
+					<Heading class="text-2xl font-semibold text-gray-800" tag="h2">
+						Migration & Environment Management
+					</Heading>
+					<P class="leading-relaxed text-gray-700">
+						Move configurations between environments with confidence. Export, backup, restore, and
+						migrate your flags with granular control and comprehensive validation.
+					</P>
+					<div class="grid grid-cols-2 gap-3">
+						<Button href="/docs/migration/migration" size="xs">Migration Guide</Button>
+						<Button color="alternative" href="/docs/migration/restore" size="xs">
+							Restore Process
+						</Button>
+						<Button color="alternative" href="/docs/migration/export-backup" size="xs">
+							Backup Tools
+						</Button>
+					</div>
 				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Keycloak Integration</Heading
-				>
-				<P class="mb-4 text-gray-700">
-					Enterprise-grade SSO, centralized user management, and role-based access control.
-				</P>
-				<Button href="/docs/user-management/keycloak" size="sm">Setup Guide</Button>
 			</div>
 		</div>
 	</div>
 </PageSection>
 
-<!-- TypeScript Integration Section -->
+<!-- Type-Safe Code Integration - Full Width Gray Section -->
 <div class="bg-gray-100 py-16">
-	<div class="mx-auto max-w-6xl px-4 text-center">
-		<div class="mb-12">
-			<Heading class="mb-4 text-3xl font-bold text-gray-900" tag="h2">
-				<Icon id="typescript" class="inline-flex" align="left" color="#3178c6" size={28} />
-				Strongly Typed Access
-			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				TypeScript interfaces and Zod schemas generated automatically from your flags
-			</P>
-		</div>
+	<div class="mx-auto max-w-6xl px-4">
+		<Heading class="mb-8 text-center text-2xl font-semibold text-gray-800" tag="h2">
+			Type-Safe Code Integration
+		</Heading>
 		<div class="grid gap-8 md:grid-cols-2">
-			<div class="text-center">
-				<div class="flex justify-center">
-					<Icon id="typescript" color="#3178c6" size={48} />
-				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>TypeScript Schema</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">
-					Auto-generated type-safe interfaces with IntelliSense support
+			<div class="p-6">
+				<Heading class="mb-4 text-lg font-semibold text-gray-900" tag="h3">
+					<Icon id="typescript" align="left" color="#3178c6" size={20} />
+					TypeScript Integration
+				</Heading>
+				<P class="mb-4 text-gray-700">
+					Generate type-safe interfaces automatically from your flags:
 				</P>
-				<Button color="alternative" href="/docs/typescript/ts-schema">TS Docs</Button>
+				<CodeBlock
+					code={`// Auto-generated TypeScript interface
+interface FeatureFlags {
+  darkMode: boolean;
+  maxUsers: number;
+  apiEndpoint: string;
+  uiConfig: {
+    theme: 'light' | 'dark';
+    beta: boolean;
+  };
+}
+
+// Type-safe access
+const flags: FeatureFlags = await getFlags();
+if (flags.darkMode) {
+  applyDarkTheme();
+}`}
+					title="TypeScript Example"
+				/>
+				<div class="mt-4">
+					<Button href="/docs/typescript/ts-schema" size="xs">TS Schema Docs</Button>
+				</div>
 			</div>
-			<div class="text-center">
-				<div class="flex justify-center">
-					<Icon id="validation" color="#16a34a" size={48} />
-				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Zod Validation</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">
-					Runtime type validation and parsing with generated Zod schemas
+
+			<div class="p-6">
+				<Heading class="mb-4 text-lg font-semibold text-gray-900" tag="h3">
+					<Icon id="validation" align="left" color="#16a34a" size={20} />
+					Zod Runtime Validation
+				</Heading>
+				<P class="mb-4 text-gray-700">
+					Validate flag data at runtime with automatically generated Zod schemas:
 				</P>
-				<Button color="alternative" href="/docs/typescript/zod-schema">Zod Docs</Button>
+				<CodeBlock
+					code={`import { z } from 'zod';
+
+// Auto-generated Zod schema
+const FlagsSchema = z.object({
+  darkMode: z.boolean(),
+  maxUsers: z.number().min(1),
+  apiEndpoint: z.string().url(),
+  uiConfig: z.object({
+    theme: z.enum(['light', 'dark']),
+    beta: z.boolean()
+  })
+});
+
+// Runtime validation
+const result = FlagsSchema.safeParse(flagData);
+if (result.success) {
+  // Type-safe flag usage
+  console.log(result.data.darkMode);
+}`}
+					title="Zod Validation Example"
+				/>
+				<div class="mt-4">
+					<Button href="/docs/typescript/zod-schema" size="xs">Zod Schema Docs</Button>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<!-- User Permissions Section -->
 <PageSection>
-	<div class="mx-auto max-w-6xl text-center">
-		<div class="mb-12">
-			<Heading class="mb-4 text-3xl font-bold text-gray-900" tag="h2">
-				<Icon id="shield" class="inline-flex" align="left" color="#374151" size={28} />
-				Fine-Grained Permissions
+	<div class="mx-auto max-w-6xl">
+		<!-- Call to Action -->
+		<div class="p-8 text-center">
+			<Heading class="mb-4 text-2xl font-bold text-gray-900" tag="h2">
+				Ready to Experience These Features?
 			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				Granular access control to ensure team members have appropriate permissions
+			<P class="mb-6 text-center text-lg text-gray-700">
+				Get started with FlagFlow today and see how easy feature flag management can be.
 			</P>
-		</div>
-		<div class="grid gap-6 md:grid-cols-3">
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="user" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3">User Roles</Heading>
-				<P class="text-center text-sm text-gray-700"
-					>Define custom roles with specific permissions</P
-				>
-			</div>
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="flag" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3">Flag Access</Heading
-				>
-				<P class="text-center text-sm text-gray-700">Control who can view, edit, or toggle flags</P>
-			</div>
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="settings" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3"
-					>Admin Controls</Heading
-				>
-				<P class="text-center text-sm text-gray-700">Manage system settings and user permissions</P>
-			</div>
-		</div>
-		<div class="mt-8">
-			<Button href="/docs/user-management/permissions">Permissions Guide</Button>
-		</div>
-	</div>
-</PageSection>
-
-<!-- Migration & Environment Management Section -->
-<div class="bg-gray-100 py-16">
-	<div class="mx-auto max-w-6xl px-4 text-center">
-		<div class="mb-12">
-			<Heading class="mb-4 text-3xl font-bold text-gray-900" tag="h2">
-				<Icon id="migration" class="inline-flex" align="left" color="#374151" size={28} />
-				Migration & Environment Management
-			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				Move configurations between environments with confidence and granular control
-			</P>
-		</div>
-		<div class="grid gap-6 md:grid-cols-3">
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="export" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3"
-					>Export & Backup</Heading
-				>
-				<P class="text-center text-sm text-gray-700"
-					>Comprehensive backup strategies for your flags</P
-				>
-			</div>
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="migration" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3"
-					>Environment Sync</Heading
-				>
-				<P class="text-center text-sm text-gray-700"
-					>Migrate flags between dev, staging, and production</P
-				>
-			</div>
-			<div class="p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="backup" color="#374151" size={40} />
-				</div>
-				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3"
-					>Disaster Recovery</Heading
-				>
-				<P class="text-sm text-gray-700">Restore from backups when you need it most</P>
-			</div>
-		</div>
-		<div class="mt-8">
-			<Button href="/docs/migration/migration">Migration Guide</Button>
-		</div>
-	</div>
-</div>
-
-<!-- Open Source Community Section -->
-<PageSection>
-	<div class="mx-auto max-w-6xl text-center">
-		<div class="mb-12">
-			<Heading class="mb-4 text-3xl font-bold text-gray-900" tag="h2">
-				<Icon id="github" class="inline-flex" align="left" color="#374151" size={28} />
-				Open Source Community
-			</Heading>
-			<P class="text-center text-lg text-gray-700">
-				Join our growing community of developers building the future of feature flag management
-			</P>
-		</div>
-		<div class="grid gap-8 md:grid-cols-2">
-			<div class="rounded-lg border p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="github" color="#374151" size={32} />
-				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Free & Open Source</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">
-					FlagFlow is completely free to use and modify. No vendor lock-in, no hidden costs.
-				</P>
-				<Button href="/oss-open-source" size="sm">Learn More</Button>
-			</div>
-			<div class="rounded-lg border p-6 text-center">
-				<div class="flex justify-center">
-					<Icon id="users" color="#374151" size={32} />
-				</div>
-				<Heading class="mt-4 mb-3 text-xl font-semibold text-gray-900" tag="h3"
-					>Community Driven</Heading
-				>
-				<P class="mb-4 text-center text-gray-700">
-					Contribute code, report issues, or join discussions. Your input shapes FlagFlow's future.
-				</P>
-				<Button href="https://github.com/flagflow/flagflow" size="sm" target="_blank"
-					>Join GitHub</Button
-				>
+			<div class="flex flex-wrap justify-center gap-4">
+				<Button href="/docs" size="lg">Get Started</Button>
+				<Button color="alternative" href="/docs/installation/docker" size="lg">Docker Setup</Button>
+				<Button color="alternative" href="/oss-open-source" size="lg">Open Source</Button>
 			</div>
 		</div>
 	</div>
@@ -307,7 +376,7 @@
 				</div>
 				<Heading class="mt-3 mb-2 text-lg font-semibold text-gray-900" tag="h3">Features</Heading>
 				<P class="mb-3 text-sm text-gray-700">Explore all FlagFlow capabilities</P>
-				<Button href="/features" size="xs">View Features</Button>
+				<Button href="/docs" size="xs">View Features</Button>
 			</div>
 			<div class="p-6 text-center">
 				<div class="flex justify-center">

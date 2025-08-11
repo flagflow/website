@@ -26,10 +26,9 @@
 	>
 	<NavUl>
 		<NavLi class="mx-2" href="/">Home</NavLi>
-		<NavLi class="mx-2" href="/features">Features</NavLi>
-		<NavLi class="mx-2" href="/oss-open-source">Open Source</NavLi>
 		<NavLi class="mx-2" href="/integration">Integration</NavLi>
 		<NavLi class="mx-2" href="/ci-cd">CI / CD</NavLi>
+		<NavLi class="mx-2" href="/oss-open-source">Open Source</NavLi>
 		<NavLi class="mx-2" href="/docs">Docs</NavLi>
 	</NavUl>
 	<div>
