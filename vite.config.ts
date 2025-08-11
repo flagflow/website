@@ -12,7 +12,18 @@ export default defineConfig({
 		circularDependency({
 			circleImportThrowErr: true,
 			exclude: [/node_modules/, /\.git/, /Modal/]
-		})
+		}),
+		{
+			name: 'copy-assets',
+			async writeBundle() {
+				const fs = await import('node:fs');
+				fs.cpSync(
+					'./.svelte-kit/output/client/_app/immutable/assets',
+					'./.svelte-kit/output/client/assets',
+					{ recursive: true }
+				);
+			}
+		}
 	],
 	build: {
 		sourcemap: false,
