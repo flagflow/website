@@ -8,7 +8,7 @@ describe('documentPageRegistry', () => {
 			expect(documentPageRegistry['']).toBeDefined();
 			expect(documentPageRegistry[''].title).toBe('Getting Started');
 			expect(documentPageRegistry[''].description).toBe(
-				'Learn how to get started with our platform'
+				'Complete guide to setting up and using FlagFlow for feature flag management'
 			);
 		});
 
