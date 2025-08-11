@@ -26,11 +26,11 @@ jobs:
       - name: Build
         run: node --run sync && node --run sitemap:generate && node --run build
 
-      - name: Publish Docs folder
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add static/sitemap.xml -f
-          git add docs/ -f
-          git commit -m "Deploy docs [skip ci]" || exit 0
-          git push
+      - name: Upload ftp
+        uses: genietim/ftp-action@releases/v4
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          user: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          localDir: 'docs'
+          remoteDir: ''
