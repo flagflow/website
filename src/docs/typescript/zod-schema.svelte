@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -26,7 +27,7 @@
 
 	<DocsPageSection id="zod-benefits" title="Why Use Zod with Feature Flags?">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Runtime Validation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Validates data from external APIs</li>
@@ -34,8 +35,8 @@
 					<li>Ensures type consistency at runtime</li>
 					<li>Prevents silent type coercion issues</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Data Transformation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Automatic type coercion</li>
@@ -43,8 +44,8 @@
 					<li>Data sanitization and cleaning</li>
 					<li>Format normalization</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Error Handling</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Detailed validation error messages</li>
@@ -52,8 +53,8 @@
 					<li>Safe parsing with fallbacks</li>
 					<li>Graceful degradation options</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Development Experience</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>IntelliSense support</li>
@@ -61,7 +62,7 @@
 					<li>Consistent with TypeScript types</li>
 					<li>Zero configuration required</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -721,7 +722,7 @@ import { z } from 'zod';
 
 	<DocsPageSection id="troubleshooting-zod" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Zod Import Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Install Zod dependency: <code>npm install zod</code></li>
@@ -729,8 +730,8 @@ import { z } from 'zod';
 					<li>Check TypeScript configuration for proper module resolution</li>
 					<li>Ensure the generated file path is correct</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Validation Performance Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Use <code>safeParse()</code> instead of <code>parse()</code> to avoid exceptions</li>
@@ -738,8 +739,8 @@ import { z } from 'zod';
 					<li>Consider using <code>strict()</code> mode to fail fast on unknown properties</li>
 					<li>Profile validation hot paths and optimize complex schemas</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Type Inference Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ensure TypeScript version is compatible (4.5+ recommended)</li>
@@ -747,7 +748,7 @@ import { z } from 'zod';
 					<li>Avoid circular references in schema definitions</li>
 					<li>Check for conflicts between TypeScript and Zod types</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

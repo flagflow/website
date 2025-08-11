@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -257,7 +258,7 @@ const FLAGS_SCHEMA = {
 
 	<DocsPageSection id="validation-behavior" title="Validation and Error Handling">
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Schema Validation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Runtime validation using Zod schemas</li>
@@ -265,8 +266,8 @@ const FLAGS_SCHEMA = {
 					<li>Constraint validation (min/max, regex, enum values)</li>
 					<li>Detailed error messages for invalid values</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Hash Validation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Generated hash constants for schema integrity</li>
@@ -274,13 +275,13 @@ const FLAGS_SCHEMA = {
 					<li>Prevents runtime errors from schema mismatches</li>
 					<li>Ensures client-server schema synchronization</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
 	<DocsPageSection id="best-practices" title="Best Practices">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Choosing the Right Type</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li><strong>BOOLEAN</strong>: Use for simple on/off features and kill switches</li>
@@ -290,8 +291,8 @@ const FLAGS_SCHEMA = {
 					<li><strong>TAG</strong>: Use for multi-selection scenarios with validation</li>
 					<li><strong>AB-TEST</strong>: Use for split testing and gradual rollouts</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Performance Considerations</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>All types have minimal runtime overhead</li>
@@ -299,7 +300,7 @@ const FLAGS_SCHEMA = {
 					<li>ENUM and TAG types use efficient union type checking</li>
 					<li>Schema validation happens only during flag updates</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

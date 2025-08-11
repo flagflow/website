@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -31,7 +32,7 @@
 			containing:
 		</p>
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Flag Definitions</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>All flag names and hierarchical structure</li>
@@ -39,8 +40,8 @@
 					<li>Flag descriptions and documentation</li>
 					<li>Default values for each flag</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Schema Information</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Type-specific constraints and validation rules</li>
@@ -48,8 +49,8 @@
 					<li>Min/max values for numeric flags</li>
 					<li>String length limits and regex patterns</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Current Values</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Active flag values (if set)</li>
@@ -57,8 +58,8 @@
 					<li>AB-test configurations</li>
 					<li>Tag selections and arrays</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Metadata</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Environment identifier</li>
@@ -66,7 +67,7 @@
 					<li>Export timestamp</li>
 					<li>File format version</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -381,7 +382,7 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 
 	<DocsPageSection id="troubleshooting-export" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Export Download Fails</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that FlagFlow service is running and accessible</li>
@@ -389,8 +390,8 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Ensure you have proper permissions for export operations</li>
 					<li>Check server logs for any etcd connectivity issues</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Large Export Files</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Export files grow with the number of flags and complexity</li>
@@ -398,8 +399,8 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Use compression when storing large backup files</li>
 					<li>Monitor disk space for automated backup directories</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Corrupted Export Files</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Always verify JSON validity after downloading exports</li>
@@ -407,7 +408,7 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Keep multiple backup versions to avoid single points of failure</li>
 					<li>Test backup restoration regularly in non-production environments</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

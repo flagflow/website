@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -249,7 +250,7 @@ CMD ["npm", "start"]
 
 	<DocsPageSection id="performance-optimization" title="Performance and Optimization">
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Efficient Access Patterns</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Use group access to reduce HTTP requests</li>
@@ -257,8 +258,8 @@ CMD ["npm", "start"]
 					<li>Cache flag values with appropriate TTL</li>
 					<li>Use environment variable format for simple configs</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Caching Strategies</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>HTTP caching headers are included in responses</li>
@@ -266,7 +267,7 @@ CMD ["npm", "start"]
 					<li>Use ETags for conditional requests</li>
 					<li>Consider real-time updates via WebSocket for critical flags</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 
 		<div class="mt-4 rounded-lg bg-yellow-50 p-4">
@@ -289,23 +290,23 @@ CMD ["npm", "start"]
 	<DocsPageSection id="related-documentation" title="Related Documentation">
 		<p class="mb-4">Explore these related topics for comprehensive FlagFlow usage:</p>
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
 					<a class="text-blue-600 hover:underline" href="/docs/flags/flag-types"> Flag Types </a>
 				</h4>
 				<p class="text-sm text-gray-600">
 					Understand different flag types and their constraints to properly handle returned values.
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
 					<a class="text-blue-600 hover:underline" href="/docs/flags/hierarchy"> Flag Hierarchy </a>
 				</h4>
 				<p class="text-sm text-gray-600">
 					Learn how to organize flags hierarchically for efficient group access and management.
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
 					<a class="text-blue-600 hover:underline" href="/docs/typescript/ts-schema">
 						TypeScript Schema
@@ -314,8 +315,8 @@ CMD ["npm", "start"]
 				<p class="text-sm text-gray-600">
 					Generate type-safe clients for accessing flags with full IntelliSense support.
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
 					<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication">
 						Authentication
@@ -324,7 +325,7 @@ CMD ["npm", "start"]
 				<p class="text-sm text-gray-600">
 					Understand which operations require authentication versus public flag reading access.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -32,7 +33,7 @@
 			right tool for your needs:
 		</p>
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Restore Operation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Works within the same environment</li>
@@ -41,8 +42,8 @@
 					<li>Source and target environment must match</li>
 					<li>Simpler validation and fewer safety checks</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Migration Operation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Works between different environments</li>
@@ -51,7 +52,7 @@
 					<li>Source and target environments must be different</li>
 					<li>Comprehensive validation and dependency checking</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -383,7 +384,7 @@ echo "✅ Restore validation completed"`}
 
 	<DocsPageSection id="troubleshooting-restore" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Environment Mismatch Error</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify backup environment matches ENVIRONMENT variable</li>
@@ -391,8 +392,8 @@ echo "✅ Restore validation completed"`}
 					<li>Use migration instead of restore for cross-environment operations</li>
 					<li>Confirm backup file hasn't been modified or corrupted</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Restore Execution Failures</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check etcd connectivity and storage availability</li>
@@ -400,8 +401,8 @@ echo "✅ Restore validation completed"`}
 					<li>Look for disk space issues that prevent flag creation</li>
 					<li>Review server logs for detailed error messages</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Incomplete Restore Results</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check if some restore steps were unselected or failed</li>
@@ -409,8 +410,8 @@ echo "✅ Restore validation completed"`}
 					<li>Look for validation errors that prevented some flag creation</li>
 					<li>Consider re-running restore with missing steps selected</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Application Issues After Restore</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check if applications expect flags created after the backup</li>
@@ -418,7 +419,7 @@ echo "✅ Restore validation completed"`}
 					<li>Look for new application features that depend on missing flags</li>
 					<li>Consider selective restore to preserve some current flags</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

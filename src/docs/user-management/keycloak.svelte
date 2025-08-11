@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -27,7 +28,7 @@
 
 	<DocsPageSection id="benefits" title="Benefits of Keycloak Integration">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Single Sign-On (SSO)</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Seamless authentication across applications</li>
@@ -35,8 +36,8 @@
 					<li>Centralized session management</li>
 					<li>Social login providers</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Advanced Security</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Multi-factor authentication (MFA)</li>
@@ -44,8 +45,8 @@
 					<li>Password policies</li>
 					<li>Session security controls</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">User Federation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>LDAP/Active Directory integration</li>
@@ -53,8 +54,8 @@
 					<li>Custom user providers</li>
 					<li>Automated user provisioning</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Role Management</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Fine-grained role-based access control</li>
@@ -62,7 +63,7 @@
 					<li>Dynamic role assignment</li>
 					<li>Attribute-based access control</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -334,7 +335,7 @@ ETCD_SERVER=your-etcd-server:2379`}
 
 	<DocsPageSection id="troubleshooting" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Authentication Redirect Loop</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that redirect URIs are correctly configured in Keycloak client</li>
@@ -342,8 +343,8 @@ ETCD_SERVER=your-etcd-server:2379`}
 					<li>Ensure FlagFlow can reach the Keycloak server</li>
 					<li>Check for conflicting session settings</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Permission Denied Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify that users have the correct roles assigned</li>
@@ -351,8 +352,8 @@ ETCD_SERVER=your-etcd-server:2379`}
 					<li>Ensure role names match exactly between Keycloak and FlagFlow</li>
 					<li>Test with a user that has all permissions</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Token Validation Failures</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that token signature verification is properly configured</li>
@@ -360,7 +361,7 @@ ETCD_SERVER=your-etcd-server:2379`}
 					<li>Ensure clock synchronization between servers</li>
 					<li>Check token expiration times and refresh token behavior</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

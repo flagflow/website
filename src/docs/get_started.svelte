@@ -2,6 +2,7 @@
 	/* eslint-disable no-undef */
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 
@@ -18,30 +19,30 @@
 			FlagFlow is a powerful, self-hosted feature flag management platform that enables teams to:
 		</p>
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🚀 Deploy Features Safely</h3>
 				<p class="text-gray-600">
 					Control feature releases with toggles, percentage rollouts, and kill switches
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">⚡ Real-time Updates</h3>
 				<p class="text-gray-600">
 					Instant flag updates using etcd's watch API for zero-downtime changes
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🔧 Type Safety</h3>
 				<p class="text-gray-600">
 					Full TypeScript support with automatic IntelliSense and schema validation
 				</p>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🏢 Enterprise Ready</h3>
 				<p class="text-gray-600">
 					Built-in authentication, Keycloak integration, and granular permissions
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -302,7 +303,7 @@ function Dashboard() {
 		<p class="mb-4">Now that you have FlagFlow running, here are recommended next steps:</p>
 
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🔧 Production Setup</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
@@ -321,8 +322,8 @@ function Dashboard() {
 						>
 					</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">👥 User Management</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
@@ -341,8 +342,8 @@ function Dashboard() {
 						>
 					</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">💻 Development</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
@@ -361,8 +362,8 @@ function Dashboard() {
 						>
 					</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🚀 Operations</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
@@ -381,7 +382,7 @@ function Dashboard() {
 						>
 					</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 
 		<div class="rounded-lg bg-gray-50 p-4">
@@ -408,7 +409,7 @@ function Dashboard() {
 		<p class="mb-4">Need assistance with FlagFlow? Here are the best ways to get help:</p>
 
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">📖 Documentation</h3>
 				<p class="mb-2 text-gray-600">Comprehensive guides and references:</p>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
@@ -416,8 +417,8 @@ function Dashboard() {
 					<li>API reference</li>
 					<li>Best practices</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">🐛 Issues & Support</h3>
 				<p class="mb-2 text-gray-600">Get help with problems:</p>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
@@ -426,7 +427,7 @@ function Dashboard() {
 					<li>Bug reports</li>
 					<li>Feature requests</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 
 		<div class="rounded-lg bg-blue-50 p-4">

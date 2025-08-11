@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -155,7 +156,7 @@ const experimentFlags = await flagClient.getFlags('experiments');
 		<h3 class="mb-3 text-lg font-semibold">Recommended Grouping Approaches</h3>
 
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">By Application Area</h4>
 				<CodeBlock
 					code={`ui/header/search_enabled
@@ -166,8 +167,8 @@ notifications/email/enabled
 notifications/push/badge_count`}
 					title="Area-based Organization"
 				/>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">By Team Ownership</h4>
 				<CodeBlock
 					code={`frontend/dashboard/widgets
@@ -178,7 +179,7 @@ devops/monitoring/alerts
 devops/deployment/canary`}
 					title="Team-based Organization"
 				/>
-			</div>
+			</DocsPageRoundedBox>
 			<div class="rounded-lg border border-red-200 bg-red-50 p-4">
 				<h4 class="mb-2 font-semibold text-red-800">❌ By Feature Lifecycle (Not Recommended)</h4>
 				<div class="mb-2 rounded-lg bg-red-100 p-2">
@@ -259,7 +260,7 @@ const authFlags = getFlags('api/auth'); // Returns auth flags`}
 
 	<DocsPageSection id="best-practices" title="Hierarchy Best Practices">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">✅ Do's</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>
@@ -276,8 +277,8 @@ const authFlags = getFlags('api/auth'); // Returns auth flags`}
 						<strong>Document structure:</strong> Maintain documentation of your hierarchy organization
 					</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">❌ Don'ts</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>
@@ -296,7 +297,7 @@ const authFlags = getFlags('api/auth'); // Returns auth flags`}
 						<strong>Avoid frequent restructuring:</strong> Plan changes carefully to minimize disruption
 					</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -343,7 +344,7 @@ enable_dark_mode → ui/theme/dark_mode`}
 
 	<DocsPageSection id="performance-considerations" title="Performance Considerations">
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Optimization Tips</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Load only required hierarchy branches</li>
@@ -351,8 +352,8 @@ enable_dark_mode → ui/theme/dark_mode`}
 					<li>Implement lazy loading for deep hierarchies</li>
 					<li>Monitor flag access patterns to optimize structure</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Monitoring Metrics</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Track which hierarchy branches are accessed most</li>
@@ -360,7 +361,7 @@ enable_dark_mode → ui/theme/dark_mode`}
 					<li>Measure memory usage of loaded flag subsets</li>
 					<li>Analyze network traffic patterns for hierarchy access</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -194,7 +195,7 @@
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Built-in User Management</h3>
 				<p class="mb-3 text-gray-600">
 					Simple session-based authentication for small to medium deployments
@@ -205,8 +206,8 @@
 					<li>Configurable session timeout</li>
 					<li>Built-in user interface</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Keycloak Integration</h3>
 				<p class="mb-3 text-gray-600">
 					Enterprise-grade authentication with external identity provider
@@ -217,7 +218,7 @@
 					<li>Advanced role management</li>
 					<li>Integration with existing identity systems</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

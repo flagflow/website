@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -86,7 +87,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 
 	<DocsPageSection id="benefits" title="Key Benefits">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Type Safety</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Prevents runtime type mismatches</li>
@@ -94,8 +95,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Ensures client code compatibility</li>
 					<li>Eliminates silent type errors</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Automatic Cache Invalidation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>No manual cache clearing needed</li>
@@ -103,8 +104,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Prevents stale data issues</li>
 					<li>Automatic client updates</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Development Safety</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Early error detection</li>
@@ -112,8 +113,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Prevents production issues</li>
 					<li>Team coordination made easy</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Performance</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Fast SHA-1 hash computation</li>
@@ -121,7 +122,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Efficient caching strategy</li>
 					<li>Reduced unnecessary requests</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -330,7 +331,7 @@ jobs:
 
 	<DocsPageSection id="troubleshooting" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Frequent 409 Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check if flag schemas were recently modified</li>
@@ -338,8 +339,8 @@ jobs:
 					<li>Verify you're connecting to the correct FlagFlow instance</li>
 					<li>Clear any intermediate caches or proxies</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Hash Generation Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ensure flag names don't contain invalid characters</li>
@@ -347,8 +348,8 @@ jobs:
 					<li>Verify enum values are properly formatted</li>
 					<li>Look for circular dependencies in flag hierarchies</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Client-Side Debugging</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Log hash values being sent in headers</li>
@@ -356,7 +357,7 @@ jobs:
 					<li>Check network tab for actual HTTP headers</li>
 					<li>Verify TypeScript definitions are properly imported</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

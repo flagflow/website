@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -143,7 +144,7 @@
 	<DocsPageSection id="role-examples" title="Common Role Examples">
 		<p class="mb-4">Here are typical user roles and their recommended permission combinations:</p>
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Developer</h3>
 				<p class="mb-2 text-gray-600">Can modify flag values during development and testing</p>
 				<div class="mb-2">
@@ -155,9 +156,9 @@
 					Typical use: Developers can enable/disable features and adjust flag values for testing
 					purposes.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Senior Developer / Architect</h3>
 				<p class="mb-2 text-gray-600">Can modify flag schemas and values</p>
 				<div class="mb-2 space-x-2">
@@ -172,9 +173,9 @@
 					Typical use: Senior developers can modify flag structure and data types in addition to
 					values.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Product Manager</h3>
 				<p class="mb-2 text-gray-600">Can create and manage feature flags</p>
 				<div class="mb-2 space-x-2">
@@ -188,9 +189,9 @@
 				<p class="text-sm text-gray-600">
 					Typical use: Product managers can create new feature flags and control their rollout.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Team Lead</h3>
 				<p class="mb-2 text-gray-600">Full flag management capabilities</p>
 				<div class="mb-2 space-x-2">
@@ -207,9 +208,9 @@
 				<p class="text-sm text-gray-600">
 					Typical use: Team leads have full control over feature flag lifecycle and management.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">System Administrator</h3>
 				<p class="mb-2 text-gray-600">Complete system access including user management</p>
 				<div class="mb-2 space-x-2">
@@ -233,7 +234,7 @@
 					Typical use: System administrators manage the entire FlagFlow instance including users and
 					system operations.
 				</p>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -368,7 +369,7 @@ migration       -> FlagFlow permission: migration`}
 
 	<DocsPageSection id="troubleshooting-permissions" title="Troubleshooting Permissions">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">"Access Denied" Errors</h4>
 				<ol class="list-inside list-decimal space-y-1 text-sm">
 					<li>Verify the user has the required permission for the operation</li>
@@ -376,9 +377,9 @@ migration       -> FlagFlow permission: migration`}
 					<li>Ensure permissions are correctly assigned (built-in users) or mapped (Keycloak)</li>
 					<li>Test with a user that has all permissions to isolate the issue</li>
 				</ol>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Permission Changes Not Taking Effect</h4>
 				<ol class="list-inside list-decimal space-y-1 text-sm">
 					<li>For built-in users: Changes are immediate, try refreshing the page</li>
@@ -386,9 +387,9 @@ migration       -> FlagFlow permission: migration`}
 					<li>Check browser cache and clear if necessary</li>
 					<li>Verify the permission assignment was saved correctly</li>
 				</ol>
-			</div>
+			</DocsPageRoundedBox>
 
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Unexpected Permission Behavior</h4>
 				<ol class="list-inside list-decimal space-y-1 text-sm">
 					<li>Check logs for permission verification errors</li>
@@ -396,7 +397,7 @@ migration       -> FlagFlow permission: migration`}
 					<li>For Keycloak: Ensure client role mapping is correct</li>
 					<li>Test with a fresh user account to rule out cached permission issues</li>
 				</ol>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

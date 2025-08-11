@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -30,7 +31,7 @@
 			containing:
 		</p>
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Type Definitions</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Hierarchical TypeScript interfaces</li>
@@ -38,8 +39,8 @@
 					<li>Array types for tags</li>
 					<li>Readonly properties for immutability</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Runtime Objects</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Default value objects</li>
@@ -47,8 +48,8 @@
 					<li>Group descriptor mappings</li>
 					<li>Type-to-group associations</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Client Functions</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Basic fetch functions</li>
@@ -56,8 +57,8 @@
 					<li>Cached implementations</li>
 					<li>Error handling utilities</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Complete Examples</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ready-to-use code snippets</li>
@@ -65,7 +66,7 @@
 					<li>Best practices</li>
 					<li>Performance optimizations</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -489,7 +490,7 @@ export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
 
 	<DocsPageSection id="troubleshooting-ts" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Type Errors After Schema Changes</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>
@@ -499,8 +500,8 @@ export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
 					<li>Restart TypeScript language server</li>
 					<li>Check for breaking changes in flag types</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Runtime Type Mismatches</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify hash validation is working (check 409 errors)</li>
@@ -508,8 +509,8 @@ export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
 					<li>Check that default values match expected types</li>
 					<li>Validate enum values are still valid</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Import/Module Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ensure flagflowTypes.ts is in the correct location</li>
@@ -517,7 +518,7 @@ export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
 					<li>Verify file paths in import statements</li>
 					<li>Check for circular dependency issues</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

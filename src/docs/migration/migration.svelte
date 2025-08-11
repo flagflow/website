@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -28,7 +29,7 @@
 
 	<DocsPageSection id="migration-types" title="Migration Types">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">File-Based Migration</h3>
 				<p class="mb-3 text-gray-600">Upload an export file from another environment</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
@@ -37,8 +38,8 @@
 					<li>Works across network boundaries</li>
 					<li>Suitable for air-gapped environments</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Remote Migration</h3>
 				<p class="mb-3 text-gray-600">Direct connection to another FlagFlow instance</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
@@ -47,7 +48,7 @@
 					<li>Requires network connectivity</li>
 					<li>Streamlined one-step process</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -315,7 +316,7 @@ LOGLEVEL=info`}
 
 	<DocsPageSection id="troubleshooting-migration" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Environment Validation Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that source and target environments have different names</li>
@@ -323,8 +324,8 @@ LOGLEVEL=info`}
 					<li>Ensure export file contains the expected environment identifier</li>
 					<li>Confirm remote URL points to a different environment</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Step Dependency Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>All dependent steps must be selected for execution</li>
@@ -332,8 +333,8 @@ LOGLEVEL=info`}
 					<li>Review step ordering and dependencies in the UI</li>
 					<li>Ensure DELETE steps come before CREATE steps for the same flag</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Migration Execution Failures</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check etcd connectivity and permissions</li>
@@ -341,8 +342,8 @@ LOGLEVEL=info`}
 					<li>Look for conflicts with existing flag values</li>
 					<li>Check server logs for detailed error messages</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Remote Migration Connection Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify MIGRATION_SOURCE_URL is reachable from target environment</li>
@@ -350,7 +351,7 @@ LOGLEVEL=info`}
 					<li>Ensure source FlagFlow instance is running and responsive</li>
 					<li>Validate URL format and protocol (HTTP/HTTPS)</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
