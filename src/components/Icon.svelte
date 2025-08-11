@@ -73,7 +73,7 @@
 		shield: 'mdi:shield',
 		lock: 'mdi:lock',
 		key: 'mdi:key',
-		deploy: 'mdi:deploy',
+		deploy: 'mdi:cloud-key',
 		backup: 'mdi:backup-restore',
 		migration: 'mdi:database-export',
 		hash: 'mdi:pound',
