@@ -156,7 +156,7 @@ curl http://localhost:3000/flag/enable_new_dashboard
 curl http://localhost:3000/flags
 
 # Get flag schema for TypeScript generation
-curl http://localhost:3000/api/schema`}
+curl http://localhost:3000/type/typescript`}
 			title="Testing Flag API"
 		/>
 
@@ -250,7 +250,7 @@ if (value) {
 		<p class="mb-4">Generate type-safe flag clients with automatic IntelliSense and validation:</p>
 		<CodeBlock
 			code={`# Generate TypeScript types
-curl http://localhost:3000/api/schema > flags.schema.ts
+curl http://localhost:3000/type/typescript > flags.schema.ts
 
 # In your TypeScript application:
 import { getFlagValue, FLAGS } from './flagflow-client';
