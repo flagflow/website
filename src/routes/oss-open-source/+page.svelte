@@ -7,7 +7,7 @@
 	import opensourceImage400 from './opensource.jpg?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader title="Open Source at FlagFlow" />
+<HtmlHeader description="" keywords="" title="Open Source at FlagFlow" />
 
 <PageSection>
 	<div class="mx-auto max-w-4xl">
@@ -15,7 +15,9 @@
 			<Heading class="mb-4 text-4xl font-bold text-gray-900" tag="h1">
 				FlagFlow: Powering Innovation Through Open Source
 			</Heading>
-			<P class="text-xl text-gray-600">Building the future of feature flag management, together</P>
+			<P class="text-center text-xl text-gray-600"
+				>Building the future of feature flag management, together</P
+			>
 		</div>
 
 		<div class="mb-12 grid gap-8 md:grid-cols-2 md:items-center">
