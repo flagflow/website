@@ -16,7 +16,11 @@
 	import setValueViewImage800 from './setvalue-view.png?w=800&format=webp&imagetools';
 </script>
 
-<HtmlHeader description="" keywords="" title="Welcome" />
+<HtmlHeader
+	description="FlagFlow empowers you to control feature flags effortlessly. Manage boolean, number, string, and JSON flags with hierarchical organization, kill switches, TypeScript integration, and seamless migration tools in one powerful UI."
+	keywords="flagflow, feature flag management platform, feature toggles, feature flags ui, boolean flags, json flags, hierarchical flags, kill switch, typescript feature flags, migration tools, developer tools, feature rollout, a b testing"
+	title="Welcome"
+/>
 
 <!-- Hero Section -->
 <PageSection>

@@ -9,7 +9,11 @@
 	import cicdImage400 from './cicd.webp?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader description="" keywords="" title="CI/CD with FlagFlow" />
+<HtmlHeader
+	description="Integrate FlagFlow feature flag management into your CI/CD pipelines with TypeScript schema generation, Zod validation, hash-based error prevention, and automated migration tools for modern DevOps workflows."
+	keywords="flagflow cicd, feature flags ci cd, devops feature flags, typescript feature flags, zod validation feature flags, pipeline integration, continuous integration feature flags, automated deployment flags, devops automation, feature flag automation"
+	title="CI/CD with FlagFlow"
+/>
 
 <PageSection>
 	<div class="mx-auto max-w-5xl">

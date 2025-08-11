@@ -7,7 +7,11 @@
 	import opensourceImage400 from './opensource.jpg?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader description="" keywords="" title="Open Source at FlagFlow" />
+<HtmlHeader
+	description="FlagFlow is a free and open-source feature flag management platform. Join our community, contribute to development, and help build the future of feature flag management together. Completely free to use for all team sizes."
+	keywords="flagflow open source, free feature flags, open source feature flag management, github flagflow, community driven, free software, feature flag platform, contribute open source, developer community, transparent feature flags"
+	title="Open Source at FlagFlow"
+/>
 
 <PageSection>
 	<div class="mx-auto max-w-4xl">

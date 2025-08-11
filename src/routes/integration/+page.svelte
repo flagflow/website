@@ -11,7 +11,11 @@
 	import slackImage400 from './slack.avif?w=400&format=webp&imagetools';
 </script>
 
-<HtmlHeader description="" keywords="" title="FlagFlow Integrations" />
+<HtmlHeader
+	description="Connect FlagFlow with your favorite tools and workflows. Available integrations include Keycloak authentication, with upcoming Slack notifications, REST API automation, and comprehensive audit logging features."
+	keywords="flagflow integrations, keycloak integration, slack notifications feature flags, rest api feature flags, audit logging, sso integration, authentication, enterprise integrations, workflow automation, third party integrations"
+	title="FlagFlow Integrations"
+/>
 
 <PageSection>
 	<div class="mx-auto max-w-5xl">
