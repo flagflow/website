@@ -1,9 +1,9 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -101,39 +101,124 @@
 	</DocsPageSection>
 
 	<DocsPageSection id="auth-methods" title="Authentication Methods">
-		<p class="mb-4">FlagFlow supports two primary authentication methods:</p>
+		<p class="mb-4">
+			FlagFlow supports flexible authentication configurations based on environment variables:
+		</p>
+
+		<h3 class="mb-3 text-lg font-semibold">Authentication Configuration Matrix</h3>
+		<p class="mb-4">
+			The behavior of FlagFlow's authentication system depends on the combination of <code
+				>SESSION_USERS_ENABLED</code
+			>
+			and <code>KEYCLOAK_HOST</code> settings:
+		</p>
+
+		<div class="mb-6 overflow-x-auto">
+			<table class="w-full border-collapse border border-gray-300">
+				<thead>
+					<tr class="bg-gray-100">
+						<th class="border border-gray-300 px-4 py-2 text-left">SESSION_USERS_ENABLED</th>
+						<th class="border border-gray-300 px-4 py-2 text-left">KEYCLOAK_HOST</th>
+						<th class="border border-gray-300 px-4 py-2 text-left">Behavior</th>
+						<th class="border border-gray-300 px-4 py-2 text-left">Login Display</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-red-100 text-red-700">false</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-red-100 text-red-700">not set</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<strong>Auto-login</strong><br />
+							<span class="text-sm text-gray-600"
+								>No authentication required, direct access to admin interface</span
+							>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<span class="text-green-600">No login screen</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-green-100 text-green-700">true</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-red-100 text-red-700">not set</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<strong>Session-based only</strong><br />
+							<span class="text-sm text-gray-600"
+								>Built-in user management with username/password</span
+							>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<span class="text-blue-600">Standard login form</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-red-100 text-red-700">false</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-green-100 text-green-700">set</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<strong>Keycloak only</strong><br />
+							<span class="text-sm text-gray-600">OAuth 2.0/OpenID Connect authentication</span>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<span class="text-purple-600">Keycloak redirect</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-green-100 text-green-700">true</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2 text-center">
+							<code class="bg-green-100 text-green-700">set</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<strong>Dual authentication</strong><br />
+							<span class="text-sm text-gray-600"
+								>Users can choose between session-based or Keycloak authentication</span
+							>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<span class="text-orange-600">Login with options to switch between methods</span>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
 		<div class="grid gap-6 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">
-					<Glossary id="Built-in User Management">Built-in User Management</Glossary>
-				</h3>
+			<DocsPageRoundedBox>
+				<h3 class="mb-2 text-lg font-semibold">Built-in User Management</h3>
 				<p class="mb-3 text-gray-600">
-					Simple <Glossary id="Session-based authentication">session-based authentication</Glossary>
-					for small to medium deployments
+					Simple session-based authentication for small to medium deployments
 				</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>
-						<Glossary id="Session-based authentication">Session-based authentication</Glossary>
-					</li>
+					<li>Session-based authentication</li>
 					<li>Default user creation at startup</li>
 					<li>Configurable session timeout</li>
 					<li>Built-in user interface</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">
-					<Glossary id="Keycloak Integration">Keycloak Integration</Glossary>
-				</h3>
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
+				<h3 class="mb-2 text-lg font-semibold">Keycloak Integration</h3>
 				<p class="mb-3 text-gray-600">
 					Enterprise-grade authentication with external identity provider
 				</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li><Glossary id="OAuth 2.0/OpenID Connect">OAuth 2.0 / OpenID Connect</Glossary></li>
-					<li><Glossary id="Single Sign-On (SSO)">Single Sign-On (SSO)</Glossary></li>
+					<li>OAuth 2.0 / OpenID Connect</li>
+					<li>Single Sign-On (SSO)</li>
 					<li>Advanced role management</li>
 					<li>Integration with existing identity systems</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

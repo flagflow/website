@@ -9,7 +9,6 @@ The official documentation website for **FlagFlow** - a powerful, self-hosted fe
 ## 🌟 Features
 
 - **📚 Comprehensive Documentation**: Complete guides for installation, configuration, and usage
-- **🔍 Interactive Glossary**: Hover tooltips for technical terms throughout the documentation
 - **⚡ Static Site Generation**: Fast, SEO-friendly static documentation site
 - **🎨 Modern Design**: Built with Tailwind CSS and Flowbite components
 - **📱 Responsive**: Works perfectly on desktop, tablet, and mobile devices
@@ -56,15 +55,13 @@ npm run preview
 src/
 ├── components/           # Reusable Svelte components
 │   ├── docs/            # Documentation-specific components
-│   ├── CodeBlock.svelte # Syntax-highlighted code blocks
-│   └── Glossary.svelte  # Interactive glossary tooltips
+│   └── CodeBlock.svelte # Syntax-highlighted code blocks
 ├── docs/                # Documentation content (Svelte components)
 │   ├── installation/    # Installation guides
 │   ├── user-management/ # Authentication & permissions
 │   ├── typescript/      # TypeScript integration
 │   ├── migration/       # Backup, migration, restore
 │   ├── flags/          # Flag types and organization
-│   ├── GLOSSARY.ts     # Glossary definitions
 │   └── get_started.svelte # Main getting started guide
 ├── lib/                # Shared utilities and components
 ├── routes/             # SvelteKit routing
@@ -186,28 +183,6 @@ Example registry entry:
 }
 ```
 
-## 🔍 Interactive Glossary
-
-The site features an interactive glossary system with **60+ technical terms**:
-
-- **Hover tooltips** for glossary terms throughout documentation
-- **Comprehensive definitions** covering all FlagFlow concepts
-- **Type-safe implementation** with TypeScript
-
-### Using Glossary Terms
-
-```svelte
-<script>
-	import Glossary from '$components/Glossary.svelte';
-</script>
-
-<p>
-	FlagFlow uses <Glossary id="etcd">etcd</Glossary> for storage and supports <Glossary
-		id="Type Safety">type safety</Glossary
-	> with TypeScript.
-</p>
-```
-
 ## 🏗️ Build Configuration
 
 - **SvelteKit** with `@sveltejs/adapter-static`
@@ -246,7 +221,6 @@ The site builds to static files in the `docs/` directory for easy deployment to:
 
 - Use clear, concise language
 - Include code examples where appropriate
-- Add glossary terms for technical concepts
 - Follow existing component patterns
 - Test on multiple screen sizes
 

@@ -8,7 +8,7 @@ describe('documentPageRegistry', () => {
 			expect(documentPageRegistry['']).toBeDefined();
 			expect(documentPageRegistry[''].title).toBe('Getting Started');
 			expect(documentPageRegistry[''].description).toBe(
-				'Learn how to get started with our platform'
+				'Complete guide to setting up and using FlagFlow for feature flag management'
 			);
 		});
 
@@ -46,12 +46,6 @@ describe('documentPageRegistry', () => {
 				expect(documentPageRegistry.flags.nodes.hierarchy).toBeDefined();
 				expect(documentPageRegistry.flags.nodes['access-flags']).toBeDefined();
 			}
-		});
-
-		it('should contain standalone pages', () => {
-			expect(documentPageRegistry.glossary).toBeDefined();
-
-			expect('title' in documentPageRegistry.glossary).toBe(true);
 		});
 	});
 
@@ -96,12 +90,6 @@ describe('documentPageRegistry', () => {
 			expect(documentPageRegistryFlat['flags/flag-types']).toBeDefined();
 			expect(documentPageRegistryFlat['flags/flag-types'].title).toBe('Flag Types');
 			expect(documentPageRegistryFlat['flags/flag-types'].filename).toBe('flags/flag-types');
-		});
-
-		it('should flatten standalone pages', () => {
-			expect(documentPageRegistryFlat['glossary']).toBeDefined();
-			expect(documentPageRegistryFlat['glossary'].title).toBe('Glossary');
-			expect(documentPageRegistryFlat['glossary'].filename).toBe('glossary');
 		});
 
 		it('should have proper count of entries', () => {

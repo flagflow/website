@@ -1,26 +1,22 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
 	<PageTitle title="Export and Backup"
-		>Create comprehensive backups of your <Glossary id="Feature Flag">feature flags</Glossary> and <Glossary
-			id="Configuration">configuration</Glossary
-		></PageTitle
+		>Create comprehensive backups of your feature flags and configuration</PageTitle
 	>
 
 	<DocsPageSection id="overview" title="Export Overview">
 		<p class="mb-4">
-			FlagFlow's <Glossary id="Export">export</Glossary> functionality allows you to create complete
-			backups of your <Glossary id="Feature Flag">feature flag</Glossary>
-			<Glossary id="Configuration">configuration</Glossary>, including schemas, values, and
-			metadata. These <Glossary id="Export">exports</Glossary> serve multiple purposes: creating backups,
-			migrating between <Glossary id="Environment">environments</Glossary>, and maintaining version
-			control of your flag configurations.
+			FlagFlow's export functionality allows you to create complete backups of your feature flag
+			configuration, including schemas, values, and metadata. These exports serve multiple purposes:
+			creating backups, migrating between environments, and maintaining version control of your flag
+			configurations.
 		</p>
 		<div class="mb-4 rounded-lg bg-green-50 p-4">
 			<p class="text-green-800">
@@ -36,7 +32,7 @@
 			containing:
 		</p>
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Flag Definitions</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>All flag names and hierarchical structure</li>
@@ -44,8 +40,8 @@
 					<li>Flag descriptions and documentation</li>
 					<li>Default values for each flag</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Schema Information</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Type-specific constraints and validation rules</li>
@@ -53,8 +49,8 @@
 					<li>Min/max values for numeric flags</li>
 					<li>String length limits and regex patterns</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Current Values</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Active flag values (if set)</li>
@@ -62,8 +58,8 @@
 					<li>AB-test configurations</li>
 					<li>Tag selections and arrays</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Metadata</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Environment identifier</li>
@@ -71,7 +67,7 @@
 					<li>Export timestamp</li>
 					<li>File format version</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -87,17 +83,17 @@
 
 		<h3 class="mb-3 text-lg font-semibold">API Export</h3>
 		<p class="mb-4">You can also export programmatically using the REST API:</p>
+		<p class="mb-4 rounded-lg bg-blue-50 p-4 text-blue-800">
+			<strong>Note:</strong> Export functionality is available without authentication - anyone with network
+			access to your FlagFlow instance can download configuration exports.
+		</p>
 		<CodeBlock
 			code={`# Direct download via curl
-curl -O http://localhost:5173/migration/export
-
-# With authentication (if required)
-curl -H "Authorization: Bearer your-token" \\
-     -O http://localhost:5173/migration/export
+curl -O http://localhost:3000/migration/export
 
 # Save to specific filename
 curl -o my-backup-$(date +%Y%m%d).json \\
-     http://localhost:5173/migration/export`}
+     http://localhost:3000/migration/export`}
 			title="API Export Commands"
 		/>
 
@@ -106,7 +102,7 @@ curl -o my-backup-$(date +%Y%m%d).json \\
 			code={`#!/bin/bash
 # automated-backup.sh
 
-FLAGFLOW_URL="http://localhost:5173"
+FLAGFLOW_URL="http://localhost:3000"
 BACKUP_DIR="/path/to/backups"
 DATE=$(date +%Y%m%d-%H%M%S)
 ENVIRONMENT="production"
@@ -386,7 +382,7 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 
 	<DocsPageSection id="troubleshooting-export" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Export Download Fails</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that FlagFlow service is running and accessible</li>
@@ -394,8 +390,8 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Ensure you have proper permissions for export operations</li>
 					<li>Check server logs for any etcd connectivity issues</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Large Export Files</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Export files grow with the number of flags and complexity</li>
@@ -403,8 +399,8 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Use compression when storing large backup files</li>
 					<li>Monitor disk space for automated backup directories</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Corrupted Export Files</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Always verify JSON validity after downloading exports</li>
@@ -412,7 +408,7 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 					<li>Keep multiple backup versions to avoid single points of failure</li>
 					<li>Test backup restoration regularly in non-production environments</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 

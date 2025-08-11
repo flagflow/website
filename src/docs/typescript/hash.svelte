@@ -1,16 +1,14 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
 	<PageTitle title="Hash-Based Schema Validation"
-		>Ensuring <Glossary id="Type Safety">type safety</Glossary> and cache consistency with <Glossary
-			id="Hash Validation">SHA-1 hashing</Glossary
-		></PageTitle
+		>Ensuring type safety and cache consistency with SHA-1 hashing</PageTitle
 	>
 
 	<DocsPageSection id="overview" title="What is Hash Validation?">
@@ -89,7 +87,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 
 	<DocsPageSection id="benefits" title="Key Benefits">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Type Safety</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Prevents runtime type mismatches</li>
@@ -97,8 +95,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Ensures client code compatibility</li>
 					<li>Eliminates silent type errors</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Automatic Cache Invalidation</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>No manual cache clearing needed</li>
@@ -106,8 +104,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Prevents stale data issues</li>
 					<li>Automatic client updates</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Development Safety</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Early error detection</li>
@@ -115,8 +113,8 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Prevents production issues</li>
 					<li>Team coordination made easy</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Performance</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Fast SHA-1 hash computation</li>
@@ -124,7 +122,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 					<li>Efficient caching strategy</li>
 					<li>Reduced unnecessary requests</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -137,7 +135,7 @@ export const HASH_FLAGFLOW__ACCOUNTING__HUF = 'b12f456a789c012d345e678f901a234b5
 			code={`import axios from "axios";
 import { flagFlow_Descriptors, FlagFlow_DescriptorTypeMap } from "./flagflowTypes";
 
-const FLAGFLOW_BASE_URL = 'http://localhost:5173/flags';
+const FLAGFLOW_BASE_URL = 'http://localhost:3000/flags';
 
 export const fetchData = async <K extends keyof FlagFlow_DescriptorTypeMap>(
     key: K
@@ -213,7 +211,7 @@ Content-Type: application/json
         if (error.response?.status === 409) {
             console.error('🚨 Schema hash mismatch!');
             console.error('Please regenerate your TypeScript definitions:');
-            console.error('curl http://localhost:5173/type/typescript > flagflowTypes.ts');
+            console.error('curl http://localhost:3000/type/typescript > flagflowTypes.ts');
             throw new Error('Flag schema out of date. Please update TypeScript definitions.');
         }
         throw error;
@@ -251,7 +249,7 @@ Content-Type: application/json
 
 		<CodeBlock
 			code={`// Get current hash map
-curl http://localhost:5173/type/hash
+curl http://localhost:3000/type/hash
 
 // Response
 {
@@ -288,7 +286,7 @@ curl http://localhost:5173/type/hash
 echo "🔄 Checking for FlagFlow schema changes..."
 
 # Download current TypeScript definitions
-curl -s http://localhost:5173/type/typescript > flagflowTypes.new.ts
+curl -s http://localhost:3000/type/typescript > flagflowTypes.new.ts
 
 # Compare with existing file
 if ! cmp -s flagflowTypes.ts flagflowTypes.new.ts; then
@@ -333,7 +331,7 @@ jobs:
 
 	<DocsPageSection id="troubleshooting" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Frequent 409 Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check if flag schemas were recently modified</li>
@@ -341,8 +339,8 @@ jobs:
 					<li>Verify you're connecting to the correct FlagFlow instance</li>
 					<li>Clear any intermediate caches or proxies</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Hash Generation Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ensure flag names don't contain invalid characters</li>
@@ -350,8 +348,8 @@ jobs:
 					<li>Verify enum values are properly formatted</li>
 					<li>Look for circular dependencies in flag hierarchies</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Client-Side Debugging</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Log hash values being sent in headers</li>
@@ -359,7 +357,7 @@ jobs:
 					<li>Check network tab for actual HTTP headers</li>
 					<li>Verify TypeScript definitions are properly imported</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

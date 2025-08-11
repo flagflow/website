@@ -1,6 +1,7 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
 </script>
@@ -27,7 +28,7 @@
 
 	<DocsPageSection id="features" title="Key Features">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Session-Based Authentication</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Secure session management</li>
@@ -35,8 +36,8 @@
 					<li>Automatic session cleanup</li>
 					<li>Remember me functionality</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">User Management</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Create, modify, and delete users</li>
@@ -44,8 +45,8 @@
 					<li>Password management</li>
 					<li>User activity tracking</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Administrative Interface</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Web-based user management</li>
@@ -53,8 +54,8 @@
 					<li>User permission overview</li>
 					<li>Session monitoring</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">Security Features</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Password hashing and salting</li>
@@ -62,7 +63,7 @@
 					<li>Brute force protection</li>
 					<li>Audit logging</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -218,7 +219,7 @@ ENVIRONMENT=production`}
 	<DocsPageSection id="troubleshooting" title="Troubleshooting">
 		<h3 class="mb-3 text-lg font-semibold">Common Issues</h3>
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Cannot Login with Default Credentials</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify <code>SESSION_USERS_ENABLED=true</code> is set</li>
@@ -226,23 +227,23 @@ ENVIRONMENT=production`}
 					<li>Ensure FlagFlow has successfully started and created the default user</li>
 					<li>Check logs for any user creation errors</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Session Expires Too Quickly</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Increase <code>SESSION_TIMEOUT_SEC</code> value</li>
 					<li>Check for browser cookie restrictions</li>
 					<li>Verify system clock synchronization</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Cannot Create New Users</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Ensure your user has the <code>users</code> permission</li>
 					<li>Check for username conflicts with existing users</li>
 					<li>Verify password meets minimum requirements</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 </DocsPage>

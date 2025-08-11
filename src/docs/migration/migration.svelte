@@ -1,9 +1,9 @@
 <script lang="ts">
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
+	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
-	import Glossary from '$components/Glossary.svelte';
 </script>
 
 <DocsPage>
@@ -29,36 +29,26 @@
 
 	<DocsPageSection id="migration-types" title="Migration Types">
 		<div class="grid gap-4 md:grid-cols-2">
-			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">
-					<Glossary id="File-based Migration">File-Based Migration</Glossary>
-				</h3>
-				<p class="mb-3 text-gray-600">
-					Upload an <Glossary id="Export">export file</Glossary> from another <Glossary
-						id="Environment">environment</Glossary
-					>
-				</p>
+			<DocsPageRoundedBox>
+				<h3 class="mb-2 text-lg font-semibold">File-Based Migration</h3>
+				<p class="mb-3 text-gray-600">Upload an export file from another environment</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>
-						Use exported JSON files from source <Glossary id="Environment">environment</Glossary>
-					</li>
+					<li>Use exported JSON files from source environment</li>
 					<li>Full control over what gets migrated</li>
 					<li>Works across network boundaries</li>
 					<li>Suitable for air-gapped environments</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
-				<h3 class="mb-2 text-lg font-semibold">
-					<Glossary id="Remote Migration">Remote Migration</Glossary>
-				</h3>
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
+				<h3 class="mb-2 text-lg font-semibold">Remote Migration</h3>
 				<p class="mb-3 text-gray-600">Direct connection to another FlagFlow instance</p>
 				<ul class="list-inside list-disc space-y-1 text-sm">
-					<li>Real-time fetching from source <Glossary id="Environment">environment</Glossary></li>
-					<li>Always gets the latest <Glossary id="Configuration">configuration</Glossary></li>
+					<li>Real-time fetching from source environment</li>
+					<li>Always gets the latest configuration</li>
 					<li>Requires network connectivity</li>
 					<li>Streamlined one-step process</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
@@ -78,48 +68,29 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
-							><Glossary id="CREATE_DEFAULTVALUE">CREATE_DEFAULTVALUE</Glossary></td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							>Create new flag with <Glossary id="Default Values">default value</Glossary></td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="Flag">Flag</Glossary> exists in source but not target</td
-						>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">CREATE_DEFAULTVALUE</td>
+						<td class="border border-gray-300 px-4 py-2">Create new flag with default value</td>
+						<td class="border border-gray-300 px-4 py-2">Flag exists in source but not target</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
-							><Glossary id="UPDATE_SCHEMA_DEFAULTVALUE">UPDATE_SCHEMA_DEFAULTVALUE</Glossary></td
+							>UPDATE_SCHEMA_DEFAULTVALUE</td
 						>
 						<td class="border border-gray-300 px-4 py-2">Update flag schema, reset to default</td>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="Flag">Flag</Glossary> type or schema changed</td
+						<td class="border border-gray-300 px-4 py-2">Flag type or schema changed</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">SET_VALUE</td>
+						<td class="border border-gray-300 px-4 py-2">Set specific value for existing flag</td>
+						<td class="border border-gray-300 px-4 py-2">Flag value differs between environments</td
 						>
 					</tr>
 					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
-							><Glossary id="SET_VALUE">SET_VALUE</Glossary></td
-						>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">DELETE</td>
 						<td class="border border-gray-300 px-4 py-2"
-							>Set specific value for existing <Glossary id="Flag">flag</Glossary></td
+							>Remove flag that doesn't exist in source</td
 						>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="Flag">Flag</Glossary> value differs between <Glossary id="Environment"
-								>environments</Glossary
-							></td
-						>
-					</tr>
-					<tr>
-						<td class="border border-gray-300 px-4 py-2 font-mono text-sm"
-							><Glossary id="DELETE">DELETE</Glossary></td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							>Remove <Glossary id="Flag">flag</Glossary> that doesn't exist in source</td
-						>
-						<td class="border border-gray-300 px-4 py-2"
-							><Glossary id="Flag">Flag</Glossary> exists in target but not source</td
-						>
+						<td class="border border-gray-300 px-4 py-2">Flag exists in target but not source</td>
 					</tr>
 				</tbody>
 			</table>
@@ -345,7 +316,7 @@ LOGLEVEL=info`}
 
 	<DocsPageSection id="troubleshooting-migration" title="Troubleshooting">
 		<div class="space-y-4">
-			<div class="rounded-lg border p-4">
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Environment Validation Errors</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check that source and target environments have different names</li>
@@ -353,8 +324,8 @@ LOGLEVEL=info`}
 					<li>Ensure export file contains the expected environment identifier</li>
 					<li>Confirm remote URL points to a different environment</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Step Dependency Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>All dependent steps must be selected for execution</li>
@@ -362,8 +333,8 @@ LOGLEVEL=info`}
 					<li>Review step ordering and dependencies in the UI</li>
 					<li>Ensure DELETE steps come before CREATE steps for the same flag</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Migration Execution Failures</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Check etcd connectivity and permissions</li>
@@ -371,8 +342,8 @@ LOGLEVEL=info`}
 					<li>Look for conflicts with existing flag values</li>
 					<li>Check server logs for detailed error messages</li>
 				</ul>
-			</div>
-			<div class="rounded-lg border p-4">
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">Remote Migration Connection Issues</h4>
 				<ul class="list-inside list-disc space-y-1 text-sm">
 					<li>Verify MIGRATION_SOURCE_URL is reachable from target environment</li>
@@ -380,7 +351,7 @@ LOGLEVEL=info`}
 					<li>Ensure source FlagFlow instance is running and responsive</li>
 					<li>Validate URL format and protocol (HTTP/HTTPS)</li>
 				</ul>
-			</div>
+			</DocsPageRoundedBox>
 		</div>
 	</DocsPageSection>
 
