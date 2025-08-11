@@ -3,31 +3,39 @@ import type { DocumentPageFlatDescriptor, DocumentPageRegistry } from '$lib/docu
 export const documentPageRegistry = {
 	'': {
 		title: 'Getting Started',
-		description: 'Learn how to get started with our platform',
-		filenameOverride: 'get_started'
+		description: 'Complete guide to setting up and using FlagFlow for feature flag management',
+		filenameOverride: 'get_started',
+		keywords: 'flagflow, feature flags, getting started, setup, installation, tutorial, guide'
 	},
 	installation: {
 		groupName: 'Installation',
 		nodes: {
 			prerequisites: {
 				title: 'Prerequisites',
-				description: 'Learn how to install our platform'
+				description: 'System requirements and dependencies needed before installing FlagFlow',
+				keywords:
+					'prerequisites, system requirements, dependencies, installation requirements, setup'
 			},
 			etcd: {
 				title: 'etcd',
-				description: 'Learn how to install and configure ETCD'
+				description: 'Install and configure etcd as the distributed key-value store for FlagFlow',
+				keywords: 'etcd, distributed storage, key-value store, configuration, clustering, database'
 			},
 			docker: {
 				title: 'Docker',
-				description: 'Learn how to install and configure Docker'
+				description: 'Deploy FlagFlow using Docker containers with docker-compose configuration',
+				keywords: 'docker, containerization, deployment, docker-compose, containers, devops'
 			},
 			kubernetes: {
 				title: 'Kubernetes',
-				description: 'Learn how to install and configure Kubernetes'
+				description: 'Deploy FlagFlow on Kubernetes clusters with Helm charts and manifests',
+				keywords: 'kubernetes, k8s, orchestration, helm, deployment, scaling, cloud native'
 			},
 			'env-variables': {
 				title: 'ENV variables',
-				description: 'Learn how to configure environment variables for our platform'
+				description:
+					'Configure FlagFlow using environment variables for different deployment scenarios',
+				keywords: 'environment variables, configuration, settings, deployment, customization'
 			}
 		}
 	},
@@ -36,19 +44,23 @@ export const documentPageRegistry = {
 		nodes: {
 			authentication: {
 				title: 'Authentication',
-				description: 'Learn more about authentication in our platform'
+				description: 'Understanding FlagFlow authentication system and security model',
+				keywords: 'authentication, security, login, access control, user management, auth'
 			},
 			permissions: {
 				title: 'Permissions',
-				description: 'Learn more about permissions in our platform'
+				description: 'Granular permission model and role-based access control in FlagFlow',
+				keywords: 'permissions, rbac, role-based access control, authorization, security, roles'
 			},
 			'built-in-users': {
 				title: 'Built-in Users',
-				description: 'Learn more about the built-in users in our platform'
+				description: 'Simple user management solution for small to medium-sized teams',
+				keywords: 'built-in users, user management, simple auth, local users, team management'
 			},
 			keycloak: {
 				title: 'Keycloak',
-				description: 'Learn more about Keycloak integration in our platform'
+				description: 'Enterprise-grade authentication with Keycloak SSO integration',
+				keywords: 'keycloak, sso, single sign-on, enterprise auth, oauth, openid connect'
 			}
 		}
 	},
@@ -57,15 +69,20 @@ export const documentPageRegistry = {
 		nodes: {
 			'flag-types': {
 				title: 'Flag Types',
-				description: 'Learn more about the different types of flags in our platform'
+				description:
+					'Understanding FlagFlow comprehensive flag type system for different use cases',
+				keywords: 'flag types, feature flags, boolean flags, string flags, number flags, json flags'
 			},
 			hierarchy: {
 				title: 'Flag Hierarchy',
-				description: 'Learn more about the hierarchy of flags in our platform'
+				description:
+					'Organizing and structuring feature flags for better management and maintainability',
+				keywords: 'flag hierarchy, organization, structure, namespaces, grouping, management'
 			},
 			'access-flags': {
 				title: 'Access Flags',
-				description: 'Learn more about access flags in our platform'
+				description: 'Retrieving feature flags through various access methods and API formats',
+				keywords: 'access flags, api, rest api, flag retrieval, client sdk, integration'
 			}
 		}
 	},
@@ -74,15 +91,18 @@ export const documentPageRegistry = {
 		nodes: {
 			'ts-schema': {
 				title: 'TS Schema',
-				description: 'Learn more about the TypeScript schema in our platform'
+				description: 'Automatic type-safe TypeScript interfaces for your feature flags',
+				keywords: 'typescript, type safety, schema generation, interfaces, client code, ts'
 			},
 			'zod-schema': {
 				title: 'ZOD Schema',
-				description: 'Learn more about the ZOD schema in our platform'
+				description: 'Runtime type validation and parsing with automatically generated Zod schemas',
+				keywords: 'zod, runtime validation, type parsing, schema validation, typescript, validation'
 			},
 			hash: {
 				title: 'Hashes',
-				description: 'Learn more about the Hash in our platform'
+				description: 'Ensuring type safety and cache consistency with SHA-1 hashing',
+				keywords: 'hash validation, sha1, cache consistency, type safety, versioning'
 			}
 		}
 	},
@@ -91,15 +111,18 @@ export const documentPageRegistry = {
 		nodes: {
 			'export-backup': {
 				title: 'Export/Backup',
-				description: 'Learn how to export or backup your data in our platform'
+				description: 'Create comprehensive backups of your feature flags and configuration',
+				keywords: 'export, backup, data export, configuration backup, migration, data management'
 			},
 			restore: {
 				title: 'Restore',
-				description: 'Learn how to restore your data in our platform'
+				description: 'Restore feature flag configurations from backup files',
+				keywords: 'restore, backup restore, data recovery, configuration restore, import'
 			},
 			migration: {
 				title: 'Migration',
-				description: 'Learn how to migrate your data in our platform'
+				description: 'Transfer feature flag configurations between different FlagFlow environments',
+				keywords: 'migration, cross-environment, data transfer, environment migration, deployment'
 			}
 		}
 	}

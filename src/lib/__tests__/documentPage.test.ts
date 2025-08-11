@@ -14,7 +14,9 @@ describe('documentPage', () => {
 			expect(result).toBeDefined();
 			expect(result?.slug).toBe('');
 			expect(result?.meta.title).toBe('Getting Started');
-			expect(result?.meta.description).toBe('Learn how to get started with our platform');
+			expect(result?.meta.description).toBe(
+				'Complete guide to setting up and using FlagFlow for feature flag management'
+			);
 			expect(result?.component).toBeDefined();
 		});
 
@@ -23,7 +25,9 @@ describe('documentPage', () => {
 			expect(result).toBeDefined();
 			expect(result?.slug).toBe('installation/prerequisites');
 			expect(result?.meta.title).toBe('Prerequisites');
-			expect(result?.meta.description).toBe('Learn how to install our platform');
+			expect(result?.meta.description).toBe(
+				'System requirements and dependencies needed before installing FlagFlow'
+			);
 			expect(result?.component).toBeDefined();
 		});
 
@@ -32,7 +36,9 @@ describe('documentPage', () => {
 			expect(result).toBeDefined();
 			expect(result?.slug).toBe('user-management/authentication');
 			expect(result?.meta.title).toBe('Authentication');
-			expect(result?.meta.description).toBe('Learn more about authentication in our platform');
+			expect(result?.meta.description).toBe(
+				'Understanding FlagFlow authentication system and security model'
+			);
 			expect(result?.component).toBeDefined();
 		});
 
