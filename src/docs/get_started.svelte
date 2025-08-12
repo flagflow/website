@@ -102,7 +102,7 @@ services:
       - "3000:3000"
     environment:
       - ETCD_SERVER=etcd:2379
-      - ENVIRONMENT=docker
+      - ENVIRONMENT=My First
       - SESSION_USERS_ENABLED=true
       - SESSION_DEFAULT_USERNAME=admin
       - SESSION_DEFAULT_PASSWORD=admin123

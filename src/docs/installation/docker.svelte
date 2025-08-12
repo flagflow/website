@@ -62,10 +62,18 @@ services:
 	  - ETCD_ROOT_PASSWORD=pw_flagflow
     volumes:
       - etcd-data:/etcd-data
+	# Not needed, because network allows communication between containers
     ports:
       - "2379:2379"
     networks:
       - flagflow-network
+	# Health check is not mandatory, but recommended in production
+	healthcheck:
+		test: ["CMD", "etcdctl", "--user=root:pw_flagflow", "endpoint", "health"]
+		interval: 15s
+		timeout: 10s
+		retries: 2
+	restart: on-failure
 
   flagflow:
     image: ghcr.io/flagflow/flagflow:${__APP_VERSION__}
@@ -80,6 +88,9 @@ services:
       - "3000:3000"
     networks:
       - flagflow-network
+
+# You can use nginx as a reverse proxy in front of FlagFlow
+# ...
 
 volumes:
   etcd-data:
