@@ -117,7 +117,11 @@
 							>Keycloak server URL
 							<small class="text-gray-500">
 								<br />
-								If this value is set, FlagFlow will allow Keycloak for authentication
+								If this value is set, FlagFlow will allow Keycloak for authentication. See
+								<a
+									class="text-blue-600 hover:underline"
+									href="/docs/user-management/authentication#auth-methods">authentication methods</a
+								> for details on configuring different authentication providers.
 							</small>
 						</td>
 					</tr>
@@ -156,7 +160,12 @@
 							>Enable/disable user session management
 							<small class="text-gray-500">
 								<br />
-								This allows in-built user management and session handling
+								This allows in-built user management and session handling. When enabled, this provides
+								the built-in authentication method as an alternative to external providers. See
+								<a
+									class="text-blue-600 hover:underline"
+									href="/docs/user-management/authentication#auth-methods">authentication methods</a
+								> for comparison of available options.
 							</small>
 						</td>
 					</tr>
@@ -360,7 +369,7 @@ METRICS_ENABLED=true`}
 		<CodeBlock
 			code={`environment:
   - LOGLEVEL=info
-  - ENVIRONMENT=docker
+  - ENVIRONMENT=prod
   - ETCD_SERVER=etcd:2379
   - ETCD_USERNAME=root
   - ETCD_PASSWORD=pw_flagflow

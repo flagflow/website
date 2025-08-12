@@ -189,6 +189,17 @@
 				</div>
 			</div>
 		</div>
+		<div class="text-center">
+			<Button
+				class="mb-4"
+				color="orange"
+				href="https://demo.flagflow.net"
+				size="lg"
+				target="_blank"
+			>
+				I want to see the Demo
+			</Button>
+		</div>
 	</div>
 </PageSection>
 
@@ -358,6 +369,9 @@ if (result.success) {
 				<Button href="/docs" size="lg">Get Started</Button>
 				<Button color="alternative" href="/docs/installation/docker" size="lg">Docker Setup</Button>
 				<Button color="alternative" href="/oss-open-source" size="lg">Open Source</Button>
+				<Button color="orange" href="https://demo.flagflow.net" size="lg" target="_blank">
+					Demo
+				</Button>
 			</div>
 		</div>
 	</div>

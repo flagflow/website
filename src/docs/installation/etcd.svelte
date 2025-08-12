@@ -94,12 +94,20 @@ services:
     container_name: flagflow-etcd
     environment:
       - ETCD_ROOT_PASSWORD=pw_flagflow
+	# Not needed, because network allows communication between containers
     ports:
       - "2379:2379"
     volumes:
       - etcd-data:/etcd-data
     networks:
       - flagflow-network
+	# Health check is not mandatory, but recommended in production
+	healthcheck:
+		test: ["CMD", "etcdctl", "--user=root:pw_flagflow", "endpoint", "health"]
+		interval: 15s
+		timeout: 10s
+		retries: 2
+	restart: on-failure
 
 volumes:
   etcd-data:

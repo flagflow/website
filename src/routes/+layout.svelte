@@ -2,7 +2,17 @@
 	/* eslint-disable no-undef */
 	import '../app.css';
 
-	import { Badge, Button, Navbar, NavBrand, NavHamburger, NavLi, NavUl } from 'flowbite-svelte';
+	import {
+		Badge,
+		Button,
+		Footer,
+		FooterCopyright,
+		Navbar,
+		NavBrand,
+		NavHamburger,
+		NavLi,
+		NavUl
+	} from 'flowbite-svelte';
 
 	import Icon from '$components/Icon.svelte';
 
@@ -32,7 +42,9 @@
 		<NavLi class="mx-2" href="/docs">Docs</NavLi>
 	</NavUl>
 	<div>
-		<Button class="mx-2" color="orange" size="sm">Demo</Button>
+		<Button class="mx-2" color="orange" href="https://demo.flagflow.net" size="sm" target="_blank"
+			>Demo</Button
+		>
 		<a href="https://github.com/flagflow/flagflow" target="_blank">
 			<Icon id="github" class="mx-2 inline-flex" align="left" size={30} />
 		</a>
@@ -44,3 +56,7 @@
 </Navbar>
 
 {@render children()}
+
+<Footer>
+	<FooterCopyright by="FlagFlow" href="/" year={2025} />
+</Footer>
