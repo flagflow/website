@@ -38,7 +38,7 @@
 	</div>
 	<div class="flex flex-row gap-8 pl-0">
 		<Kbd class="text-md px-4 font-light">
-			# docker run ghcr.io/flagflow/flagflow:{__APP_VERSION__}
+			# docker pull ghcr.io/flagflow/flagflow:{__APP_VERSION__}
 		</Kbd>
 		<Button href="/docs">
 			Get started

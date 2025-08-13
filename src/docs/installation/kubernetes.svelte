@@ -82,6 +82,29 @@ spec:
           limits:
             memory: "1Gi"
             cpu: "500m"
+        # Kubernetes healthchecks for production reliability
+        livenessProbe:
+          exec:
+            command:
+            - etcdctl
+            - --user=root:pw_flagflow
+            - endpoint
+            - health
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+        readinessProbe:
+          exec:
+            command:
+            - etcdctl
+            - --user=root:pw_flagflow
+            - endpoint
+            - health
+          initialDelaySeconds: 15
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
   volumeClaimTemplates:
   - metadata:
       name: etcd-storage
