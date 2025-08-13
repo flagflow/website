@@ -88,6 +88,13 @@ services:
       - "3000:3000"
     networks:
       - flagflow-network
+	# Health check is not mandatory, but recommended in production
+	healthcheck:
+		test: 'curl -s -I http://localhost:3000/health | head -n 1 | grep 200'
+		interval: 15s
+		timeout: 10s
+		retries: 2
+	restart: on-failure
 
 # You can use nginx as a reverse proxy in front of FlagFlow
 # ...

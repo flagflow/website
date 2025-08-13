@@ -32,7 +32,7 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-green-800" tag="h2">
-					<Icon id="checkCircle" align="left" color="#16a34a" size={24} />
+					<Icon id="checkCircle" class="inline-flex" align="left" color="#16a34a" size={24} />
 					Available Now
 				</Heading>
 			</div>
@@ -70,7 +70,7 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-blue-800" tag="h2">
-					<Icon id="rocket" align="left" color="#2563eb" size={24} />
+					<Icon id="rocket" class="inline-flex" align="left" color="#2563eb" size={24} />
 					Coming Soon
 				</Heading>
 				<P class="text-lg text-gray-600">

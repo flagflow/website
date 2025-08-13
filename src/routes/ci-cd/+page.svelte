@@ -58,7 +58,7 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-green-800" tag="h2">
-					<Icon id="checkCircle" align="left" color="#16a34a" size={24} />
+					<Icon id="checkCircle" class="inline-flex" align="left" color="#16a34a" size={24} />
 					Available Features
 				</Heading>
 				<P class="text-lg text-gray-600">
@@ -70,7 +70,7 @@
 				<!-- TypeScript Integration -->
 				<div class="rounded-lg bg-blue-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-blue-900" tag="h3">
-						<Icon id="typescript" align="left" color="#3178c6" size={20} />
+						<Icon id="typescript" class="inline-flex" align="left" color="#3178c6" size={20} />
 						TypeScript Schema Generation
 					</Heading>
 					<P class="mb-4 leading-relaxed text-blue-800">
@@ -102,7 +102,7 @@
 				<!-- Zod Schema Validation -->
 				<div class="rounded-lg bg-purple-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-purple-900" tag="h3">
-						<Icon id="validation" align="left" color="#16a34a" size={20} />
+						<Icon id="validation" class="inline-flex" align="left" color="#16a34a" size={20} />
 						Zod Schema Validation
 					</Heading>
 					<P class="mb-4 leading-relaxed text-purple-800">
@@ -131,7 +131,7 @@
 				<!-- Hash Mechanism -->
 				<div class="rounded-lg bg-orange-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-orange-900" tag="h3">
-						<Icon id="hash" align="left" color="#ea580c" size={20} />
+						<Icon id="hash" class="inline-flex" align="left" color="#ea580c" size={20} />
 						Hash-Based Error Prevention
 					</Heading>
 					<P class="mb-4 leading-relaxed text-orange-800">
@@ -162,7 +162,7 @@
 				<!-- Migration System -->
 				<div class="rounded-lg bg-green-50 p-6">
 					<Heading class="mb-4 text-xl font-semibold text-green-900" tag="h3">
-						<Icon id="migration" align="left" color="#16a34a" size={20} />
+						<Icon id="migration" class="inline-flex" align="left" color="#16a34a" size={20} />
 						Fine-Grained Migration
 					</Heading>
 					<P class="mb-4 leading-relaxed text-green-800">
@@ -197,7 +197,7 @@
 		<div class="mb-12">
 			<div class="mb-8 text-center">
 				<Heading class="mb-4 text-2xl font-semibold text-blue-800" tag="h2">
-					<Icon id="rocket" align="left" color="#2563eb" size={24} />
+					<Icon id="rocket" class="inline-flex" align="left" color="#2563eb" size={24} />
 					Coming Soon: Advanced Pipeline Integration
 				</Heading>
 				<P class="text-lg text-gray-600">

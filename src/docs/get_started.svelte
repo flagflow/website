@@ -22,7 +22,7 @@
 		<div class="mb-6 grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">
-					<Icon id="rocket2" align="left" color="#10b981" size={20} />
+					<Icon id="rocket2" class="inline-flex" align="left" color="#10b981" size={20} />
 					Deploy Features Safely
 				</h3>
 				<p class="text-gray-600">
@@ -31,7 +31,7 @@
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">
-					<Icon id="deploy" align="left" color="#f59e0b" size={20} />
+					<Icon id="deploy" class="inline-flex" align="left" color="#f59e0b" size={20} />
 					Real-time Updates
 				</h3>
 				<p class="text-gray-600">
@@ -40,7 +40,7 @@
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">
-					<Icon id="settings" align="left" color="#3b82f6" size={20} />
+					<Icon id="settings" class="inline-flex" align="left" color="#3b82f6" size={20} />
 					Type Safety
 				</h3>
 				<p class="text-gray-600">
@@ -49,7 +49,7 @@
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h3 class="mb-2 text-lg font-semibold">
-					<Icon id="security" align="left" color="#6366f1" size={20} />
+					<Icon id="security" class="inline-flex" align="left" color="#6366f1" size={20} />
 					Enterprise Ready
 				</h3>
 				<p class="text-gray-600">

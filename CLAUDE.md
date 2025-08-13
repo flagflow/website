@@ -10,7 +10,7 @@ This is the website for Flagflow, a feature flag management platform. It's built
 
 ### Build and Development
 
-- `npm run dev` - Start development server
+- `npm run dev` - Start development server with hot reload
 - `npm run build` - Build for production (outputs to `docs/`)
 - `npm run preview` - Preview production build locally
 - `npm run preview:static` - Preview static build using serve
@@ -60,9 +60,11 @@ The site uses a unique documentation architecture:
 - Circular dependency detection enabled (throws errors, excluding Modal components)
 - Image optimization with `vite-imagetools`, do not use inline, mark image size in variable name (e.g., `image800`, `image400`)
 - Uses Flowbite for UI components and Tailwind for styling
-- All routes are prerendered with static generation
+- All routes are prerendered with static generation (`export const prerender = true`)
 - Version injection via `__APP_VERSION__` global from package.json
 - Node.js 22+ required (engines field in package.json)
+- Uses `node --run` for script execution in package.json
+- Eager loading of documentation components via `import.meta.glob`
 
 ### Build Output
 
