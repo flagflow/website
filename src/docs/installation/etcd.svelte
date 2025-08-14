@@ -73,6 +73,21 @@
 		associated with traditional database solutions.
 	</DocsPageSection>
 
+	<DocsPageSection id="etcd-client-library" title="etcd Client Library">
+		FlagFlow uses the <a
+			class="text-blue-600 hover:underline"
+			href="https://github.com/microsoft/etcd3"
+			rel="noopener noreferrer"
+			target="_blank">etcd3</a
+		>
+		library maintained by Microsoft for etcd connectivity. This high-performance Node.js client provides
+		robust support for all etcd v3 API features including transactions, leases, and streaming watch operations
+		that are essential for FlagFlow's real-time configuration updates.
+		<br /><br />
+		The etcd3 library is actively maintained by Microsoft and offers excellent TypeScript support, making
+		it the ideal choice for FlagFlow's architecture.
+	</DocsPageSection>
+
 	<DocsPageSection id="install" title="Installation">
 		There are several approaches to deploy etcd for FlagFlow, depending on your infrastructure
 		requirements and operational preferences. Choose the method that best aligns with your
