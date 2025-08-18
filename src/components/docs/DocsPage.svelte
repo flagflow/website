@@ -34,11 +34,14 @@
 	};
 </script>
 
-<div class="max-w-[calc(100%-10rem)] px-10 py-4">
+<div class="max-w-[calc(100%)] px-10 py-4 md:max-w-[calc(100%-10rem)]">
 	{@render children()}
 </div>
 
-<Sticky class="right-0 h-full w-48 overflow-y-auto p-4 text-sm text-gray-500" top={HEADER_HEIGHT}>
+<Sticky
+	class="right-0 hidden h-full w-48 overflow-y-auto p-4 text-sm text-gray-500 md:block"
+	top={HEADER_HEIGHT}
+>
 	{#if regions.length >= 2}
 		<div class="py-2 font-semibold uppercase">On this page</div>
 		{#each regions as { title, id }}
