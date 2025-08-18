@@ -45,12 +45,18 @@
 		<Button class="mx-2" color="orange" href="https://demo.flagflow.net" size="sm" target="_blank"
 			>Demo</Button
 		>
-		<a href="https://github.com/flagflow/flagflow" target="_blank">
+		<a href="https://github.com/flagflow/flagflow" target="_blank" title="Open repo">
 			<Icon id="github" class="mx-2 inline-flex" align="left" size={30} />
 		</a>
-		<Badge class="mx-2" color="orange" size="large">
-			v{__APP_VERSION__}
-		</Badge>
+		<a
+			href="https://github.com/flagflow/flagflow/blob/main/CHANGELOG.md"
+			target="_blank"
+			title="Change log"
+		>
+			<Badge class="mx-2" color="orange" size="large">
+				v{__APP_VERSION__}
+			</Badge>
+		</a>
 		<NavHamburger />
 	</div>
 </Navbar>
