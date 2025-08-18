@@ -40,15 +40,19 @@
 		<NavLi class="mx-2" href="/ci-cd">CI / CD</NavLi>
 		<NavLi class="mx-2" href="/oss-open-source">Open Source</NavLi>
 		<NavLi class="mx-2" href="/docs">Documentation</NavLi>
+		<Button color="orange" href="https://demo.flagflow.net" size="xs" target="_blank">Demo</Button>
 	</NavUl>
-	<div>
-		<Button class="mx-2" color="orange" href="https://demo.flagflow.net" size="sm" target="_blank"
-			>Demo</Button
+	<div class="flex flex-col items-center gap-2 sm:flex-row sm:gap-0">
+		<a
+			class="hidden md:block"
+			href="https://github.com/flagflow/flagflow"
+			target="_blank"
+			title="Open repo"
 		>
-		<a href="https://github.com/flagflow/flagflow" target="_blank" title="Open repo">
 			<Icon id="github" class="mx-2 inline-flex" align="left" size={30} />
 		</a>
 		<a
+			class="hidden md:block"
 			href="https://github.com/flagflow/flagflow/blob/main/CHANGELOG.md"
 			target="_blank"
 			title="Change log"
