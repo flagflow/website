@@ -31,7 +31,7 @@ This is the website for Flagflow, a feature flag management platform. It's built
 ### Utilities
 
 - `npm run sitemap:generate` - Generate sitemap.xml from routes and docs
-- `npm run all` - Run complete pipeline: format, lint, type check, sitemap, build
+- `npm run all` - Run complete pipeline: format, lint, type check, test, sitemap, build
 - `npm run npm:reinstall` - Clean reinstall of node_modules
 
 ## Architecture
@@ -65,6 +65,8 @@ The site uses a unique documentation architecture:
 - Node.js 22+ required (engines field in package.json)
 - Uses `node --run` for script execution in package.json
 - Eager loading of documentation components via `import.meta.glob`
+- Bundle strategy set to 'inline' for single file output
+- Compiler optimizations: `preserveComments: false`, `preserveWhitespace: false`
 
 ### Build Output
 
