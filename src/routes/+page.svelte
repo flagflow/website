@@ -51,136 +51,130 @@
 
 <PageSection>
 	<div class="mx-auto max-w-6xl">
-		<!-- Hero Section: Beyond Booleans -->
-		<div class="mb-12 rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 p-8">
-			<div class="text-center">
-				<Heading class="mb-4 text-xl font-semibold text-gray-800 md:text-2xl" tag="h2">
-					More Than Just On/Off Switches
-				</Heading>
-				<P class="mb-6 text-base text-gray-700 md:text-lg">
-					While feature flags started as simple boolean toggles, modern applications need much more.
-					FlagFlow supports a rich variety of flag types to handle any use case.
-				</P>
+		<!-- Flag Types Section -->
+		<div class="mb-16 text-center">
+			<Heading class="mb-4 text-2xl font-bold text-gray-900 md:text-3xl" tag="h2">
+				More Than Just On/Off Switches
+			</Heading>
+			<P class="mb-12 text-lg text-gray-600 md:text-xl">
+				While feature flags started as simple boolean toggles, modern applications need much more.
+				FlagFlow supports a rich variety of flag types to handle any use case.
+			</P>
 
-				<!-- Flag Types Grid -->
-				<div class="mb-6 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
-					<div class="p-4 text-center">
-						<div class="mb-2 flex justify-center">
-							<Icon id="boolean" color="#059669" size={32} />
-						</div>
-						<Heading class="mb-2 text-base font-semibold text-gray-800 md:text-lg" tag="h3"
-							>Boolean</Heading
-						>
-						<P class="text-xs text-gray-600 md:text-sm"
-							>True/false toggles for simple feature switches</P
-						>
+			<!-- Flag Types Grid -->
+			<div class="mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+				<div
+					class="rounded-xl border border-gray-200 p-6 text-center transition-all hover:shadow-md"
+				>
+					<div class="mb-4 flex justify-center">
+						<Icon id="boolean" color="#059669" size={40} />
 					</div>
-					<div class="p-4 text-center">
-						<div class="mb-2 flex justify-center">
-							<Icon id="number" color="#2563eb" size={32} />
-						</div>
-						<Heading class="mb-2 text-base font-semibold text-gray-800 md:text-lg" tag="h3"
-							>Number</Heading
-						>
-						<P class="text-xs text-gray-600 md:text-sm"
-							>Numeric values for limits, percentages, and thresholds</P
-						>
-					</div>
-					<div class="p-4 text-center">
-						<div class="mb-2 flex justify-center">
-							<Icon id="string" color="#7c3aed" size={32} />
-						</div>
-						<Heading class="mb-2 text-base font-semibold text-gray-800 md:text-lg" tag="h3"
-							>String</Heading
-						>
-						<P class="text-xs text-gray-600 md:text-sm"
-							>Text values for API endpoints, messages, and configurations</P
-						>
-					</div>
-					<div class="p-4 text-center">
-						<div class="mb-2 flex justify-center">
-							<Icon id="json" color="#ea580c" size={32} />
-						</div>
-						<Heading class="mb-2 text-base font-semibold text-gray-800 md:text-lg" tag="h3"
-							>JSON</Heading
-						>
-						<P class="text-xs text-gray-600 md:text-sm"
-							>Complex objects for advanced configurations</P
-						>
-					</div>
+					<Heading class="mb-3 text-lg font-semibold text-gray-900" tag="h3">Boolean</Heading>
+					<P class="text-sm text-gray-600">True/false toggles for simple feature switches</P>
 				</div>
-
-				<Button href="/docs/flags/flag-types">Explore Flag Types</Button>
+				<div
+					class="rounded-xl border border-gray-200 p-6 text-center transition-all hover:shadow-md"
+				>
+					<div class="mb-4 flex justify-center">
+						<Icon id="number" color="#2563eb" size={40} />
+					</div>
+					<Heading class="mb-3 text-lg font-semibold text-gray-900" tag="h3">Number</Heading>
+					<P class="text-sm text-gray-600">
+						Numeric values for limits, percentages, and thresholds
+					</P>
+				</div>
+				<div
+					class="rounded-xl border border-gray-200 p-6 text-center transition-all hover:shadow-md"
+				>
+					<div class="mb-4 flex justify-center">
+						<Icon id="string" color="#7c3aed" size={40} />
+					</div>
+					<Heading class="mb-3 text-lg font-semibold text-gray-900" tag="h3">String</Heading>
+					<P class="text-sm text-gray-600">
+						Text values for API endpoints, messages, and configurations
+					</P>
+				</div>
+				<div
+					class="rounded-xl border border-gray-200 p-6 text-center transition-all hover:shadow-md"
+				>
+					<div class="mb-4 flex justify-center">
+						<Icon id="json" color="#ea580c" size={40} />
+					</div>
+					<Heading class="mb-3 text-lg font-semibold text-gray-900" tag="h3">JSON</Heading>
+					<P class="text-sm text-gray-600">Complex objects for advanced configurations</P>
+				</div>
 			</div>
+
+			<Button href="/docs/flags/flag-types">Explore Flag Types</Button>
 		</div>
 
 		<!-- New Flag Wizard -->
-		<div class="mb-12">
+		<div class="mb-16">
 			<Heading
-				class="mb-6 text-center text-xl font-semibold text-gray-800 md:mb-8 md:text-2xl"
+				class="mb-6 text-center text-2xl font-bold text-gray-900 md:mb-8 md:text-3xl"
 				tag="h2"
 			>
 				New Flag Wizard
 			</Heading>
-			<div class="grid gap-4 md:grid-cols-2 md:gap-8">
-				<div class="rounded-lg bg-blue-50 p-6">
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
 					<Img
-						class="mb-4 w-full rounded-lg shadow-lg"
+						class="mb-6 w-full rounded-lg shadow-sm"
 						alt="New Flag Wizard"
 						src={flagWizardImage800}
 					/>
-					<Heading class="mb-3 text-base font-semibold text-blue-900 md:text-lg" tag="h3">
+					<Heading class="mb-3 text-xl font-semibold text-gray-900" tag="h3">
 						Step-by-Step Creation
 					</Heading>
-					<P class="text-sm text-blue-800 md:text-base">
+					<P class="text-base text-gray-600">
 						Our intuitive wizard guides you through flag creation with clear steps, validation, and
 						helpful hints.
 					</P>
 				</div>
-				<div class="rounded-lg bg-green-50 p-6">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
 					<Img
-						class="mb-4 w-full rounded-lg shadow-lg"
+						class="mb-6 w-full rounded-lg shadow-sm"
 						alt="Flag Naming Step"
 						src={flagWizardNameImage800}
 					/>
-					<Heading class="mb-3 text-base font-semibold text-green-900 md:text-lg" tag="h3">
+					<Heading class="mb-3 text-xl font-semibold text-gray-900" tag="h3">
 						Smart Naming Conventions
 					</Heading>
-					<P class="text-sm text-green-800 md:text-base">
+					<P class="text-base text-gray-600">
 						Autocomplete, validation, and suggestions help you follow consistent naming patterns.
 					</P>
 				</div>
 			</div>
 		</div>
 
-		<!-- Hierarchical Structure and Value Management - Side by Side -->
-		<div class="mb-8 md:mb-12">
-			<div class="grid gap-4 md:grid-cols-2 md:gap-8">
-				<div class="rounded-lg bg-green-50 p-6">
+		<!-- Hierarchical Structure and Value Management -->
+		<div class="mb-16">
+			<div class="grid gap-8 md:grid-cols-2">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
 					<Img
-						class="mb-4 w-full rounded-lg shadow-lg"
+						class="mb-6 w-full rounded-lg shadow-sm"
 						alt="Hierarchical Structure"
 						src={hierarchicalViewImage800}
 					/>
-					<Heading class="mb-3 text-base font-semibold text-green-900 md:text-lg" tag="h3">
+					<Heading class="mb-3 text-xl font-semibold text-gray-900" tag="h3">
 						Hierarchical Structure
 					</Heading>
-					<P class="mb-4 text-sm text-green-800 md:text-base">
+					<P class="mb-4 text-base text-gray-600">
 						Organize flags in a tree structure for logical grouping, easier navigation, and
 						team-based management.
 					</P>
-					<Button color="green" href="/docs/flags/hierarchy" size="xs">Learn More</Button>
+					<Button href="/docs/flags/hierarchy" size="sm">Learn More</Button>
 				</div>
-				<div class="rounded-lg bg-blue-50 p-6">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
 					<Img
-						class="mb-4 w-full rounded-lg shadow-lg"
+						class="mb-6 w-full rounded-lg shadow-sm"
 						alt="Easy Flag Value Setting"
 						src={setValueViewImage800}
 					/>
-					<Heading class="mb-3 text-base font-semibold text-blue-900 md:text-lg" tag="h3">
+					<Heading class="mb-3 text-xl font-semibold text-gray-900" tag="h3">
 						Easy Flag Value Management
 					</Heading>
-					<P class="mb-4 text-sm text-blue-800 md:text-base">
+					<P class="mb-4 text-base text-gray-600">
 						Update flag values with a single click. Toggle booleans, adjust numbers, edit strings,
 						or modify JSON objects instantly.
 					</P>
@@ -188,22 +182,21 @@
 			</div>
 		</div>
 
-		<!-- Graph Overview - Standalone -->
-		<div class="mb-8 md:mb-12">
+		<!-- Graph Overview -->
+		<div class="mb-16">
 			<div class="flex justify-center">
-				<div class="w-full max-w-md rounded-lg bg-purple-50 p-4 md:p-6">
+				<div
+					class="w-full max-w-md rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg"
+				>
 					<Img
-						class="mb-4 w-full rounded-lg shadow-lg"
+						class="mb-6 w-full rounded-lg shadow-sm"
 						alt="Graph Overview"
 						src={graphViewImage800}
 					/>
-					<Heading
-						class="mb-3 text-center text-base font-semibold text-purple-900 md:text-lg"
-						tag="h3"
-					>
+					<Heading class="mb-3 text-center text-xl font-semibold text-gray-900" tag="h3">
 						Graph Overview
 					</Heading>
-					<P class="text-center text-sm text-purple-800 md:text-base">
+					<P class="text-center text-base text-gray-600">
 						Visual graph showing flag usage patterns at a glance.
 					</P>
 				</div>
@@ -391,7 +384,7 @@ if (result.success) {
 			<div class="flex flex-col flex-wrap justify-center gap-3 sm:flex-row sm:gap-4">
 				<Button href="/docs" size="lg">Get Started</Button>
 				<Button color="alternative" href="/docs/installation/docker" size="lg">Docker Setup</Button>
-				<Button color="alternative" href="/oss-open-source" size="lg">Open Source</Button>
+				<Button color="alternative" href="/self-hosted" size="lg">Self hosted</Button>
 				<Button color="orange" href="https://demo.flagflow.net" size="lg" target="_blank">
 					Demo
 				</Button>

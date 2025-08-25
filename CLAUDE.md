@@ -99,6 +99,29 @@ Each page should include `<HtmlHeader title="..." description="..." keywords="..
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `vitest.config.ts` - Vitest testing configuration
 
+## Component Development Guidelines
+
+### Icon Component
+
+- Available icons are defined in `src/components/Icon.svelte` in the `IconIds` object
+- Common icons: `shield`, `rocket`, `settings`, `operations`, `github`, `checkCircle`, `lightbulb`, `hash`, `deploy`
+- Never use icon IDs that don't exist in the `IconIds` type - this will cause TypeScript errors
+- Icons support `color`, `size`, and `align` properties
+
+### Image Optimization
+
+- Images are processed with `vite-imagetools`
+- Import with size and format parameters: `image800.webp?w=800&format=webp&imagetools`
+- Always specify image size in variable name for clarity: `image800`, `image400`
+- Never use inline images - always import and optimize them
+
+### Component Structure
+
+- All routes use `export const prerender = true` for static generation
+- Use `HtmlHeader` component for SEO: `<HtmlHeader title="..." description="..." keywords="..." />`
+- Prefer `PageSection` wrapper component for consistent page layout
+- Use Flowbite components: `Button`, `Heading`, `P`, `Img` for consistency
+
 ## Code format hints
 
 - Do not use brackets {} if not needed, at one line command in blocks
