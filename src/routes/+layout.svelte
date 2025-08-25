@@ -38,7 +38,7 @@
 		<NavLi class="mx-2" href="/">Home</NavLi>
 		<NavLi class="mx-2" href="/integration">Integration</NavLi>
 		<NavLi class="mx-2" href="/ci-cd">CI / CD</NavLi>
-		<NavLi class="mx-2" href="/oss-open-source">Open Source</NavLi>
+		<NavLi class="mx-2" href="/self-hosted">Self hosted</NavLi>
 		<NavLi class="mx-2" href="/docs">Documentation</NavLi>
 		<Button color="orange" href="https://demo.flagflow.net" size="xs" target="_blank">Demo</Button>
 	</NavUl>

@@ -29,34 +29,34 @@
 		</div>
 
 		<!-- Available Integration: Keycloak -->
-		<div class="mb-12">
-			<div class="mb-8 text-center">
-				<Heading class="mb-4 text-2xl font-semibold text-green-800" tag="h2">
-					<Icon id="checkCircle" class="inline-flex" align="left" color="#16a34a" size={24} />
+		<div class="mb-16">
+			<div class="mb-12 text-center">
+				<Heading class="mb-4 text-2xl font-bold text-gray-900 md:text-3xl" tag="h2">
+					<Icon id="checkCircle" class="inline-flex" align="left" color="#16a34a" size={32} />
 					Available Now
 				</Heading>
 			</div>
 
-			<div class="rounded-lg bg-green-50 p-8">
+			<div class="rounded-xl border border-gray-200 p-8 transition-all hover:shadow-lg">
 				<div class="grid gap-8 md:grid-cols-2 md:items-center">
 					<div>
 						<Img
-							class="w-full rounded-lg shadow-lg"
+							class="w-full rounded-lg shadow-sm"
 							alt="Keycloak Integration"
 							src={keycloakImage400}
 						/>
 					</div>
 					<div class="space-y-4">
-						<Heading class="text-2xl font-semibold text-green-900" tag="h3">
+						<Heading class="text-2xl font-semibold text-gray-900" tag="h3">
 							Keycloak Authentication
 						</Heading>
-						<P class="leading-relaxed text-green-800">
+						<P class="text-base leading-relaxed text-gray-600">
 							FlagFlow now supports enterprise-grade authentication with Keycloak integration.
 							Enable single sign-on (SSO), centralized user management, and role-based access
 							control across your organization.
 						</P>
 						<div class="flex flex-wrap gap-3">
-							<Button color="green" href="/docs/user-management/keycloak">Setup Guide</Button>
+							<Button href="/docs/user-management/keycloak">Setup Guide</Button>
 							<Button color="alternative" href="/docs/user-management/authentication">
 								Learn More
 							</Button>
@@ -66,11 +66,60 @@
 			</div>
 		</div>
 
+		<!-- Available Integrations -->
+		<div class="mb-16">
+			<div class="mb-12 text-center">
+				<Heading class="mb-4 text-2xl font-bold text-gray-900 md:text-3xl" tag="h2">
+					<Icon id="checkCircle" class="inline-flex" align="left" color="#16a34a" size={32} />
+					Existing Features
+				</Heading>
+				<P class="text-lg text-gray-600">
+					Fully implemented and ready to use in your FlagFlow instance
+				</P>
+			</div>
+
+			<div class="mb-12 rounded-xl border border-gray-200 p-8 transition-all hover:shadow-lg">
+				<div class="grid gap-8 md:grid-cols-2 md:items-center">
+					<div>
+						<Img
+							class="w-full rounded-lg shadow-sm"
+							alt="Audit Log System"
+							src={auditLogImage400}
+						/>
+					</div>
+					<div class="space-y-4">
+						<Heading class="text-2xl font-semibold text-gray-900" tag="h3">
+							Audit Log System
+						</Heading>
+						<P class="text-base leading-relaxed text-gray-600">
+							Comprehensive audit logging for compliance, security, and tracking all flag changes
+							with detailed user activity monitoring. Full activity history with timestamps and user
+							attribution.
+						</P>
+						<ul class="space-y-3 text-base text-gray-700">
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								Complete activity tracking
+							</li>
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								Compliance reporting
+							</li>
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								Security monitoring
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<!-- Coming Soon Integrations -->
-		<div class="mb-12">
-			<div class="mb-8 text-center">
-				<Heading class="mb-4 text-2xl font-semibold text-blue-800" tag="h2">
-					<Icon id="rocket" class="inline-flex" align="left" color="#2563eb" size={24} />
+		<div class="mb-16">
+			<div class="mb-12 text-center">
+				<Heading class="mb-4 text-2xl font-bold text-gray-900 md:text-3xl" tag="h2">
+					<Icon id="rocket" class="inline-flex" align="left" color="#2563eb" size={32} />
 					Coming Soon
 				</Heading>
 				<P class="text-lg text-gray-600">
@@ -78,99 +127,67 @@
 				</P>
 			</div>
 
-			<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+			<div class="grid gap-8 md:grid-cols-2">
 				<!-- Slack Notifications -->
-				<div class="rounded-lg bg-blue-50 p-6">
-					<div class="mb-4 text-center">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
+					<div class="mb-6 text-center">
 						<Img
 							class="mx-auto h-24 w-24 rounded-lg object-cover"
 							alt="Slack Integration"
 							src={slackImage400}
 						/>
 					</div>
-					<Heading class="mb-3 text-center text-lg font-semibold text-blue-900" tag="h3">
+					<Heading class="mb-4 text-center text-xl font-semibold text-gray-900" tag="h3">
 						Slack Notifications
 					</Heading>
-					<P class="mb-4 text-center text-sm text-blue-800">
+					<P class="mb-6 text-center text-base text-gray-600">
 						Get instant notifications when feature flags are toggled, updated, or when important
 						changes occur in your flag configurations.
 					</P>
-					<ul class="space-y-2 text-sm text-blue-700">
+					<ul class="space-y-3 text-base text-gray-700">
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
 							Flag toggle notifications
 						</li>
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
 							Customizable alerts
 						</li>
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-blue-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
 							Team collaboration
 						</li>
 					</ul>
 				</div>
 
 				<!-- REST API C2C Communication -->
-				<div class="rounded-lg bg-purple-50 p-6">
-					<div class="mb-4 text-center">
+				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
+					<div class="mb-6 text-center">
 						<Img
 							class="mx-auto h-24 w-24 rounded-lg object-cover"
 							alt="REST API Integration"
 							src={restApiImage400}
 						/>
 					</div>
-					<Heading class="mb-3 text-center text-lg font-semibold text-purple-900" tag="h3">
+					<Heading class="mb-4 text-center text-xl font-semibold text-gray-900" tag="h3">
 						REST API & Automation
 					</Heading>
-					<P class="mb-4 text-center text-sm text-purple-800">
+					<P class="mb-6 text-center text-base text-gray-600">
 						Powerful REST API for client-to-client communication and advanced automation workflows
 						with your existing tools and CI/CD pipelines.
 					</P>
-					<ul class="space-y-2 text-sm text-purple-700">
+					<ul class="space-y-3 text-base text-gray-700">
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-purple-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
 							Full REST API access
 						</li>
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-purple-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
 							CI/CD integration
 						</li>
 						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-purple-500"></span>
+							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
 							Automated workflows
-						</li>
-					</ul>
-				</div>
-
-				<!-- Audit Log Implementation -->
-				<div class="rounded-lg bg-orange-50 p-6 md:col-span-2 lg:col-span-1">
-					<div class="mb-4 text-center">
-						<Img
-							class="mx-auto h-24 w-24 rounded-lg object-cover"
-							alt="Audit Log Implementation"
-							src={auditLogImage400}
-						/>
-					</div>
-					<Heading class="mb-3 text-center text-lg font-semibold text-orange-900" tag="h3">
-						Audit Log System
-					</Heading>
-					<P class="mb-4 text-center text-sm text-orange-800">
-						Comprehensive audit logging for compliance, security, and tracking all flag changes with
-						detailed user activity monitoring.
-					</P>
-					<ul class="space-y-2 text-sm text-orange-700">
-						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-							Complete activity tracking
-						</li>
-						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-							Compliance reporting
-						</li>
-						<li class="flex items-center">
-							<span class="mr-2 h-1.5 w-1.5 rounded-full bg-orange-500"></span>
-							Security monitoring
 						</li>
 					</ul>
 				</div>

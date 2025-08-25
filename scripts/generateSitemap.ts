@@ -12,7 +12,7 @@ const getRouteMetadata = (route: string) => {
 	if (route === '' || route === '/') return { priority: '1.0', changefreq: 'weekly', lastmod: now };
 
 	// Main feature pages
-	if (['/integration', '/ci-cd', '/oss-open-source'].includes(route))
+	if (['/integration', '/ci-cd', '/self-hosted'].includes(route))
 		return { priority: '0.9', changefreq: 'monthly', lastmod: now };
 
 	// Documentation pages

@@ -31,7 +31,7 @@ This is the website for Flagflow, a feature flag management platform. It's built
 ### Utilities
 
 - `npm run sitemap:generate` - Generate sitemap.xml from routes and docs
-- `npm run all` - Run complete pipeline: format, lint, type check, sitemap, build
+- `npm run all` - Run complete pipeline: format, lint, type check, test, sitemap, build
 - `npm run npm:reinstall` - Clean reinstall of node_modules
 
 ## Architecture
@@ -65,6 +65,8 @@ The site uses a unique documentation architecture:
 - Node.js 22+ required (engines field in package.json)
 - Uses `node --run` for script execution in package.json
 - Eager loading of documentation components via `import.meta.glob`
+- Bundle strategy set to 'inline' for single file output
+- Compiler optimizations: `preserveComments: false`, `preserveWhitespace: false`
 
 ### Build Output
 
@@ -96,6 +98,29 @@ Each page should include `<HtmlHeader title="..." description="..." keywords="..
 - `vite.config.ts` - Vite configuration with image tools and circular dependency checking
 - `tailwind.config.ts` - Tailwind CSS configuration
 - `vitest.config.ts` - Vitest testing configuration
+
+## Component Development Guidelines
+
+### Icon Component
+
+- Available icons are defined in `src/components/Icon.svelte` in the `IconIds` object
+- Common icons: `shield`, `rocket`, `settings`, `operations`, `github`, `checkCircle`, `lightbulb`, `hash`, `deploy`
+- Never use icon IDs that don't exist in the `IconIds` type - this will cause TypeScript errors
+- Icons support `color`, `size`, and `align` properties
+
+### Image Optimization
+
+- Images are processed with `vite-imagetools`
+- Import with size and format parameters: `image800.webp?w=800&format=webp&imagetools`
+- Always specify image size in variable name for clarity: `image800`, `image400`
+- Never use inline images - always import and optimize them
+
+### Component Structure
+
+- All routes use `export const prerender = true` for static generation
+- Use `HtmlHeader` component for SEO: `<HtmlHeader title="..." description="..." keywords="..." />`
+- Prefer `PageSection` wrapper component for consistent page layout
+- Use Flowbite components: `Button`, `Heading`, `P`, `Img` for consistency
 
 ## Code format hints
 
