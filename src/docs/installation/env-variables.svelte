@@ -54,8 +54,22 @@
 		</div>
 	</DocsPageSection>
 
-	<DocsPageSection id="etcd" title="etcd Configuration">
-		<p class="mb-4">Configure the etcd key-value store connection:</p>
+	<DocsPageSection id="etcd" title="etcd Configuration (Optional)">
+		<p class="mb-4">
+			Configure the etcd key-value store connection. <strong
+				>If these variables are not set, FlagFlow will use filesystem storage instead.</strong
+			>
+		</p>
+		<div class="mb-4 rounded-lg bg-blue-50 p-4">
+			<p class="text-sm text-blue-700">
+				<strong>💡 Note:</strong> As of FlagFlow 1.5.0, etcd is optional. Leave these variables
+				unset to use filesystem storage, which is suitable for small companies and simple
+				deployments. See
+				<a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
+					>Filesystem Storage documentation</a
+				> for more details.
+			</p>
+		</div>
 		<div class="overflow-x-auto">
 			<table class="mb-6 w-full border-collapse border border-gray-300">
 				<thead>
@@ -68,18 +82,36 @@
 				<tbody>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_SERVER</td>
-						<td class="border border-gray-300 px-4 py-2">localhost:2379</td>
-						<td class="border border-gray-300 px-4 py-2">etcd server endpoint</td>
+						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>etcd server endpoint
+							<small class="text-gray-500">
+								<br />
+								If empty, FlagFlow uses filesystem storage. Set to "hostname:2379" to enable etcd.
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_USERNAME</td>
-						<td class="border border-gray-300 px-4 py-2">-</td>
-						<td class="border border-gray-300 px-4 py-2">etcd authentication username</td>
+						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>etcd authentication username
+							<small class="text-gray-500">
+								<br />
+								Only required when using etcd with authentication
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_PASSWORD</td>
-						<td class="border border-gray-300 px-4 py-2">-</td>
-						<td class="border border-gray-300 px-4 py-2">etcd authentication password</td>
+						<td class="border border-gray-300 px-4 py-2">"" (empty)</td>
+						<td class="border border-gray-300 px-4 py-2"
+							>etcd authentication password
+							<small class="text-gray-500">
+								<br />
+								Only required when using etcd with authentication
+							</small>
+						</td>
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">ETCD_NAMESPACE</td>
@@ -207,7 +239,7 @@
 	</DocsPageSection>
 
 	<DocsPageSection id="metrics" title="Metrics and Monitoring">
-		<p class="mb-4">Configure application metrics collection:</p>
+		<p class="mb-4">Configure application metrics collection and audit logging:</p>
 		<div class="overflow-x-auto">
 			<table class="mb-6 w-full border-collapse border border-gray-300">
 				<thead>
@@ -224,6 +256,20 @@
 						<td class="border border-gray-300 px-4 py-2"
 							>Enable Prometheus metrics collection and endpoint</td
 						>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2 font-mono text-sm">AUDITLOG_ENABLED</td>
+						<td class="border border-gray-300 px-4 py-2">false</td>
+						<td class="border border-gray-300 px-4 py-2">
+							Enable audit logging system with structured logging
+							<small class="text-gray-500">
+								<br />
+								New in 1.5.0: Provides detailed audit trails for flag changes and user actions. See
+								<a class="text-blue-600 hover:underline" href="/docs/user-management/audit-log"
+									>Audit Log documentation</a
+								> for complete setup and usage details.
+							</small>
+						</td>
 					</tr>
 				</tbody>
 			</table>
@@ -307,6 +353,40 @@
 			Create a <code>.env</code> file in your project root for local development:
 		</p>
 
+		<h4 class="text-md mb-2 font-semibold">
+			Option 1: Filesystem Storage (Recommended for Development)
+		</h4>
+		<CodeBlock
+			code={`# Core Configuration
+LOGLEVEL=debug
+ENVIRONMENT=development
+
+# Storage: Use filesystem storage (no etcd required)
+# ETCD_SERVER=  # Leave empty for filesystem storage
+
+# Keycloak Authentication (optional)
+# KEYCLOAK_HOST=https://your-keycloak.com
+# KEYCLOAK_REALM=flagflow
+# KEYCLOAK_CLIENT=flagflow-frontend
+
+# Session Configuration
+SESSION_USERS_ENABLED=true
+SESSION_DEFAULT_USERNAME=admin
+SESSION_DEFAULT_PASSWORD=dev_password
+SESSION_TIMEOUT_SEC=3600
+
+# Metrics and Logging
+METRICS_ENABLED=true
+AUDITLOG_ENABLED=true
+
+# Development Settings
+DEV_RPC_SLOWDOWN_MS=100`}
+			title=".env (Filesystem Storage)"
+		/>
+
+		<h4 class="text-md mt-6 mb-2 font-semibold">
+			Option 2: etcd Storage (For Distributed Development)
+		</h4>
 		<CodeBlock
 			code={`# Core Configuration
 LOGLEVEL=debug
@@ -324,20 +404,50 @@ ETCD_NAMESPACE=flagflow-dev
 # KEYCLOAK_CLIENT=flagflow-frontend
 
 # Session Configuration
-SESSION_ENABLED=true
+SESSION_USERS_ENABLED=true
+SESSION_DEFAULT_USERNAME=admin
+SESSION_DEFAULT_PASSWORD=dev_password
 SESSION_TIMEOUT_SEC=3600
 
-# Metrics
+# Metrics and Logging
 METRICS_ENABLED=true
+AUDITLOG_ENABLED=true
 
 # Development Settings
 DEV_RPC_SLOWDOWN_MS=100`}
-			title=".env"
+			title=".env (etcd Storage)"
 		/>
 
 		<h3 class="mt-8 mb-3 text-lg font-semibold">Production Environment Variables</h3>
-		<p class="mb-4">For production deployment, set these environment variables:</p>
+		<p class="mb-4">For production deployment, choose your storage option:</p>
 
+		<h4 class="text-md mb-2 font-semibold">Small Companies: Filesystem Storage</h4>
+		<CodeBlock
+			code={`# Core Configuration
+LOGLEVEL=info
+ENVIRONMENT=production
+
+# Storage: Filesystem (ensure /data volume is mounted!)
+# ETCD_SERVER=  # Leave empty for filesystem storage
+
+# Keycloak Authentication (optional)
+KEYCLOAK_HOST=https://auth.yourcompany.com
+KEYCLOAK_REALM=company
+KEYCLOAK_CLIENT=flagflow
+
+# Session Configuration
+SESSION_USERS_ENABLED=true
+SESSION_DEFAULT_USERNAME=admin
+SESSION_DEFAULT_PASSWORD=secure-password-here
+SESSION_TIMEOUT_SEC=1800
+
+# Metrics and Audit
+METRICS_ENABLED=true
+AUDITLOG_ENABLED=true`}
+			title="Production - Filesystem Storage"
+		/>
+
+		<h4 class="text-md mt-6 mb-2 font-semibold">Enterprise/Distributed: etcd Storage</h4>
 		<CodeBlock
 			code={`# Core Configuration
 LOGLEVEL=info
@@ -355,17 +465,36 @@ KEYCLOAK_REALM=company
 KEYCLOAK_CLIENT=flagflow
 
 # Session Configuration
-SESSION_ENABLED=true
+SESSION_USERS_ENABLED=true
+SESSION_DEFAULT_USERNAME=admin
+SESSION_DEFAULT_PASSWORD=secure-password-here
 SESSION_TIMEOUT_SEC=1800
 
-# Metrics
-METRICS_ENABLED=true`}
-			title="Production Environment Variables"
+# Metrics and Audit
+METRICS_ENABLED=true
+AUDITLOG_ENABLED=true`}
+			title="Production - etcd Storage"
 		/>
 
 		<h3 class="mt-8 mb-3 text-lg font-semibold">Docker Environment Variables</h3>
 		<p class="mb-4">Example for Docker Compose or Kubernetes deployment:</p>
 
+		<h4 class="text-md mb-2 font-semibold">Filesystem Storage (remember to mount /data volume!)</h4>
+		<CodeBlock
+			code={`environment:
+  - LOGLEVEL=info
+  - ENVIRONMENT=prod
+  # No etcd configuration = filesystem storage
+  - SESSION_USERS_ENABLED=true
+  - SESSION_DEFAULT_USERNAME=admin
+  - SESSION_DEFAULT_PASSWORD=secure-password
+  - SESSION_TIMEOUT_SEC=1800
+  - METRICS_ENABLED=true
+  - AUDITLOG_ENABLED=true`}
+			title="docker-compose.yml - Filesystem Storage"
+		/>
+
+		<h4 class="text-md mt-4 mb-2 font-semibold">etcd Storage</h4>
 		<CodeBlock
 			code={`environment:
   - LOGLEVEL=info
@@ -374,10 +503,13 @@ METRICS_ENABLED=true`}
   - ETCD_USERNAME=root
   - ETCD_PASSWORD=pw_flagflow
   - ETCD_NAMESPACE=flagflow
-  - SESSION_ENABLED=true
+  - SESSION_USERS_ENABLED=true
+  - SESSION_DEFAULT_USERNAME=admin
+  - SESSION_DEFAULT_PASSWORD=secure-password
   - SESSION_TIMEOUT_SEC=1800
-  - METRICS_ENABLED=true`}
-			title="docker-compose.yml environment section"
+  - METRICS_ENABLED=true
+  - AUDITLOG_ENABLED=true`}
+			title="docker-compose.yml - etcd Storage"
 		/>
 	</DocsPageSection>
 

@@ -34,22 +34,43 @@
 	</DocsPageSection>
 
 	<DocsPageSection
-		id="ectd"
+		id="storage"
 		contentClass="text-justify"
-		hotlink={{ title: 'etcd', href: 'etcd' }}
-		shortTitle="etcd"
-		title="etcd: distributed, reliable key-value store"
+		shortTitle="Storage Engine"
+		title="Storage Engine: etcd or Filesystem Storage"
 	>
 		<div class="flex flex-row items-start gap-8">
 			<Img alt="etcd" src={etcd_80px_inline} />
 
-			FlagFlow is a distributed system that stores its state in a distributed key-value store, etcd.
-			The installation and configuration of etcd are necessary for FlagFlow to function. Since a
-			containerized environment is a prerequisite for FlagFlow itself, it is practical to also run
-			etcd in a container. While etcd can be installed in a distributed cluster environment for high
-			availability, a single-instance setup is sufficient for the efficient operation of FlagFlow in
-			development and testing scenarios. Before installing FlagFlow, please ensure that etcd is
-			properly installed and functioning.
+			<div>
+				<p class="mb-4">
+					FlagFlow supports two storage options for storing its state: <strong
+						>etcd (recommended for production)</strong
+					>
+					and <strong>filesystem storage (suitable for small companies or development)</strong>.
+				</p>
+
+				<p class="mb-4">
+					<strong
+						><a class="text-blue-600 hover:underline" href="/docs/installation/etcd">etcd</a
+						></strong
+					> is the recommended storage engine for production environments, providing distributed, reliable
+					key-value storage with real-time watching capabilities. It's ideal for environments requiring
+					high availability, multiple replicas, and instant synchronization across instances.
+				</p>
+
+				<p>
+					<strong
+						><a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
+							>Filesystem storage</a
+						></strong
+					>
+					is available as an alternative for small companies without heavy infrastructure requirements
+					or single-instance deployments. While it can work with replicas, changes have a few milliseconds
+					delay across instances. When using filesystem storage, you must mount the
+					<code>/data</code> volume to persist data across container restarts.
+				</p>
+			</div>
 		</div>
 	</DocsPageSection>
 
@@ -125,7 +146,7 @@
 							>
 						</tr>
 						<tr>
-							<td class="border border-gray-300 px-4 py-2">etcd</td>
+							<td class="border border-gray-300 px-4 py-2">etcd (optional)</td>
 							<td class="border border-gray-300 px-4 py-2">2379</td>
 							<td class="border border-gray-300 px-4 py-2">HTTP</td>
 							<td class="border border-gray-300 px-4 py-2">Client connections</td>
@@ -134,7 +155,7 @@
 							>
 						</tr>
 						<tr>
-							<td class="border border-gray-300 px-4 py-2">etcd</td>
+							<td class="border border-gray-300 px-4 py-2">etcd (optional)</td>
 							<td class="border border-gray-300 px-4 py-2">2380</td>
 							<td class="border border-gray-300 px-4 py-2">HTTP</td>
 							<td class="border border-gray-300 px-4 py-2">Peer communication</td>
@@ -151,7 +172,7 @@
 			<h4 class="mb-3 text-lg font-semibold">Firewall Configuration</h4>
 			<p class="mb-2">
 				Only port 3000 needs external access for FlagFlow's web UI and API. <strong
-					>Do not expose etcd ports (2379, 2380) to external networks</strong
+					>If using etcd, do not expose etcd ports (2379, 2380) to external networks</strong
 				> - this would create a significant security vulnerability.
 			</p>
 			<div class="mt-3 border-l-4 border-yellow-400 bg-yellow-50 p-4">
@@ -167,9 +188,9 @@
 					</div>
 					<div class="ml-3">
 						<p class="text-sm text-yellow-700">
-							<strong>Security Warning:</strong> etcd ports should remain internal to your container
-							network or cluster. Exposing them externally allows unauthorized access to your feature
-							flag data and configuration.
+							<strong>Security Warning:</strong> If using etcd, etcd ports should remain internal to
+							your container network or cluster. Exposing them externally allows unauthorized access
+							to your feature flag data and configuration.
 						</p>
 					</div>
 				</div>
@@ -191,9 +212,10 @@
 			<div>
 				<h4 class="mb-2 text-lg font-semibold">Authentication</h4>
 				<ul class="list-inside list-disc space-y-1">
-					<li>Configure strong passwords for etcd authentication</li>
+					<li>Configure strong passwords for etcd authentication (if using etcd)</li>
 					<li>Use TLS certificates for encrypted communication in production</li>
 					<li>Consider implementing network policies in Kubernetes environments</li>
+					<li>Secure filesystem permissions for /data volume (if using filesystem storage)</li>
 				</ul>
 			</div>
 
@@ -202,7 +224,9 @@
 				<ul class="list-inside list-disc space-y-1">
 					<li>Enable encryption at rest for persistent storage</li>
 					<li>Use encrypted container registries for image storage</li>
-					<li>Implement backup strategies for etcd data</li>
+					<li>
+						Implement backup strategies for your chosen storage engine (etcd data or /data volume)
+					</li>
 				</ul>
 			</div>
 
@@ -268,9 +292,22 @@
 			</label>
 			<label class="flex items-center space-x-3">
 				<input class="form-checkbox h-5 w-5 text-blue-600" type="checkbox" />
+				<span>Port 3000 is accessible for external access</span>
+			</label>
+			<label class="flex items-center space-x-3">
+				<input class="form-checkbox h-5 w-5 text-blue-600" type="checkbox" />
 				<span
-					>Port 3000 is accessible for external access (etcd ports 2379/2380 should remain internal)</span
+					>Storage engine decision made (etcd for production/distributed deployments, filesystem for
+					simple setups)</span
 				>
+			</label>
+			<label class="flex items-center space-x-3">
+				<input class="form-checkbox h-5 w-5 text-blue-600" type="checkbox" />
+				<span>If using etcd: etcd ports 2379/2380 remain internal and secured</span>
+			</label>
+			<label class="flex items-center space-x-3">
+				<input class="form-checkbox h-5 w-5 text-blue-600" type="checkbox" />
+				<span>If using filesystem storage: /data volume mount configured for data persistence</span>
 			</label>
 			<label class="flex items-center space-x-3">
 				<input class="form-checkbox h-5 w-5 text-blue-600" type="checkbox" />
