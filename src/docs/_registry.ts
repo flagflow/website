@@ -5,7 +5,8 @@ export const documentPageRegistry = {
 		title: 'Getting Started',
 		description: 'Complete guide to setting up and using FlagFlow for feature flag management',
 		filenameOverride: 'get_started',
-		keywords: 'flagflow, feature flags, getting started, setup, installation, tutorial, guide'
+		keywords:
+			'flagflow, feature flags, getting started, self-hosted, open source, feature toggles, typescript, docker, setup guide, quick start'
 	},
 	installation: {
 		groupName: 'Installation',
@@ -14,28 +15,42 @@ export const documentPageRegistry = {
 				title: 'Prerequisites',
 				description: 'System requirements and dependencies needed before installing FlagFlow',
 				keywords:
-					'prerequisites, system requirements, dependencies, installation requirements, setup'
+					'prerequisites, system requirements, node.js, docker, etcd, server requirements, production deployment, infrastructure'
 			},
 			etcd: {
 				title: 'etcd',
-				description: 'Install and configure etcd as the distributed key-value store for FlagFlow',
-				keywords: 'etcd, distributed storage, key-value store, configuration, clustering, database'
+				description:
+					'Install and configure etcd distributed key-value store for FlagFlow - clustering, high availability, and production-ready data persistence',
+				keywords:
+					'etcd, distributed database, key-value store, clustering, high availability, production storage, data persistence, distributed systems'
+			},
+			'filesystem-storage': {
+				title: 'Filesystem Storage',
+				description:
+					'Configure FlagFlow with filesystem storage for simple deployments - lightweight alternative to etcd for small teams and development environments',
+				keywords:
+					'filesystem storage, local storage, simple deployment, lightweight, small teams, development environment, file-based storage, minimal setup'
 			},
 			docker: {
 				title: 'Docker',
-				description: 'Deploy FlagFlow using Docker containers with docker-compose configuration',
-				keywords: 'docker, containerization, deployment, docker-compose, containers, devops'
+				description:
+					'Deploy FlagFlow with Docker containers using docker-compose - production-ready containerized deployment with volume mounts and networking',
+				keywords:
+					'docker deployment, docker-compose, containerization, self-hosted deployment, production containers, devops, container orchestration'
 			},
 			kubernetes: {
 				title: 'Kubernetes',
-				description: 'Deploy FlagFlow on Kubernetes clusters with Helm charts and manifests',
-				keywords: 'kubernetes, k8s, orchestration, helm, deployment, scaling, cloud native'
+				description:
+					'Deploy FlagFlow on Kubernetes clusters with Helm charts, ConfigMaps, and production-ready manifests for scalable self-hosted feature flags',
+				keywords:
+					'kubernetes deployment, k8s, helm charts, kubernetes manifests, cloud native, container orchestration, scalable deployment, production k8s'
 			},
 			'env-variables': {
-				title: 'ENV variables',
+				title: 'Environment Variables',
 				description:
-					'Configure FlagFlow using environment variables for different deployment scenarios',
-				keywords: 'environment variables, configuration, settings, deployment, customization'
+					'Configure FlagFlow with environment variables - database connections, authentication settings, and deployment-specific configuration options',
+				keywords:
+					'environment variables, config management, deployment configuration, database config, authentication settings, production config'
 			}
 		}
 	},
@@ -45,22 +60,36 @@ export const documentPageRegistry = {
 			authentication: {
 				title: 'Authentication',
 				description: 'Understanding FlagFlow authentication system and security model',
-				keywords: 'authentication, security, login, access control, user management, auth'
+				keywords:
+					'authentication, security, SSO, JWT, keycloak integration, enterprise auth, self-hosted security, access control'
 			},
 			permissions: {
 				title: 'Permissions',
-				description: 'Granular permission model and role-based access control in FlagFlow',
-				keywords: 'permissions, rbac, role-based access control, authorization, security, roles'
+				description:
+					'FlagFlow granular permission system - role-based access control (RBAC), team permissions, and fine-grained authorization for enterprise security',
+				keywords:
+					'permissions, RBAC, role-based access control, authorization, team permissions, enterprise security, granular permissions'
 			},
 			'built-in-users': {
 				title: 'Built-in Users',
-				description: 'Simple user management solution for small to medium-sized teams',
-				keywords: 'built-in users, user management, simple auth, local users, team management'
+				description:
+					'FlagFlow built-in user management - simple authentication system for small teams without external SSO requirements',
+				keywords:
+					'built-in users, local authentication, simple user management, small teams, no SSO, basic auth'
 			},
 			keycloak: {
-				title: 'Keycloak',
-				description: 'Enterprise-grade authentication with Keycloak SSO integration',
-				keywords: 'keycloak, sso, single sign-on, enterprise auth, oauth, openid connect'
+				title: 'Keycloak Integration',
+				description:
+					'FlagFlow Keycloak SSO integration - enterprise authentication with OAuth2, OpenID Connect, and centralized user management',
+				keywords:
+					'keycloak integration, SSO, single sign-on, OAuth2, OpenID Connect, enterprise authentication, SAML, identity provider'
+			},
+			'audit-log': {
+				title: 'Audit Log',
+				description:
+					'FlagFlow comprehensive audit logging - track user actions, flag changes, and system events for compliance and security monitoring',
+				keywords:
+					'audit log, compliance logging, security monitoring, user tracking, flag change history, audit trail, compliance requirements'
 			}
 		}
 	},
@@ -70,19 +99,23 @@ export const documentPageRegistry = {
 			'flag-types': {
 				title: 'Flag Types',
 				description:
-					'Understanding FlagFlow comprehensive flag type system for different use cases',
-				keywords: 'flag types, feature flags, boolean flags, string flags, number flags, json flags'
+					'FlagFlow comprehensive flag types - boolean, string, number, JSON, enum, and A/B testing flags for all feature toggle use cases',
+				keywords:
+					'flag types, feature flags, boolean flags, string flags, number flags, JSON flags, enum flags, A/B testing, feature toggles'
 			},
 			hierarchy: {
 				title: 'Flag Hierarchy',
 				description:
-					'Organizing and structuring feature flags for better management and maintainability',
-				keywords: 'flag hierarchy, organization, structure, namespaces, grouping, management'
+					'Organize FlagFlow feature flags with hierarchical structure - namespaces, grouping, and nested flags for scalable flag management',
+				keywords:
+					'flag hierarchy, flag organization, namespaces, flag grouping, structured flags, scalable flag management'
 			},
 			'access-flags': {
 				title: 'Access Flags',
-				description: 'Retrieving feature flags through various access methods and API formats',
-				keywords: 'access flags, api, rest api, flag retrieval, client sdk, integration'
+				description:
+					'Access FlagFlow feature flags via REST API, client SDKs, and direct HTTP endpoints for application integration',
+				keywords:
+					'REST API, flag API, client SDK, HTTP endpoints, flag retrieval, API integration, programmatic access'
 			}
 		}
 	},
@@ -90,19 +123,25 @@ export const documentPageRegistry = {
 		groupName: 'TypeScript',
 		nodes: {
 			'ts-schema': {
-				title: 'TS Schema',
-				description: 'Automatic type-safe TypeScript interfaces for your feature flags',
-				keywords: 'typescript, type safety, schema generation, interfaces, client code, ts'
+				title: 'TypeScript Schema',
+				description:
+					'Auto-generated TypeScript interfaces for FlagFlow feature flags - type-safe client code with full IntelliSense support',
+				keywords:
+					'typescript schema, type safety, auto-generated types, typescript interfaces, intellisense, type-safe flags, client types'
 			},
 			'zod-schema': {
-				title: 'ZOD Schema',
-				description: 'Runtime type validation and parsing with automatically generated Zod schemas',
-				keywords: 'zod, runtime validation, type parsing, schema validation, typescript, validation'
+				title: 'Zod Schema Validation',
+				description:
+					'FlagFlow auto-generated Zod schemas for runtime type validation - ensure flag values match expected types at runtime',
+				keywords:
+					'zod schema, runtime validation, type validation, schema parsing, runtime type checking, flag validation, type safety'
 			},
 			hash: {
-				title: 'Hashes',
-				description: 'Ensuring type safety and cache consistency with SHA-1 hashing',
-				keywords: 'hash validation, sha1, cache consistency, type safety, versioning'
+				title: 'Hash Validation',
+				description:
+					'FlagFlow SHA-1 hash validation system - ensure flag schema consistency and enable client-side caching with version control',
+				keywords:
+					'SHA-1 hashing, hash validation, cache consistency, version control, schema validation, client caching'
 			}
 		}
 	},
@@ -110,19 +149,25 @@ export const documentPageRegistry = {
 		groupName: 'Migration',
 		nodes: {
 			'export-backup': {
-				title: 'Export/Backup',
-				description: 'Create comprehensive backups of your feature flags and configuration',
-				keywords: 'export, backup, data export, configuration backup, migration, data management'
+				title: 'Export & Backup',
+				description:
+					'Export and backup FlagFlow feature flags and configurations - create portable backups for disaster recovery and migration',
+				keywords:
+					'flag export, backup, data export, disaster recovery, configuration backup, flag migration, data portability'
 			},
 			restore: {
 				title: 'Restore',
-				description: 'Restore feature flag configurations from backup files',
-				keywords: 'restore, backup restore, data recovery, configuration restore, import'
+				description:
+					'Restore FlagFlow configurations from backup files - recover flags and settings from exported data with validation',
+				keywords:
+					'restore flags, backup restore, data recovery, configuration restore, flag import, disaster recovery'
 			},
 			migration: {
 				title: 'Migration',
-				description: 'Transfer feature flag configurations between different FlagFlow environments',
-				keywords: 'migration, cross-environment, data transfer, environment migration, deployment'
+				description:
+					'Migrate FlagFlow feature flags between environments - transfer configurations across development, staging, and production deployments',
+				keywords:
+					'flag migration, cross-environment migration, environment transfer, production migration, development to production'
 			}
 		}
 	}
