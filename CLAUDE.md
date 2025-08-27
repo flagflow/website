@@ -27,6 +27,8 @@ This is the website for Flagflow, a feature flag management platform. It's built
 
 - `npm test` - Run tests with Vitest
 - `npm run test:ui` - Run tests with UI
+- Tests use `@testing-library/svelte` with `jsdom` environment
+- Test setup file: `tests/setup.ts`
 
 ### Utilities
 
@@ -67,6 +69,7 @@ The site uses a unique documentation architecture:
 - Eager loading of documentation components via `import.meta.glob`
 - Bundle strategy set to 'inline' for single file output
 - Compiler optimizations: `preserveComments: false`, `preserveWhitespace: false`
+- Custom color scheme: primary (blue) and secondary (yellow-green) palettes defined in Tailwind config
 
 ### Build Output
 
@@ -92,12 +95,20 @@ Each page should include `<HtmlHeader title="..." description="..." keywords="..
 2. Create corresponding `.svelte` file in `src/docs/` matching the registry structure
 3. The route will be automatically generated and included in sitemap
 
+### Registry Structure
+
+- Root pages: Direct entries in `documentPageRegistry` object
+- Grouped pages: Nested under `nodes` object with `groupName` property
+- `documentPageRegistryFlat` automatically flattens structure for routing
+- The `entries` function in `src/routes/docs/[...slug]/+page.ts` generates all routes from the flattened registry
+
 ## Configuration Files
 
-- `svelte.config.js` - SvelteKit configuration with static adapter
-- `vite.config.ts` - Vite configuration with image tools and circular dependency checking
-- `tailwind.config.ts` - Tailwind CSS configuration
-- `vitest.config.ts` - Vitest testing configuration
+- `svelte.config.js` - SvelteKit configuration with static adapter, path aliases, and inline bundle strategy
+- `vite.config.ts` - Vite configuration with image tools, circular dependency checking, version injection (`__APP_VERSION__`)
+- `tailwind.config.ts` - Tailwind CSS configuration with Flowbite plugin and custom color scheme
+- `vitest.config.ts` - Vitest testing configuration with jsdom environment and path aliases
+- `package.json` - Requires Node.js 22+, uses `node --run` for scripts
 
 ## Component Development Guidelines
 
