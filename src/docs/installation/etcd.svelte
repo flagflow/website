@@ -9,12 +9,48 @@
 </script>
 
 <DocsPage>
-	<PageTitle title="etcd"
+	<PageTitle title="etcd (Optional)"
 		>etcd is a distributed, key-value store designed for storing and managing configuration data
-		with high availability and strong consistency guarantees in distributed systems</PageTitle
+		with high availability and strong consistency guarantees in distributed systems. <strong
+			>As of FlagFlow 1.5.0, etcd is optional</strong
+		> - you can use filesystem storage instead for simpler deployments.</PageTitle
 	>
 
-	<DocsPageSection id="why-etcd" title="Why etcd?">
+	<DocsPageSection id="when-to-use" title="When to Use etcd vs Filesystem Storage">
+		<div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+			<div class="rounded-lg border border-blue-200 bg-blue-50 p-4">
+				<h4 class="mb-3 text-lg font-semibold text-blue-700">Choose etcd for:</h4>
+				<ul class="space-y-2 text-sm">
+					<li>✅ <strong>Production environments</strong> requiring high availability</li>
+					<li>✅ <strong>Multiple FlagFlow instances</strong> with real-time synchronization</li>
+					<li>✅ <strong>Distributed deployments</strong> across multiple servers/clusters</li>
+					<li>✅ <strong>Enterprise environments</strong> with complex infrastructure</li>
+					<li>✅ <strong>High-frequency flag changes</strong> requiring instant propagation</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border border-green-200 bg-green-50 p-4">
+				<h4 class="mb-3 text-lg font-semibold text-green-700">Choose Filesystem Storage for:</h4>
+				<ul class="space-y-2 text-sm">
+					<li>✅ <strong>Small companies</strong> without heavy infrastructure needs</li>
+					<li>✅ <strong>Development and testing</strong> environments</li>
+					<li>✅ <strong>Single-instance deployments</strong> (no replicas needed)</li>
+					<li>✅ <strong>Simple setups</strong> avoiding etcd complexity</li>
+					<li>✅ <strong>Cost-conscious deployments</strong> minimizing resource usage</li>
+				</ul>
+			</div>
+		</div>
+		<div class="mt-4 rounded-lg bg-yellow-50 p-4">
+			<p class="text-sm text-yellow-700">
+				<strong>💡 Recommendation:</strong> Start with
+				<a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
+					>filesystem storage</a
+				> for initial deployments and migrate to etcd when you need distributed features or real-time
+				synchronization across multiple instances.
+			</p>
+		</div>
+	</DocsPageSection>
+
+	<DocsPageSection id="why-etcd" title="Why Choose etcd?">
 		The <a
 			class="text-blue-600 hover:underline"
 			href="https://etcd.io/"
