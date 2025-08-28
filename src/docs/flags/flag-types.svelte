@@ -13,7 +13,7 @@
 
 	<DocsPageSection id="overview" title="Overview">
 		<p class="mb-4">
-			FlagFlow supports 6 different flag types, each designed for specific use cases and providing
+			FlagFlow supports 7 different flag types, each designed for specific use cases and providing
 			type-safe configuration management. Each flag type includes built-in validation, TypeScript
 			support, and configurable constraints to ensure data integrity.
 		</p>
@@ -121,6 +121,22 @@
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
+							<code class="bg-indigo-100 font-mono text-sm">OBJECT</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							Complex structured data with JavaScript object syntax. Supports nested objects,
+							arrays, and complex type definitions with schema validation. Perfect for configuration
+							objects, nested settings, API payloads, and any structured data requirements.
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<code class="font-mono text-sm">{'{ server: string; port: number }'}</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<code class="font-mono text-sm">{'{ server: "api.example.com", port: 8080 }'}</code>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2">
 							<code class="bg-red-100 font-mono text-sm">AB-TEST</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
@@ -213,6 +229,19 @@
 					</tr>
 					<tr>
 						<td class="border border-gray-300 px-4 py-2">
+							<code class="font-mono text-sm">OBJECT</code>
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<code>objectSchema</code> (JavaScript object syntax)
+						</td>
+						<td class="border border-gray-300 px-4 py-2">
+							<code class="font-mono text-sm"
+								>objectSchema: "{'{ server: string, port: number }'}"</code
+							>
+						</td>
+					</tr>
+					<tr>
+						<td class="border border-gray-300 px-4 py-2">
 							<code class="font-mono text-sm">AB-TEST</code>
 						</td>
 						<td class="border border-gray-300 px-4 py-2">
@@ -240,6 +269,11 @@ export interface FLAGS {
   api_endpoint: string;                    // STRING type
   theme_mode: "light" | "dark" | "auto";   // ENUM type
   enabled_modules: ("core" | "analytics" | "notifications" | "reporting")[]; // TAG type
+  api_config: {                           // OBJECT type
+    server: string;
+    port: number;
+    timeout: number;
+  };
   ab_test_variant: "A" | "B";             // AB-TEST type
 }
 
@@ -250,6 +284,15 @@ const FLAGS_SCHEMA = {
   api_endpoint: z.string().max(255).regex(/^https?:///).default("https://api.example.com"),
   theme_mode: z.enum(["light", "dark", "auto"]).default("auto"),
   enabled_modules: z.array(z.enum(["core", "analytics", "notifications", "reporting"])).min(1).max(4).default(["core"]),
+  api_config: z.object({                  // OBJECT type with schema
+    server: z.string(),
+    port: z.number(),
+    timeout: z.number()
+  }).default({
+    server: "api.example.com",
+    port: 8080,
+    timeout: 5000
+  }),
   ab_test_variant: z.string().default("A") // Runtime logic handles A/B distribution
 };`}
 			title="Generated TypeScript Types and Schemas"
@@ -279,6 +322,125 @@ const FLAGS_SCHEMA = {
 		</div>
 	</DocsPageSection>
 
+	<DocsPageSection id="object-flags-detail" title="Object Flags Deep Dive">
+		<p class="mb-4">
+			Object flags represent FlagFlow's most powerful flag type, supporting complex structured data
+			with full TypeScript integration and runtime validation. They use JavaScript object syntax for
+			schema definition and support nested objects, arrays, and all primitive types.
+		</p>
+
+		<h4 class="mb-3 text-lg font-semibold">JavaScript Object Syntax</h4>
+		<p class="mb-4">
+			Object flags use familiar JavaScript object syntax for schema definition, making them
+			intuitive for developers:
+		</p>
+		<CodeBlock
+			code={`// Simple object schema
+{ server: string, port: number }
+
+// Database configuration with optional properties
+{
+  database: {
+    host: string,
+    port: number,
+    name: string,
+    ssl?: boolean,
+    timeout: number
+  }
+}
+
+// API configuration with nested settings
+{
+  api: {
+    endpoint: string,
+    timeout: number,
+    retries: number,
+    headers: { [key: string]: string }
+  },
+  cache: {
+    enabled: boolean,
+    ttl: number,
+    providers: ("memory" | "redis" | "disk")[]
+  }
+}`}
+			title="Object Schema Examples"
+		/>
+
+		<h4 class="mt-6 mb-3 text-lg font-semibold">Type Generation and Validation</h4>
+		<p class="mb-4">
+			FlagFlow automatically generates TypeScript interfaces and Zod schemas for object flags,
+			providing complete type safety and runtime validation:
+		</p>
+		<CodeBlock
+			code={`// Generated TypeScript interface
+export interface DatabaseConfig {
+  database: {
+    host: string;
+    port: number;
+    name: string;
+    ssl?: boolean;
+    timeout: number;
+  };
+}
+
+// Generated Zod schema
+const DatabaseConfigSchema = z.object({
+  database: z.object({
+    host: z.string(),
+    port: z.number(),
+    name: z.string(),
+    ssl: z.boolean().optional(),
+    timeout: z.number()
+  })
+});
+
+// Usage with full type safety
+const config: DatabaseConfig = FLAGS.database_config;
+console.log(config.database.host);     // TypeScript IntelliSense available
+console.log(config.database.port);     // Number type fully validated`}
+			title="Generated Types and Usage"
+		/>
+
+		<h4 class="mt-6 mb-3 text-lg font-semibold">Practical Use Cases</h4>
+		<div class="space-y-4">
+			<DocsPageRoundedBox>
+				<h5 class="mb-2 font-semibold">Service Configuration</h5>
+				<CodeBlock
+					code={`{
+  redis: {
+    host: string,
+    port: number,
+    password: string,
+    database: number
+  },
+  api: {
+    baseUrl: string,
+    timeout: number,
+    retries: number
+  }
+}`}
+				/>
+			</DocsPageRoundedBox>
+			<DocsPageRoundedBox>
+				<h5 class="mb-2 font-semibold">Feature Settings</h5>
+				<CodeBlock
+					code={`{
+  email: {
+    provider: "smtp" | "sendgrid" | "ses",
+    host: string,
+    port: number,
+    secure: boolean
+  },
+  logging: {
+    level: "error" | "warn" | "info" | "debug",
+    destinations: string[]
+  }
+}`}
+				/>
+			</DocsPageRoundedBox>
+		</div>
+	</DocsPageSection>
+
 	<DocsPageSection id="best-practices" title="Best Practices">
 		<div class="space-y-4">
 			<DocsPageRoundedBox>
@@ -287,6 +449,10 @@ const FLAGS_SCHEMA = {
 					<li><strong>BOOLEAN</strong>: Use for simple on/off features and kill switches</li>
 					<li><strong>INTEGER</strong>: Use for numeric configs that need range validation</li>
 					<li><strong>STRING</strong>: Use for text configs that may need format validation</li>
+					<li>
+						<strong>OBJECT</strong>: Use for complex structured data, nested configurations, and API
+						payloads
+					</li>
 					<li><strong>ENUM</strong>: Use when you need to restrict to specific valid options</li>
 					<li><strong>TAG</strong>: Use for multi-selection scenarios with validation</li>
 					<li><strong>AB-TEST</strong>: Use for split testing and gradual rollouts</li>
@@ -298,6 +464,7 @@ const FLAGS_SCHEMA = {
 					<li>All types have minimal runtime overhead</li>
 					<li>AB-TEST uses deterministic hashing for consistent results</li>
 					<li>ENUM and TAG types use efficient union type checking</li>
+					<li>OBJECT types use optimized parsing with comprehensive validation</li>
 					<li>Schema validation happens only during flag updates</li>
 				</ul>
 			</DocsPageRoundedBox>

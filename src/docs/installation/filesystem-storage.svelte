@@ -14,8 +14,8 @@
 
 	<DocsPageSection id="overview" title="Overview">
 		<p class="mb-4">
-			FlagFlow 1.5.0 introduces <strong>filesystem storage</strong> as an alternative to etcd. This storage
-			option is perfect for:
+			FlagFlow 1.5.0 introduces <strong>filesystem storage</strong> through the new PersistentService
+			abstraction layer as an alternative to etcd. This storage option is perfect for:
 		</p>
 		<ul class="mb-4 list-inside list-disc space-y-2">
 			<li><strong>Small companies</strong> without heavy infrastructure requirements</li>
@@ -119,8 +119,9 @@
 
 	<DocsPageSection id="configuration" title="Configuration">
 		<p class="mb-4">
-			To use filesystem storage, simply <strong>omit the etcd configuration</strong>. FlagFlow will
-			automatically detect the absence of etcd settings and switch to filesystem storage.
+			To use filesystem storage, simply <strong>omit the etcd configuration</strong>. FlagFlow's
+			PersistentService abstraction will automatically detect the absence of etcd settings and
+			initialize the filesystem storage engine with full type safety and Zod schema validation.
 		</p>
 
 		<DocsPageSubSection subTitle="Environment Variables" title="No etcd Configuration Required">
@@ -167,6 +168,41 @@ ENVIRONMENT=production`}
 				<li>Configuration settings</li>
 			</ul>
 		</DocsPageSubSection>
+	</DocsPageSection>
+
+	<DocsPageSection id="architecture" title="Storage Architecture">
+		<p class="mb-4">
+			FlagFlow 1.5.0 introduces a new dual-engine persistence architecture that supports both etcd
+			and filesystem storage through the PersistentService abstraction layer:
+		</p>
+		<div class="space-y-4">
+			<div class="rounded-lg border border-blue-200 bg-blue-50 p-4">
+				<h4 class="mb-2 font-semibold text-blue-800">🏗️ PersistentService Abstraction</h4>
+				<p class="mb-2 text-sm text-blue-700">
+					The service layer now supports pluggable persistence engines, allowing seamless switching
+					between storage types without changing application logic.
+				</p>
+				<ul class="list-inside list-disc space-y-1 text-xs text-blue-600">
+					<li>Unified API for all storage operations</li>
+					<li>Type-safe persistence with Zod schema validation</li>
+					<li>Real-time flag watching in both storage modes</li>
+					<li>Consistent behavior across storage engines</li>
+				</ul>
+			</div>
+			<div class="rounded-lg border border-green-200 bg-green-50 p-4">
+				<h4 class="mb-2 font-semibold text-green-800">📁 Filesystem Storage Engine</h4>
+				<p class="mb-2 text-sm text-green-700">
+					The filesystem storage engine provides robust local storage with automatic file watching
+					and change detection for real-time updates.
+				</p>
+				<ul class="list-inside list-disc space-y-1 text-xs text-green-600">
+					<li>JSON-based data storage for transparency</li>
+					<li>File system watching for real-time synchronization</li>
+					<li>Atomic write operations for data consistency</li>
+					<li>Enhanced type safety throughout persistence layer</li>
+				</ul>
+			</div>
+		</div>
 	</DocsPageSection>
 
 	<DocsPageSection id="docker" title="Docker Setup">
@@ -399,8 +435,9 @@ spec:
 				<h4 class="mb-2 font-semibold text-yellow-800">🔄 Multi-Instance Synchronization</h4>
 				<p class="text-sm text-yellow-700">
 					When running multiple FlagFlow instances with filesystem storage, changes made in one
-					instance will be visible in others with a few milliseconds delay due to automatic file
-					system polling. This is slower than etcd's instant watch-based updates.
+					instance will be visible in others with a few milliseconds delay due to file system
+					watching. The PersistentService abstraction ensures consistent behavior, though this is
+					slower than etcd's instant distributed watch-based updates.
 				</p>
 			</div>
 

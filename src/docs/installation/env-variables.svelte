@@ -62,9 +62,10 @@
 		</p>
 		<div class="mb-4 rounded-lg bg-blue-50 p-4">
 			<p class="text-sm text-blue-700">
-				<strong>💡 Note:</strong> As of FlagFlow 1.5.0, etcd is optional. Leave these variables
-				unset to use filesystem storage, which is suitable for small companies and simple
-				deployments. See
+				<strong>💡 Note:</strong> As of FlagFlow 1.5.0, etcd is optional due to the new
+				PersistentService abstraction layer. Leave these variables unset to use filesystem storage,
+				which is suitable for small companies and simple deployments. The dual-engine architecture
+				provides seamless switching between storage types. See
 				<a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
 					>Filesystem Storage documentation</a
 				> for more details.
