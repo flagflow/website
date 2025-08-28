@@ -464,7 +464,7 @@ console.log(config.database.port);     // Number type fully validated`}
 					<li>All types have minimal runtime overhead</li>
 					<li>AB-TEST uses deterministic hashing for consistent results</li>
 					<li>ENUM and TAG types use efficient union type checking</li>
-					<li>OBJECT types use optimized parsing with comprehensive validation</li>
+					<li>OBJECT types use optimized parsing and comprehensive validation</li>
 					<li>Schema validation happens only during flag updates</li>
 				</ul>
 			</DocsPageRoundedBox>

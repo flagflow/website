@@ -18,7 +18,7 @@ The official documentation website for **FlagFlow** - a powerful, self-hosted fe
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22+
 - npm or yarn
 
 ### Development

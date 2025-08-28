@@ -210,7 +210,7 @@
 				size="lg"
 				target="_blank"
 			>
-				I want to see the Demo
+				Try Demo
 			</Button>
 		</div>
 	</div>

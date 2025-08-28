@@ -70,6 +70,7 @@ The site uses a unique documentation architecture:
 - Bundle strategy set to 'inline' for single file output
 - Compiler optimizations: `preserveComments: false`, `preserveWhitespace: false`
 - Custom color scheme: primary (blue) and secondary (yellow-green) palettes defined in Tailwind config
+- FlagFlow application default port is 3000 (ensure consistency in all documentation examples)
 
 ### Build Output
 

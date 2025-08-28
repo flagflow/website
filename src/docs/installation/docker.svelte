@@ -9,7 +9,7 @@
 </script>
 
 <DocsPage>
-	<PageTitle title="Docker">How easy it is to install FlagFlow in a Docker environment</PageTitle>
+	<PageTitle title="Docker">How to easily install FlagFlow in a Docker environment</PageTitle>
 
 	<DocsPageSection id="prerequisites" title="Prerequisites">
 		<p class="mb-4">
@@ -40,8 +40,8 @@
 		/>
 
 		<p class="mt-4 text-sm text-gray-600">
-			Replace <code>your-etcd-server</code> with your actual etcd server address. If you don't have an
-			etcd server running, consider using the Docker Compose setup below which includes etcd.
+			This example connects to an etcd server at <code>etcd:2379</code>. If you don't have an etcd
+			server running, consider using the Docker Compose setup below which includes etcd.
 		</p>
 	</DocsPageSection>
 
@@ -59,21 +59,21 @@ services:
     image: ${ETCD_IMAGE}
     container_name: flagflow-etcd
     environment:
-	  - ETCD_ROOT_PASSWORD=pw_flagflow
+      - ETCD_ROOT_PASSWORD=pw_flagflow
     volumes:
       - etcd-data:/etcd-data
-	# Not needed, because network allows communication between containers
+    # Not needed, because network allows communication between containers
     ports:
       - "2379:2379"
     networks:
       - flagflow-network
-	# Health check is not mandatory, but recommended in production
-	healthcheck:
-		test: ["CMD", "etcdctl", "--user=root:pw_flagflow", "endpoint", "health"]
-		interval: 15s
-		timeout: 10s
-		retries: 2
-	restart: on-failure
+    # Health check is not mandatory, but recommended in production
+    healthcheck:
+      test: ["CMD", "etcdctl", "--user=root:pw_flagflow", "endpoint", "health"]
+      interval: 15s
+      timeout: 10s
+      retries: 2
+    restart: on-failure
 
   flagflow:
     image: ghcr.io/flagflow/flagflow:${__APP_VERSION__}
@@ -88,13 +88,13 @@ services:
       - "3000:3000"
     networks:
       - flagflow-network
-	# Health check is not mandatory, but recommended in production
-	healthcheck:
-		test: 'curl -s -I http://localhost:3000/health | head -n 1 | grep 200'
-		interval: 15s
-		timeout: 10s
-		retries: 2
-	restart: on-failure
+    # Health check is not mandatory, but recommended in production
+    healthcheck:
+      test: 'curl -s -I http://localhost:3000/health | head -n 1 | grep 200'
+      interval: 15s
+      timeout: 10s
+      retries: 2
+    restart: on-failure
 
 # You can use nginx as a reverse proxy in front of FlagFlow
 # ...
@@ -119,7 +119,7 @@ networks:
 			<li>
 				<code>ETCD_ENDPOINTS</code> - Comma-separated list of etcd endpoints (default: http://localhost:2379)
 			</li>
-			<li><code>PORT</code> - Port to run the FlagFlow server on (default: 8080)</li>
+			<li><code>PORT</code> - Port to run the FlagFlow server on (default: 3000)</li>
 			<li><code>LOG_LEVEL</code> - Log level (debug, info, warn, error) (default: info)</li>
 		</ul>
 	</DocsPageSection>
@@ -130,7 +130,7 @@ networks:
 			<li>
 				Opening your browser and navigating to <a
 					class="text-blue-600 hover:underline"
-					href="http://localhost:8080">http://localhost:8080</a
+					href="http://localhost:3000">http://localhost:3000</a
 				>
 			</li>
 			<li>Checking the container logs:</li>
