@@ -99,9 +99,9 @@ export const documentPageRegistry = {
 			'flag-types': {
 				title: 'Flag Types',
 				description:
-					'FlagFlow comprehensive flag types - boolean, string, number, JSON, enum, and A/B testing flags for all feature toggle use cases',
+					'FlagFlow comprehensive flag types - boolean, string, number, object, enum, tag, and A/B testing flags for all feature toggle use cases',
 				keywords:
-					'flag types, feature flags, boolean flags, string flags, number flags, JSON flags, enum flags, A/B testing, feature toggles'
+					'flag types, feature flags, boolean flags, string flags, number flags, object flags, JSON flags, enum flags, tag flags, A/B testing, feature toggles, complex objects, nested data'
 			},
 			hierarchy: {
 				title: 'Flag Hierarchy',
@@ -170,6 +170,13 @@ export const documentPageRegistry = {
 					'flag migration, cross-environment migration, environment transfer, production migration, development to production'
 			}
 		}
+	},
+	testing: {
+		title: 'Testing',
+		description:
+			'FlagFlow comprehensive testing infrastructure with Vitest, @testing-library/svelte, and in-memory testing engines for reliable development',
+		keywords:
+			'testing, vitest, svelte testing library, unit tests, integration tests, E2E tests, test infrastructure, testing framework'
 	}
 } as const satisfies DocumentPageRegistry;
 
