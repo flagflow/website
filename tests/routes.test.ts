@@ -1,6 +1,6 @@
 /* eslint-disable vitest/prefer-expect-assertions */
 /* eslint-disable vitest/require-mock-type-parameters */
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, expectTypeOf,it, vi } from 'vitest';
 
 // Mock SvelteKit's error function
 vi.mock('@sveltejs/kit', () => ({
@@ -29,7 +29,8 @@ describe('route Generation', () => {
 			// Check that entries have the expected structure
 			for (const entry of result) {
 				expect(entry).toHaveProperty('slug');
-				expect(typeof entry.slug).toBe('string');
+
+				expectTypeOf(entry.slug).toBeString();
 			}
 		});
 
