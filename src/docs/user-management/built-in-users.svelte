@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -210,8 +211,9 @@ ENVIRONMENT=production`}
 			<li>Disable built-in user management: <code>SESSION_USERS_ENABLED=false</code></li>
 		</ol>
 		<p class="text-sm text-gray-600">
-			See the <a class="text-blue-600 hover:underline" href="/docs/user-management/keycloak"
-				>Keycloak Integration</a
+			See the <a
+				class="text-blue-600 hover:underline"
+				href={resolve('/docs/user-management/keycloak', {})}>Keycloak Integration</a
 			> documentation for detailed setup instructions.
 		</p>
 	</DocsPageSection>

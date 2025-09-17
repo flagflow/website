@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -474,11 +475,13 @@ echo "✅ Restore validation completed"`}
 		</ul>
 		<p class="text-sm text-gray-600">
 			For creating backups, see the
-			<a class="text-blue-600 hover:underline" href="/docs/migration/export-backup"
+			<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/export-backup', {})}
 				>Export and Backup</a
 			>
 			documentation. For cross-environment operations, see the
-			<a class="text-blue-600 hover:underline" href="/docs/migration/migration">Migration</a>
+			<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/migration', {})}
+				>Migration</a
+			>
 			documentation.
 		</p>
 	</DocsPageSection>

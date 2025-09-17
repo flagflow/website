@@ -1,6 +1,7 @@
 <script lang="ts">
 	import clsx from 'clsx';
 
+	import { resolve } from '$app/paths';
 	import { page } from '$app/state';
 
 	import { documentPageRegistry } from '../../docs/_registry';
@@ -62,7 +63,7 @@
 												activeUrl === pageUrl,
 											'text-gray-700': activeUrl !== pageUrl
 										})}
-										href={pageUrl}
+										href={resolve(pageUrl, {})}
 									>
 										{subPage.title}
 									</a>
@@ -78,7 +79,7 @@
 										activeUrl === pageUrl,
 									'text-gray-700': activeUrl !== pageUrl
 								})}
-								href={pageUrl}
+								href={resolve(pageUrl, {})}
 							>
 								{pageData.title}
 							</a>

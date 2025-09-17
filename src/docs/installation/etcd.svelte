@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
@@ -42,8 +43,9 @@
 		<div class="mt-4 rounded-lg bg-yellow-50 p-4">
 			<p class="text-sm text-yellow-700">
 				<strong>💡 Recommendation:</strong> Start with
-				<a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
-					>filesystem storage</a
+				<a
+					class="text-blue-600 hover:underline"
+					href={resolve('/docs/installation/filesystem-storage', {})}>filesystem storage</a
 				> for initial deployments and migrate to etcd when you need distributed features or real-time
 				synchronization across multiple instances.
 			</p>
@@ -133,7 +135,7 @@
 			path. Later you can extend it with FlagFlow services in a single file. For complete FlagFlow
 			Docker setup instructions, see <a
 				class="text-blue-600 hover:underline"
-				href="/docs/installation/docker">Docker Installation Guide</a
+				href={resolve('/docs/installation/docker', {})}>Docker Installation Guide</a
 			>.
 
 			<CodeBlock
@@ -177,7 +179,7 @@ networks:
 			For production Kubernetes environments, deploy etcd as a StatefulSet with persistent storage.
 			For complete FlagFlow Kubernetes setup instructions, see <a
 				class="text-blue-600 hover:underline"
-				href="/docs/installation/kubernetes">Kubernetes Installation Guide</a
+				href={resolve('/docs/installation/kubernetes', {})}>Kubernetes Installation Guide</a
 			>.
 			<CodeBlock
 				code={`

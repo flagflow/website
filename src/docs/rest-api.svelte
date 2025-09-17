@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -38,7 +39,10 @@
 				<strong>Important:</strong> The REST API only works with FlagFlow's built-in user management
 				system. JWT Bearer tokens from Keycloak authentication cannot be used with REST API
 				endpoints. You must create users through the
-				<a class="text-blue-600 hover:underline" href="/docs/user-management/built-in-users">
+				<a
+					class="text-blue-600 hover:underline"
+					href={resolve('/docs/user-management/built-in-users', {})}
+				>
 					built-in user management system
 				</a> to access the REST API.
 			</p>
@@ -515,7 +519,10 @@ openapi-generator generate \
 		<div class="grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication">
+					<a
+						class="text-blue-600 hover:underline"
+						href={resolve('/docs/user-management/authentication', {})}
+					>
 						Authentication
 					</a>
 				</h4>
@@ -525,7 +532,10 @@ openapi-generator generate \
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/user-management/permissions">
+					<a
+						class="text-blue-600 hover:underline"
+						href={resolve('/docs/user-management/permissions', {})}
+					>
 						Permissions
 					</a>
 				</h4>
@@ -535,7 +545,7 @@ openapi-generator generate \
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/migration/migration">
+					<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/migration', {})}>
 						Migration System
 					</a>
 				</h4>
@@ -545,7 +555,9 @@ openapi-generator generate \
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/flags/flag-types"> Flag Types </a>
+					<a class="text-blue-600 hover:underline" href={resolve('/docs/flags/flag-types', {})}>
+						Flag Types
+					</a>
 				</h4>
 				<p class="text-sm text-gray-600">
 					Understand different flag types you can manage via the REST API.

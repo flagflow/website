@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -431,8 +432,14 @@ gpg --decrypt backup.json.gpg > restored-backup.json`}
 		</ul>
 		<p class="text-sm text-gray-600">
 			Learn more about using these exports in the
-			<a class="text-blue-600 hover:underline" href="/docs/migration/migration">Migration</a> and
-			<a class="text-blue-600 hover:underline" href="/docs/migration/restore">Restore</a> documentation.
+			<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/migration', {})}
+				>Migration</a
+			>
+			and
+			<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/restore', {})}
+				>Restore</a
+			>
+			documentation.
 		</p>
 	</DocsPageSection>
 </DocsPage>

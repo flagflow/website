@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
@@ -479,7 +480,7 @@ spec:
 		<div class="mt-4 rounded-lg bg-gray-50 p-4">
 			<p class="text-sm text-gray-600">
 				📚 For detailed migration instructions, see the
-				<a class="text-blue-600 hover:underline" href="/docs/migration/migration"
+				<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/migration', {})}
 					>Migration Documentation</a
 				>.
 			</p>
