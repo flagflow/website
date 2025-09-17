@@ -151,7 +151,7 @@ services:
     ports:
       - "2379:2379"
     volumes:
-      - etcd-data:/etcd-data
+      - etcd-data:/bitnami/etcd
     networks:
       - flagflow-network
 	# Health check is not mandatory, but recommended in production

@@ -61,7 +61,7 @@ services:
     environment:
       - ETCD_ROOT_PASSWORD=pw_flagflow
     volumes:
-      - etcd-data:/etcd-data
+      - etcd-data:/bitnami/etcd
     # Not needed, because network allows communication between containers
     ports:
       - "2379:2379"
