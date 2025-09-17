@@ -12,8 +12,8 @@
 </script>
 
 <HtmlHeader
-	description="Connect FlagFlow with your favorite tools and workflows. Available integrations include Keycloak authentication, with upcoming Slack notifications, REST API automation, and comprehensive audit logging features."
-	keywords="flagflow integrations, keycloak integration, slack notifications feature flags, rest api feature flags, audit logging, sso integration, authentication, enterprise integrations, workflow automation, third party integrations"
+	description="Connect FlagFlow with your favorite tools and workflows. Available integrations include Keycloak authentication, comprehensive REST API with OpenAPI specification, audit logging, and upcoming Slack notifications."
+	keywords="flagflow integrations, keycloak integration, rest api feature flags, openapi specification, jwt authentication, audit logging, sso integration, authentication, enterprise integrations, workflow automation, third party integrations, ci cd integration"
 	title="FlagFlow Integrations"
 />
 
@@ -78,6 +78,57 @@
 				</P>
 			</div>
 
+			<!-- REST API Integration -->
+			<div class="mb-12 rounded-xl border border-gray-200 p-8 transition-all hover:shadow-lg">
+				<div class="grid gap-8 md:grid-cols-2 md:items-center">
+					<div>
+						<Img
+							class="w-full rounded-lg shadow-sm"
+							alt="REST API Integration"
+							src={restApiImage400}
+						/>
+					</div>
+					<div class="space-y-4">
+						<Heading class="text-2xl font-semibold text-gray-900" tag="h3">
+							REST API & Automation
+						</Heading>
+						<P class="text-base leading-relaxed text-gray-600">
+							Comprehensive REST API with OpenAPI 3.0 specification for external integrations,
+							automation workflows, and CI/CD pipelines. JWT Bearer authentication with complete
+							CRUD operations for users, sessions, flags, and migrations.
+						</P>
+						<ul class="space-y-3 text-base text-gray-700">
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								OpenAPI 3.0 specification at /api/openapi.json
+							</li>
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								JWT Bearer token authentication
+							</li>
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								Migration API (export, import, remote URL execution)
+							</li>
+							<li class="flex items-center">
+								<span class="mr-3 h-2 w-2 rounded-full bg-green-500"></span>
+								Complete user and session management
+							</li>
+						</ul>
+						<div class="flex flex-wrap gap-3">
+							<Button href="/docs/rest-api">REST API Guide</Button>
+							<Button
+								color="alternative"
+								href="http://localhost:3000/api/openapi.json"
+								target="_blank"
+							>
+								OpenAPI Spec
+							</Button>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<div class="mb-12 rounded-xl border border-gray-200 p-8 transition-all hover:shadow-lg">
 				<div class="grid gap-8 md:grid-cols-2 md:items-center">
 					<div>
@@ -127,70 +178,36 @@
 				</P>
 			</div>
 
-			<div class="grid gap-8 md:grid-cols-2">
-				<!-- Slack Notifications -->
-				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
-					<div class="mb-6 text-center">
-						<Img
-							class="mx-auto h-24 w-24 rounded-lg object-cover"
-							alt="Slack Integration"
-							src={slackImage400}
-						/>
-					</div>
-					<Heading class="mb-4 text-center text-xl font-semibold text-gray-900" tag="h3">
-						Slack Notifications
-					</Heading>
-					<P class="mb-6 text-center text-base text-gray-600">
-						Get instant notifications when feature flags are toggled, updated, or when important
-						changes occur in your flag configurations.
-					</P>
-					<ul class="space-y-3 text-base text-gray-700">
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
-							Flag toggle notifications
-						</li>
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
-							Customizable alerts
-						</li>
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
-							Team collaboration
-						</li>
-					</ul>
+			<!-- Slack Notifications -->
+			<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
+				<div class="mb-6 text-center">
+					<Img
+						class="mx-auto h-24 w-24 rounded-lg object-cover"
+						alt="Slack Integration"
+						src={slackImage400}
+					/>
 				</div>
-
-				<!-- REST API C2C Communication -->
-				<div class="rounded-xl border border-gray-200 p-6 transition-all hover:shadow-lg">
-					<div class="mb-6 text-center">
-						<Img
-							class="mx-auto h-24 w-24 rounded-lg object-cover"
-							alt="REST API Integration"
-							src={restApiImage400}
-						/>
-					</div>
-					<Heading class="mb-4 text-center text-xl font-semibold text-gray-900" tag="h3">
-						REST API & Automation
-					</Heading>
-					<P class="mb-6 text-center text-base text-gray-600">
-						Powerful REST API for client-to-client communication and advanced automation workflows
-						with your existing tools and CI/CD pipelines.
-					</P>
-					<ul class="space-y-3 text-base text-gray-700">
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
-							Full REST API access
-						</li>
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
-							CI/CD integration
-						</li>
-						<li class="flex items-center">
-							<span class="mr-3 h-2 w-2 rounded-full bg-purple-500"></span>
-							Automated workflows
-						</li>
-					</ul>
-				</div>
+				<Heading class="mb-4 text-center text-xl font-semibold text-gray-900" tag="h3">
+					Slack Notifications
+				</Heading>
+				<P class="mb-6 text-center text-base text-gray-600">
+					Get instant notifications when feature flags are toggled, updated, or when important
+					changes occur in your flag configurations.
+				</P>
+				<ul class="space-y-3 text-base text-gray-700">
+					<li class="flex items-center">
+						<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
+						Flag toggle notifications
+					</li>
+					<li class="flex items-center">
+						<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
+						Customizable alerts
+					</li>
+					<li class="flex items-center">
+						<span class="mr-3 h-2 w-2 rounded-full bg-blue-500"></span>
+						Team collaboration
+					</li>
+				</ul>
 			</div>
 		</div>
 
