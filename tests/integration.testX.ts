@@ -1,6 +1,6 @@
 /* eslint-disable vitest/prefer-expect-assertions */
 /* eslint-disable vitest/no-conditional-expect */
-import { describe, expect, expectTypeOf,it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import { documentPageRegistryFlat } from '../src/docs/_registry';
 import { getDocument } from '../src/lib/documentPage';

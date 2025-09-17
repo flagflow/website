@@ -1,6 +1,6 @@
 /* eslint-disable vitest/prefer-expect-assertions */
 /* eslint-disable vitest/require-mock-type-parameters */
-import { describe, expect, expectTypeOf,it, vi } from 'vitest';
+import { describe, expect, expectTypeOf, it, vi } from 'vitest';
 
 // Mock SvelteKit's error function
 vi.mock('@sveltejs/kit', () => ({
