@@ -18,7 +18,7 @@
 	const APPNAME = 'FlagFlow';
 	const baseUrl = typeof window === 'undefined' ? '' : window.location.origin;
 
-	const fullTitle = $derived(title ? `${title} • ${APPNAME}` : APPNAME);
+	const fullTitle = $derived(title ? `${APPNAME} • ${title}` : APPNAME);
 	const fullOgImage = ogImage.startsWith('http') ? ogImage : `${baseUrl}${ogImage}`;
 </script>
 

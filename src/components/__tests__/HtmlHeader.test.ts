@@ -6,7 +6,7 @@ import HtmlHeader from '../HtmlHeader.svelte';
 describe('HtmlHeader', () => {
 	it('should render title with app name', () => {
 		render(HtmlHeader, { title: 'Test Page' });
-		expect(document.title).toBe('Test Page • FlagFlow');
+		expect(document.title).toBe('FlagFlow • Test Page');
 	});
 
 	it('should render app name only when no title provided', () => {
@@ -55,7 +55,7 @@ describe('HtmlHeader', () => {
 		const ogType = document.querySelector('meta[property="og:type"]');
 		const ogImage = document.querySelector('meta[property="og:image"]');
 
-		expect(ogTitle?.getAttribute('content')).toBe('Test Page • FlagFlow');
+		expect(ogTitle?.getAttribute('content')).toBe('FlagFlow • Test Page');
 		expect(ogDescription?.getAttribute('content')).toBe('Test description');
 		expect(ogType?.getAttribute('content')).toBe('website');
 		expect(ogImage?.getAttribute('content')).toContain('favicon.png');
@@ -91,7 +91,7 @@ describe('HtmlHeader', () => {
 		const twitterImage = document.querySelector('meta[name="twitter:image"]');
 
 		expect(twitterCard?.getAttribute('content')).toBe('Test Page');
-		expect(twitterTitle?.getAttribute('content')).toBe('Test Page • FlagFlow');
+		expect(twitterTitle?.getAttribute('content')).toBe('FlagFlow • Test Page');
 		expect(twitterDescription?.getAttribute('content')).toBe('Test description');
 		expect(twitterImage?.getAttribute('content')).toContain('favicon.png');
 	});
