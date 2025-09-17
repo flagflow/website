@@ -1,6 +1,6 @@
 /* eslint-disable vitest/prefer-expect-assertions */
 /* eslint-disable vitest/no-conditional-expect */
-import { describe, expect, it } from 'vitest';
+import { describe, expect, expectTypeOf, it } from 'vitest';
 
 import { documentPageRegistryFlat } from '../src/docs/_registry';
 import { getDocument } from '../src/lib/documentPage';
@@ -35,7 +35,9 @@ describe('integration Tests', () => {
 			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			for (const [slug, descriptor] of entries) {
 				expect(descriptor.filename).toBeDefined();
-				expect(typeof descriptor.filename).toBe('string');
+
+				expectTypeOf(descriptor.filename).toBeString();
+
 				expect(descriptor.filename.length).toBeGreaterThan(0);
 
 				// Filename should not start with a slash
@@ -48,11 +50,15 @@ describe('integration Tests', () => {
 
 			for (const [, descriptor] of entries) {
 				expect(descriptor.title).toBeDefined();
-				expect(typeof descriptor.title).toBe('string');
+
+				expectTypeOf(descriptor.title).toBeString();
+
 				expect(descriptor.title.length).toBeGreaterThan(0);
 
 				expect(descriptor.description).toBeDefined();
-				expect(typeof descriptor.description).toBe('string');
+
+				expectTypeOf(descriptor.description).toBeString();
+
 				expect(descriptor.description.length).toBeGreaterThan(0);
 			}
 		});
@@ -68,7 +74,7 @@ describe('integration Tests', () => {
 				uniqueFilenames.add(descriptor.filename);
 
 				// Slug should be consistent
-				expect(typeof slug).toBe('string');
+				expectTypeOf(slug).toBeString();
 			}
 		});
 

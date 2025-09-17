@@ -134,6 +134,20 @@ Each page should include `<HtmlHeader title="..." description="..." keywords="..
 - Prefer `PageSection` wrapper component for consistent page layout
 - Use Flowbite components: `Button`, `Heading`, `P`, `Img` for consistency
 
+## Navigation and URL Resolution
+
+**CRITICAL**: For all internal links in Svelte components, use `resolve()` from `$app/paths`:
+
+```svelte
+<script>
+	import { resolve } from '$app/paths';
+</script>
+
+<a href={resolve('/docs/path')}>Link</a>
+```
+
+This satisfies the `svelte/no-navigation-without-resolve` ESLint rule and ensures proper URL resolution with base paths.
+
 ## Code format hints
 
 - Do not use brackets {} if not needed, at one line command in blocks

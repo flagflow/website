@@ -55,17 +55,27 @@ npm run preview
 src/
 ├── components/           # Reusable Svelte components
 │   ├── docs/            # Documentation-specific components
-│   └── CodeBlock.svelte # Syntax-highlighted code blocks
+│   ├── CodeBlock.svelte # Syntax-highlighted code blocks
+│   ├── HtmlHeader.svelte # SEO and meta tag management
+│   └── Icon.svelte      # Icon component with predefined icons
 ├── docs/                # Documentation content (Svelte components)
 │   ├── installation/    # Installation guides
 │   ├── user-management/ # Authentication & permissions
 │   ├── typescript/      # TypeScript integration
 │   ├── migration/       # Backup, migration, restore
 │   ├── flags/          # Flag types and organization
-│   └── get_started.svelte # Main getting started guide
+│   ├── get_started.svelte # Main getting started guide
+│   └── _registry.ts     # Central documentation registry
 ├── lib/                # Shared utilities and components
+│   ├── documentPage.ts  # Document loader utilities
+│   └── documentPageTypes.ts # Type definitions
 ├── routes/             # SvelteKit routing
-└── app.html           # HTML template
+│   ├── docs/           # Dynamic documentation routes
+│   └── +layout.svelte  # Main site layout
+├── types/              # Global TypeScript type definitions
+├── app.css            # Global styles
+├── app.html           # HTML template
+└── vite-environment.d.ts # Vite type definitions
 ```
 
 ## 📖 Documentation Sections
@@ -161,35 +171,53 @@ npm run npm:reinstall    # Clean reinstall dependencies
 
 The site uses a unique **component-based documentation architecture**:
 
-1. **Document Registry** (`src/docs/_registry.ts`): Central registry of all documentation pages
-2. **Dynamic Routing** (`src/routes/docs/[...slug]/+page.ts`): Auto-generated routes from registry
-3. **Component Pages** (`src/docs/*.svelte`): Each doc page is a Svelte component
-4. **Static Generation**: All pages are pre-rendered for optimal performance
+1. **Document Registry** (`src/docs/_registry.ts`): Central registry defining all documentation pages with metadata (title, description, grouping)
+2. **Dynamic Route Generation** (`src/routes/docs/[...slug]/+page.ts`): Uses the registry to automatically generate SvelteKit routes for all documentation pages
+3. **Component-Based Content** (`src/docs/`): Each documentation page is a Svelte component, allowing for interactive elements and consistent styling
+4. **Document Loader** (`src/lib/documentPage.ts`): Matches slugs to registry entries and dynamically imports corresponding Svelte components
+5. **Static Generation**: All pages are pre-rendered for optimal performance
 
 ### Adding New Documentation
 
 1. Create new `.svelte` file in appropriate `src/docs/` subdirectory
-2. Add entry to `src/docs/_registry.ts`
+2. Add entry to `src/docs/_registry.ts` with title, description, and keywords
 3. Route is automatically generated and included in sitemap
 
 Example registry entry:
 
 ```typescript
-{
-  path: '/docs/installation/docker',
+'docker': {
   title: 'Docker Installation',
-  description: 'Deploy FlagFlow using Docker and Docker Compose',
-  group: 'Installation'
+  description: 'Deploy FlagFlow using Docker and Docker Compose for containerized self-hosted deployment',
+  keywords: 'docker deployment, docker-compose, containerization, self-hosted deployment, production containers'
 }
 ```
 
+### Navigation Best Practices
+
+For all internal links in Svelte components, use `resolve()` from `$app/paths`:
+
+```svelte
+<script>
+	import { resolve } from '$app/paths';
+</script>
+
+<a href={resolve('/docs/installation/docker')}>Docker Installation</a>
+```
+
+This ensures proper URL resolution with base paths and satisfies ESLint requirements.
+
 ## 🏗️ Build Configuration
 
-- **SvelteKit** with `@sveltejs/adapter-static`
-- **Static site generation** for GitHub Pages deployment
+- **SvelteKit** with `@sveltejs/adapter-static` for static site generation
+- **Static site generation** outputs to `docs/` directory for GitHub Pages deployment
 - **Path aliases** configured: `$components`, `$lib`, `$routes`, `$types`
-- **Image optimization** with `vite-imagetools`
-- **Circular dependency detection** enabled
+- **Image optimization** with `vite-imagetools` - always specify size in variable names
+- **Circular dependency detection** enabled (throws errors, excluding Modal components)
+- **Single bundle strategy** for optimal loading
+- **Version injection** via `__APP_VERSION__` global from package.json
+- **Node.js 22+** required (engines field in package.json)
+- **Eager loading** of documentation components via `import.meta.glob`
 
 ## 📦 Deployment
 
@@ -223,6 +251,9 @@ The site builds to static files in the `docs/` directory for easy deployment to:
 - Include code examples where appropriate
 - Follow existing component patterns
 - Test on multiple screen sizes
+- Use `resolve()` from `$app/paths` for all internal links
+- Add entries to `src/docs/_registry.ts` with proper metadata
+- Use proper SEO with `<HtmlHeader>` component
 
 ## 📝 License
 

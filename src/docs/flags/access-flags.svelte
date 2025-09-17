@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -27,7 +28,9 @@
 			<p class="text-blue-800">
 				<strong>Hierarchical Access:</strong> Use flag hierarchy to access specific portions of your
 				flag tree without loading unnecessary data. See
-				<a class="text-blue-600 hover:underline" href="/docs/flags/hierarchy">Flag Hierarchy</a>
+				<a class="text-blue-600 hover:underline" href={resolve('/docs/flags/hierarchy', {})}
+					>Flag Hierarchy</a
+				>
 				for organizational strategies.
 			</p>
 		</div>
@@ -292,7 +295,9 @@ CMD ["npm", "start"]
 		<div class="grid gap-4 md:grid-cols-2">
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/flags/flag-types"> Flag Types </a>
+					<a class="text-blue-600 hover:underline" href={resolve('/docs/flags/flag-types', {})}>
+						Flag Types
+					</a>
 				</h4>
 				<p class="text-sm text-gray-600">
 					Understand different flag types and their constraints to properly handle returned values.
@@ -300,7 +305,9 @@ CMD ["npm", "start"]
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/flags/hierarchy"> Flag Hierarchy </a>
+					<a class="text-blue-600 hover:underline" href={resolve('/docs/flags/hierarchy', {})}>
+						Flag Hierarchy
+					</a>
 				</h4>
 				<p class="text-sm text-gray-600">
 					Learn how to organize flags hierarchically for efficient group access and management.
@@ -308,7 +315,7 @@ CMD ["npm", "start"]
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/typescript/ts-schema">
+					<a class="text-blue-600 hover:underline" href={resolve('/docs/typescript/ts-schema', {})}>
 						TypeScript Schema
 					</a>
 				</h4>
@@ -318,7 +325,10 @@ CMD ["npm", "start"]
 			</DocsPageRoundedBox>
 			<DocsPageRoundedBox>
 				<h4 class="mb-2 font-semibold">
-					<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication">
+					<a
+						class="text-blue-600 hover:underline"
+						href={resolve('/docs/user-management/authentication', {})}
+					>
 						Authentication
 					</a>
 				</h4>

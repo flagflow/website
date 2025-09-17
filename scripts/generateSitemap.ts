@@ -43,7 +43,7 @@ const generateSitemap = async () => {
 		...Object.keys((await import('../src/docs/_registry')).documentPageRegistryFlat).map((page) =>
 			page ? `/docs/${page}` : '/docs'
 		)
-	].sort();
+	].toSorted();
 
 	const urlEntries = routes.map((route) => {
 		const { priority, changefreq, lastmod } = getRouteMetadata(route);

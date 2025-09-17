@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
@@ -66,7 +67,9 @@
 				PersistentService abstraction layer. Leave these variables unset to use filesystem storage,
 				which is suitable for small companies and simple deployments. The dual-engine architecture
 				provides seamless switching between storage types. See
-				<a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
+				<a
+					class="text-blue-600 hover:underline"
+					href={resolve('/docs/installation/filesystem-storage', {})}
 					>Filesystem Storage documentation</a
 				> for more details.
 			</p>
@@ -153,7 +156,8 @@
 								If this value is set, FlagFlow will allow Keycloak for authentication. See
 								<a
 									class="text-blue-600 hover:underline"
-									href="/docs/user-management/authentication#auth-methods">authentication methods</a
+									href={resolve('/docs/user-management/authentication#auth-methods', {})}
+									>authentication methods</a
 								> for details on configuring different authentication providers.
 							</small>
 						</td>
@@ -197,7 +201,8 @@
 								the built-in authentication method as an alternative to external providers. See
 								<a
 									class="text-blue-600 hover:underline"
-									href="/docs/user-management/authentication#auth-methods">authentication methods</a
+									href={resolve('/docs/user-management/authentication#auth-methods', {})}
+									>authentication methods</a
 								> for comparison of available options.
 							</small>
 						</td>
@@ -266,8 +271,9 @@
 							<small class="text-gray-500">
 								<br />
 								New in 1.5.0: Provides detailed audit trails for flag changes and user actions. See
-								<a class="text-blue-600 hover:underline" href="/docs/user-management/audit-log"
-									>Audit Log documentation</a
+								<a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/user-management/audit-log', {})}>Audit Log documentation</a
 								> for complete setup and usage details.
 							</small>
 						</td>
@@ -299,8 +305,9 @@
 							<small class="text-gray-500">
 								<br />
 								This allows migrating data from another FlagFlow instance. See
-								<a class="text-blue-600 hover:underline" href="/docs/migration/migration"
-									>Migration documentation</a
+								<a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/migration/migration', {})}>Migration documentation</a
 								> for setup.
 							</small>
 						</td>
@@ -313,8 +320,9 @@
 						<td class="border border-gray-300 px-4 py-2">
 							Source environment name for migration
 							<small class="mt-1 block text-gray-500">
-								See <a class="text-blue-600 hover:underline" href="/docs/migration/migration"
-									>Migration documentation</a
+								See <a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/migration/migration', {})}>Migration documentation</a
 								> for remote migration setup
 							</small>
 						</td>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	/* eslint-disable no-undef */
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -326,18 +327,20 @@ function Dashboard() {
 				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/installation/kubernetes"
-							>Deploy to Kubernetes</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/installation/kubernetes', {})}>Deploy to Kubernetes</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/installation/etcd"
+						<a class="text-blue-600 hover:underline" href={resolve('/docs/installation/etcd', {})}
 							>Configure etcd cluster</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/installation/env-variables"
-							>Environment variables</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/installation/env-variables', {})}>Environment variables</a
 						>
 					</li>
 				</ul>
@@ -349,18 +352,21 @@ function Dashboard() {
 				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/user-management/authentication"
-							>Authentication setup</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/user-management/authentication', {})}>Authentication setup</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/user-management/permissions"
-							>Configure permissions</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/user-management/permissions', {})}>Configure permissions</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/user-management/keycloak"
-							>Enterprise SSO</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/user-management/keycloak', {})}>Enterprise SSO</a
 						>
 					</li>
 				</ul>
@@ -372,17 +378,18 @@ function Dashboard() {
 				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/typescript/ts-schema"
-							>TypeScript integration</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/typescript/ts-schema', {})}>TypeScript integration</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/typescript/hash"
+						<a class="text-blue-600 hover:underline" href={resolve('/docs/typescript/hash', {})}
 							>Schema validation</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/flags/hierarchy"
+						<a class="text-blue-600 hover:underline" href={resolve('/docs/flags/hierarchy', {})}
 							>Flag organization</a
 						>
 					</li>
@@ -395,17 +402,18 @@ function Dashboard() {
 				</h3>
 				<ul class="list-inside list-disc space-y-1 text-sm text-gray-600">
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/migration/export-backup"
-							>Backup strategies</a
+						<a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/migration/export-backup', {})}>Backup strategies</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/migration/migration"
+						<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/migration', {})}
 							>Environment migration</a
 						>
 					</li>
 					<li>
-						<a class="text-blue-600 hover:underline" href="/docs/migration/restore"
+						<a class="text-blue-600 hover:underline" href={resolve('/docs/migration/restore', {})}
 							>Disaster recovery</a
 						>
 					</li>

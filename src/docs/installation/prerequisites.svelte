@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Img } from 'flowbite-svelte';
 
+	import { resolve } from '$app/paths';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageSection from '$components/docs/DocsPageSection.svelte';
 	import PageTitle from '$components/docs/DocsPageTitle.svelte';
@@ -52,7 +53,8 @@
 
 				<p class="mb-4">
 					<strong
-						><a class="text-blue-600 hover:underline" href="/docs/installation/etcd">etcd</a
+						><a class="text-blue-600 hover:underline" href={resolve('/docs/installation/etcd', {})}
+							>etcd</a
 						></strong
 					> is the recommended storage engine for production environments, providing distributed, reliable
 					key-value storage with real-time watching capabilities. It's ideal for environments requiring
@@ -61,8 +63,9 @@
 
 				<p>
 					<strong
-						><a class="text-blue-600 hover:underline" href="/docs/installation/filesystem-storage"
-							>Filesystem storage</a
+						><a
+							class="text-blue-600 hover:underline"
+							href={resolve('/docs/installation/filesystem-storage', {})}>Filesystem storage</a
 						></strong
 					>
 					is available as an alternative for small companies without heavy infrastructure requirements

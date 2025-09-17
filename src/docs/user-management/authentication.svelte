@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import CodeBlock from '$components/CodeBlock.svelte';
 	import DocsPage from '$components/docs/DocsPage.svelte';
 	import DocsPageRoundedBox from '$components/docs/DocsPageRoundedBox.svelte';
@@ -85,13 +86,18 @@
 						<td class="border border-gray-300 px-4 py-2">
 							Execute migrations and restore backups
 							<small class="mt-1 block text-gray-500">
-								See <a class="text-blue-600 hover:underline" href="/docs/migration/migration"
-									>Migration</a
+								See <a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/migration/migration', {})}>Migration</a
 								>,
-								<a class="text-blue-600 hover:underline" href="/docs/migration/export-backup"
-									>Export & Backup</a
+								<a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/migration/export-backup', {})}>Export & Backup</a
 								>, and
-								<a class="text-blue-600 hover:underline" href="/docs/migration/restore">Restore</a>
+								<a
+									class="text-blue-600 hover:underline"
+									href={resolve('/docs/migration/restore', {})}>Restore</a
+								>
 							</small>
 						</td>
 					</tr>
@@ -261,8 +267,9 @@ KEYCLOAK_CLIENT=flagflow-frontend`}
 			title="Environment Variables"
 		/>
 		<p class="mt-4 text-sm text-gray-600">
-			See the <a class="text-blue-600 hover:underline" href="/docs/installation/env-variables"
-				>Environment Variables</a
+			See the <a
+				class="text-blue-600 hover:underline"
+				href={resolve('/docs/installation/env-variables', {})}>Environment Variables</a
 			> documentation for complete configuration options.
 		</p>
 	</DocsPageSection>

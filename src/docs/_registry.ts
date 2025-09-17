@@ -171,6 +171,13 @@ export const documentPageRegistry = {
 			}
 		}
 	},
+	'rest-api': {
+		title: 'REST API',
+		description:
+			'Comprehensive REST API with OpenAPI 3.0 specification for external integrations, automation workflows, and CI/CD pipelines with JWT authentication',
+		keywords:
+			'REST API, OpenAPI 3.0, JWT authentication, API endpoints, external integrations, automation, CI/CD, user management, flag management, migration API, bearer token'
+	},
 	testing: {
 		title: 'Testing',
 		description:
