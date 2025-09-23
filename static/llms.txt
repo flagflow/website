@@ -1,0 +1,78 @@
+# FlagFlow
+
+> A modern, self-hosted feature flag management system built with SvelteKit 5, TypeScript, and etcd. Provides real-time flag management with role-based access control, type-safe client integration, and comprehensive REST API.
+
+FlagFlow offers multiple flag types (Boolean with killswitches, Integer, String, Object, Enum, Tag, AB-Test), real-time updates via etcd watchers, TypeScript/Zod code generation for type-safe integration, and a complete web administration interface with Keycloak authentication.
+
+## Core Documentation
+
+- [README](https://github.com/flagflow/flagflow/blob/main/README.md): Complete project overview, quick start guide, and feature list
+- [Installation Guide](https://flagflow.net/installation): Step-by-step setup instructions with Docker and infrastructure requirements
+- [API Documentation](https://flagflow.net/api): Comprehensive REST API reference with OpenAPI 3.0 specification
+- [Flag Types Guide](https://flagflow.net/flag-types): Detailed explanation of all supported flag types and their use cases
+- [TypeScript Integration](https://flagflow.net/typescript): Client integration guide with type-safe flag consumption
+
+## Technical Architecture
+
+- [Architecture Overview](https://flagflow.net/architecture): System design, service layers, and dependency injection patterns
+- [Development Setup](https://github.com/flagflow/flagflow/blob/main/CLAUDE.md): Complete development environment setup and common commands
+- [Authentication](https://flagflow.net/authentication): Keycloak integration, JWT tokens, and role-based permissions
+- [etcd Integration](https://flagflow.net/etcd): Distributed storage, real-time watching, and data persistence
+
+## API References
+
+- [REST API Endpoints](https://flagflow.net/api/rest): Complete REST API documentation with authentication examples
+- [tRPC Routes](https://flagflow.net/api/trpc): Type-safe RPC communication for client applications
+- [Migration API](https://flagflow.net/migrations): Flag export/import system for environment management
+- [OpenAPI Specification](https://demo.flagflow.net/api/openapi.json): Machine-readable API specification
+
+## Code Examples
+
+### Quick Setup
+```bash
+# Prerequisites: Node.js 22+, Docker
+./infra/etcd.sh      # Start etcd
+./infra/keycloak.sh  # Start Keycloak
+cp .env.example .env # Configure environment
+npm install          # Install dependencies
+npm run dev          # Start development server (port 3000)
+```
+
+### API Usage
+```bash
+# Get single flag value
+GET /flag/{flagname}
+
+# Get flags by group
+GET /flags/{flaggroup}
+
+# Authentication
+POST /api/auth/login
+Content-Type: application/json
+{
+  "username": "your_username",
+  "password": "your_password"
+}
+```
+
+### Docker Deployment
+```bash
+npm run docker:build  # Build image
+npm run docker:run    # Run container
+```
+
+### Common Development Commands
+```bash
+npm run build      # Production build
+npm run test       # Run tests
+npm run lint:fix   # Fix linting issues
+npm run ts:check   # TypeScript validation
+```
+
+## Optional
+
+- [Demo Environment](https://demo.flagflow.net): Live demonstration instance
+- [Docker Configuration](https://flagflow.net/docker): Container deployment and infrastructure setup
+- [Development Commands](https://github.com/flagflow/flagflow/blob/main/CLAUDE.md#common-development-commands): Build, test, lint, and development workflow
+- [Changelog](https://github.com/flagflow/flagflow/blob/main/CHANGELOG.md): Version history and release notes
+- [Testing Guide](https://flagflow.net/testing): E2E testing with in-memory persistence and API testing patterns
