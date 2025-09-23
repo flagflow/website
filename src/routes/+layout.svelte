@@ -3,9 +3,9 @@
 	import '../app.css';
 
 	import {
+		A,
 		Badge,
 		Button,
-		Footer,
 		FooterCopyright,
 		Navbar,
 		NavBrand,
@@ -67,6 +67,7 @@
 
 {@render children()}
 
-<Footer>
+<div class="flex flex-row justify-center gap-4 p-4">
 	<FooterCopyright by="FlagFlow" href="/" year={2025} />
-</Footer>
+	<A class="-m-2 px-2 text-sm" href="/llms.txt">llms.txt</A>
+</div>
