@@ -1,0 +1,39 @@
+RewriteEngine On
+Options -Indexes
+
+# Handle trailing slash URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^(.+)/$
+RewriteRule ^(.+)/$ /$1.html [L]
+
+# If trailing slash exists and directory has index.html, serve it
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)/$ /$1/index.html [L]
+
+# Handle URLs without trailing slash - try .html first, then directory/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ /$1.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^(.+)$ /$1/index.html [L]
+
+# Block direct access to common files that should return 404
+RewriteRule ^(package\.json|svelte\.config\.js|vite\.config\.js|tsconfig\.json)$ - [F]
+
+# Only serve index.html for valid SPA routes (customize this list)
+# Add your valid route patterns here
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(about|contact|dashboard|profile|settings)/?.*$
+RewriteRule . /index.html [L]
+
+# Everything else should return 404
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . - [R=404,L]
